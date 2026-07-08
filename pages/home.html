@@ -60,15 +60,15 @@
 </nav>
 <!-- Hero Section -->
 <section class="hero-gradient relative pt-24 pb-32 overflow-hidden">
-<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-<div class="z-10 text-center lg:text-left">
-<div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full mb-6">
-<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-<span class="font-label-sm text-label-sm uppercase tracking-wider">Ahmedabad's Premium Repair Lab</span>
-</div>
-<h1 class="font-display-lg text-display-lg leading-tight mb-6 text-primary max-w-[600px] mx-auto lg:mx-0">
-                    Your device, fixed right — <span class="text-secondary">the first time.</span>
-</h1>
+    <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="z-10 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                <span class="font-label-sm text-label-sm uppercase tracking-wider">Ahmedabad's Premium Repair Lab</span>
+            </div>
+            <h1 class="font-display-lg text-display-lg leading-tight mb-6 text-primary max-w-[600px] mx-auto lg:mx-0">
+                Your device, fixed right — <span class="text-secondary">the first time.</span>
+            </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[540px] mx-auto lg:mx-0">
                     Ahmedabad’s most trusted premium repair lab for MacBooks, Laptops, and Gaming PCs. Precision engineered solutions for the digital age.
                 </p>
@@ -98,9 +98,22 @@
 </div>
 </div>
 <div class="relative lg:block hidden">
-<div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl scale-110 translate-x-8">
-<img alt="Tech repair laboratory" class="w-full h-auto object-cover" src="../images/tech_repair_laboratory.png"/>
-</div>
+                <div id="heroComparison" class="comparison-slider device-frame relative z-10 scale-110 translate-x-8" role="group" aria-label="Before and after device repair comparison">
+                    <div class="comparison-slider__before">
+                        <img alt="Damaged device before repair" src="../images/tech_repair_laboratory.png">
+                        <span class="comparison-slider__label comparison-slider__label--before">Damaged</span>
+                    </div>
+                    <div class="comparison-slider__after">
+                        <img alt="Repaired device after repair" src="../images/macbook_disassembled.png">
+                        <span class="comparison-slider__label comparison-slider__label--after">Restored</span>
+                    </div>
+                    <div class="comparison-slider__handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0" aria-label="Comparison slider handle">
+                        <div class="comparison-slider__handle-line"></div>
+                        <div class="comparison-slider__handle-grip">
+                            <span class="material-symbols-outlined">unfold_more</span>
+                        </div>
+                    </div>
+                </div>
 <div class="absolute -bottom-8 -left-8 z-20 glass-card p-6 rounded-2xl flex items-center gap-4">
 <div class="w-12 h-12 bg-success-emerald/10 rounded-full flex items-center justify-center">
 <span class="material-symbols-outlined text-success-emerald" style="font-variation-settings: 'FILL' 1;">check_circle</span>
@@ -120,16 +133,16 @@
 <div class="order-2 lg:order-1">
 <div class="grid grid-cols-2 gap-6">
 <div class="bg-surface-container-low p-8 rounded-2xl apple-shadow hover:-translate-y-2 transition-transform duration-300">
-<h3 class="font-display-lg text-primary mb-2">10+</h3>
+<h3 class="font-display-lg text-primary mb-2"><span class="stat-counter" data-target="10" data-suffix="+">10+</span></h3>
 <p class="text-on-surface-variant">Years Experience</p>
 </div>
 <div class="bg-secondary p-8 rounded-2xl text-white apple-shadow hover:-translate-y-2 transition-transform duration-300">
-<h3 class="font-display-lg mb-2">4.8★</h3>
+<h3 class="font-display-lg mb-2"><span class="stat-counter" data-target="4.8" data-decimals="1" data-suffix="★">4.8★</span></h3>
 <p class="opacity-80">Customer Rating</p>
 </div>
 <div class="bg-surface-container-low p-8 rounded-2xl apple-shadow hover:-translate-y-2 transition-transform duration-300">
-<h3 class="font-display-lg text-primary mb-2">100%</h3>
-<p class="text-on-surface-variant">Genuine Parts</p>
+<h3 class="font-display-lg text-primary mb-2"><span class="stat-counter" data-target="15" data-suffix="K+">15K+</span></h3>
+<p class="text-on-surface-variant">Devices Repaired</p>
 </div>
 <div class="bg-surface-container-low p-8 rounded-2xl apple-shadow hover:-translate-y-2 transition-transform duration-300">
 <h3 class="font-display-lg text-primary mb-2">Free</h3>
@@ -157,7 +170,7 @@
 <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Precision Services</h2>
 <p class="text-on-surface-variant font-body-lg text-body-lg max-w-[600px] mx-auto">Specialized expertise for every mission-critical device in your workflow.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter" data-services-grid>
 <!-- Laptop Repair -->
 <a href="laptop-repair.html" class="md:col-span-8 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[400px]">
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
@@ -179,69 +192,88 @@
 </div>
 </a>
 <!-- MacBook Repair -->
-<a href="macbook-repair.html" class="md:col-span-4 bg-primary rounded-3xl p-10 text-white apple-shadow group cursor-pointer h-[400px] flex flex-col justify-end">
-<div class="mb-auto">
-<span class="material-symbols-outlined text-secondary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">laptop_mac</span>
-</div>
-<h3 class="text-2xl font-bold mb-2">MacBook Repair</h3>
-<p class="text-on-primary-container mb-6">Certified technical service for Air, Pro, and iMac systems.</p>
-<div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-<div class="h-full bg-secondary w-0 group-hover:w-full transition-all duration-500"></div>
-</div>
+<a href="macbook-repair.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[400px]">
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
+    <img alt="MacBook disassembled for logic board micro repair" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/macbook_disassembled.png"/>
+    <div class="absolute bottom-0 left-0 p-10 z-20 text-white w-full">
+        <span class="material-symbols-outlined text-4xl mb-4 text-secondary" style="font-variation-settings: 'FILL' 1;">laptop_mac</span>
+        <h3 class="text-2xl font-bold mb-2">MacBook Repair</h3>
+        <p class="opacity-80 mb-4">Certified logic board micro-soldering and screen restoration.</p>
+        <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+            <div class="h-full bg-secondary w-0 group-hover:w-full transition-all duration-500"></div>
+        </div>
+    </div>
 </a>
-<!-- Gaming PC -->
-<a href="gaming-pc.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[400px] flex flex-col justify-end">
-<img alt="Gaming PC Build" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity" src="../images/blog_5.jpg"/>
-<div class="p-10 relative z-10 flex flex-col justify-end h-full">
-<h3 class="text-2xl font-bold text-primary mb-2">Gaming PC Builds</h3>
-<p class="text-on-surface-variant mb-6">Liquid cooling, optimization, and high-performance hardware assembly.</p>
-<span class="material-symbols-outlined text-primary">sports_esports</span>
-</div>
+<!-- Gaming PC Builds -->
+<a href="gaming-pc.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[400px]">
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
+    <img alt="Custom water-cooled gaming PC inside lighting" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/blog_5.jpg"/>
+    <div class="absolute bottom-0 left-0 p-10 z-20 text-white">
+        <span class="material-symbols-outlined text-4xl mb-4 text-secondary">sports_esports</span>
+        <h3 class="text-2xl font-bold mb-2">Gaming PC Builds</h3>
+        <p class="opacity-80">Liquid cooling loops, hardware upgrades, and clean benchmarks.</p>
+    </div>
 </a>
 <!-- Microsoft Surface -->
-<a href="surface-repair.html" class="md:col-span-4 bg-surface-container-high rounded-3xl p-10 text-primary apple-shadow group cursor-pointer h-[400px] flex flex-col justify-end">
-<span class="material-symbols-outlined text-4xl mb-auto text-secondary">window</span>
-<h3 class="text-2xl font-bold mb-2">Microsoft Surface</h3>
-<p class="text-on-surface-variant">Expertise in the intricate hardware of Surface Pro and Book series.</p>
+<a href="surface-repair.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[400px]">
+    <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent z-10"></div>
+    <img alt="Microsoft Surface screen replacement under process" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/tech_repair_laboratory.png"/>
+    <div class="absolute bottom-0 left-0 p-10 z-20 text-white">
+        <span class="material-symbols-outlined text-4xl mb-4">window</span>
+        <h3 class="text-2xl font-bold mb-2">Microsoft Surface</h3>
+        <p class="opacity-80">Screen calibration, battery replacements, and SSD recovery.</p>
+    </div>
 </a>
 </div>
 </div>
 </section>
 <!-- How It Works -->
-<section class="py-32 bg-white relative">
+<section id="process" class="section-padding bg-white">
 <div class="max-w-container-max mx-auto px-margin-desktop">
-<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-20">Seamless Recovery</h2>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="relative text-center px-4">
-<div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-<span class="material-symbols-outlined text-secondary text-3xl">calendar_month</span>
-</div>
-<h4 class="font-bold text-xl mb-3">1. Book</h4>
-<p class="text-on-surface-variant">Schedule online or call our lab to initiate your ticket.</p>
-<div class="hidden md:block absolute top-10 -right-4 w-8 h-[2px] bg-border-subtle"></div>
-</div>
-<div class="relative text-center px-4">
-<div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-<span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
-</div>
-<h4 class="font-bold text-xl mb-3">2. Pickup</h4>
-<p class="text-on-surface-variant">Our secure courier collects your device from your doorstep.</p>
-<div class="hidden md:block absolute top-10 -right-4 w-8 h-[2px] bg-border-subtle"></div>
-</div>
-<div class="relative text-center px-4">
-<div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-<span class="material-symbols-outlined text-secondary text-3xl">build</span>
-</div>
-<h4 class="font-bold text-xl mb-3">3. Diagnose</h4>
-<p class="text-on-surface-variant">Experts repair your device with real-time status updates.</p>
-<div class="hidden md:block absolute top-10 -right-4 w-8 h-[2px] bg-border-subtle"></div>
-</div>
-<div class="text-center px-4">
-<div class="w-20 h-20 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">
-<span class="material-symbols-outlined text-secondary text-3xl">handshake</span>
-</div>
-<h4 class="font-bold text-xl mb-3">4. Deliver</h4>
-<p class="text-on-surface-variant">Receive your fixed device with a full warranty certificate.</p>
+<h2 class="font-headline-lg text-headline-lg text-primary text-center section-header mb-20">Seamless Recovery</h2>
+<div class="process-timeline" data-process-timeline>
+<div class="process-timeline__track">
+<div class="process-timeline__line-wrap" aria-hidden="true"><span class="process-timeline__line no-js"></span></div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">01</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">calendar_month</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Book Repair</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Schedule online or call our lab to initiate your ticket.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">02</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Doorstep Pickup</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Our secure courier collects your device from your doorstep.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">03</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">build</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Lab Diagnosis</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Experts repair your device with real-time status updates.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">04</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">handshake</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Safe Delivery</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Receive your fixed device with a full warranty certificate.</p>
+        </div>
+    </div>
 </div>
 </div>
 </div>

@@ -1,73 +1,88 @@
 // Robuzta Techlabs - Merged Website JavaScript
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
+function getMobileMenuElements() {
+    return {
+        btn: document.getElementById('mobileMenuBtn'),
+        menu: document.getElementById('mobileMenu'),
+        closeBtn: document.getElementById('mobileMenuClose')
+    };
+}
 
-if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        document.body.classList.toggle('overflow-hidden');
+function closeMobileMenu() {
+    const { btn, menu } = getMobileMenuElements();
+    if (menu) {
+        menu.classList.add('hidden');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('overflow-hidden');
+    }
+    if (btn) {
+        btn.setAttribute('aria-expanded', 'false');
+    }
+}
+
+window.closeMobileMenu = closeMobileMenu;
+
+function initMobileMenu() {
+    const { btn, menu, closeBtn } = getMobileMenuElements();
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', () => {
+        const isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            menu.classList.remove('hidden');
+            menu.setAttribute('aria-hidden', 'false');
+            btn.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('overflow-hidden');
+        }
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeMobileMenu);
+    }
+
+    menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
     });
 }
 
-// Close mobile menu function
-function closeMobileMenu() {
-    if (mobileMenu) {
-        mobileMenu.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-    }
+function initNavScroll() {
+    const mainNav = document.getElementById('mainNav');
+    if (!mainNav) return;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        mainNav.classList.toggle('is-scrolled', scrollTop > 50);
+    }, { passive: true });
 }
 
-// Sticky Navbar Scroll Effect
-const mainNav = document.getElementById('mainNav');
-let lastScrollTop = 0;
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 50) {
-        mainNav.classList.add('shadow-lg');
-        mainNav.classList.add('py-2');
-        mainNav.classList.remove('py-stack-md');
-    } else {
-        mainNav.classList.remove('shadow-lg');
-        mainNav.classList.remove('py-2');
-        mainNav.classList.add('py-stack-md');
-    }
-    
-    lastScrollTop = scrollTop;
-});
-
-// Smooth Scroll for Anchor Links
+// Smooth Scroll for Anchor Links — routes through Lenis when active
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        
-        // Skip if it's just "#"
+
+        // Skip bare hash
         if (href === '#') {
             e.preventDefault();
             return;
         }
-        
+
         const targetId = href.substring(1);
         const targetElement = document.getElementById(targetId);
-        
+
         if (targetElement) {
             e.preventDefault();
-            
-            // Close mobile menu if open
             closeMobileMenu();
-            
-            // Smooth scroll to target
-            const offsetTop = targetElement.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-            
-            // Update URL without jumping
             history.pushState(null, null, href);
+
+            if (window._lenis) {
+                // Lenis handles smooth scroll — offset for sticky nav height
+                window._lenis.scrollTo(targetElement, { offset: -80, duration: 1.2 });
+            } else {
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
         }
     });
 });
@@ -97,29 +112,7 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// Intersection Observer for Section Animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all sections for fade-in animation
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out';
-    observer.observe(section);
-});
+// Section entrance animations are handled by GSAP ScrollTrigger in js/phase3.js
 
 // FAQ Accordion - Close others when one opens
 document.querySelectorAll('details').forEach((detail) => {
@@ -134,68 +127,7 @@ document.querySelectorAll('details').forEach((detail) => {
     });
 });
 
-// Stats Counter Animation (for the About section)
-function animateCounter(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const value = Math.floor(progress * (end - start) + start);
-        element.textContent = formatNumber(value);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        } else {
-            element.textContent = formatNumber(end);
-        }
-    };
-    window.requestAnimationFrame(step);
-}
-
-function formatNumber(num) {
-    if (num >= 1000) {
-        return (num / 1000).toFixed(0) + 'k+';
-    }
-    return num + '+';
-}
-
-// Trigger counter animation when stats section is visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statElements = entry.target.querySelectorAll('.font-display-lg');
-            
-            statElements.forEach(stat => {
-                const text = stat.textContent;
-                // Only animate numeric stats
-                if (text.includes('10+')) {
-                    animateCounter(stat, 0, 10, 1500);
-                } else if (text.includes('4.8★')) {
-                    // Rating doesn't need animation, it's already static
-                    stat.style.opacity = '1';
-                } else if (text.includes('100%')) {
-                    const percentElement = stat;
-                    let current = 0;
-                    const target = 100;
-                    const interval = setInterval(() => {
-                        current++;
-                        percentElement.textContent = current + '%';
-                        if (current >= target) {
-                            clearInterval(interval);
-                        }
-                    }, 15);
-                }
-                // "Free" doesn't need animation
-            });
-            
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const aboutSection = document.getElementById('about');
-if (aboutSection) {
-    statsObserver.observe(aboutSection);
-}
+// Stats counter handled by animations.js (Phase 2)
 
 // Testimonials Horizontal Scroll Snap
 const testimonialsContainer = document.querySelector('.overflow-x-auto');
@@ -350,15 +282,7 @@ if (quoteForm) {
     });
 }
 
-// Parallax Effect for Hero Background (subtle)
-const heroSection = document.querySelector('.hero-gradient');
-if (heroSection) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * 0.3;
-        heroSection.style.transform = `translateY(${rate}px)`;
-    });
-}
+// Parallax is handled by GSAP/Lenis in phase3.js — removed to prevent scroll conflicts
 
 // Lazy Loading for Images (if needed in future)
 if ('IntersectionObserver' in window) {
@@ -384,22 +308,23 @@ if ('IntersectionObserver' in window) {
 console.log('%cRobuzta Techlabs Website Loaded! 🔧', 'color: #0058be; font-size: 18px; font-weight: bold;');
 console.log('%cPrecision Engineered Repairs', 'color: #10b981; font-size: 14px;');
 
-// Handle page load - highlight correct nav based on URL hash
+// Handle page load - nav behavior is in nav.js; only handle hash scroll here
 window.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
     if (hash) {
         const targetElement = document.querySelector(hash);
         if (targetElement) {
             setTimeout(() => {
-                const offsetTop = targetElement.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }, 100);
+                if (window._lenis) {
+                    window._lenis.scrollTo(targetElement, { offset: -80, duration: 1.2 });
+                } else {
+                    const offsetTop = targetElement.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            }, 300); // Wait for Lenis to initialise
         }
     }
-    
+
     // Initial nav highlight
     highlightNavigation();
 });

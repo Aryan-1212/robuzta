@@ -1,150 +1,54 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="" lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Technical Blog &amp; Device Guides | Robuzta Techlabs</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script src="../js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../css/styles.css">
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(26, 31, 44, 0.08);
-            box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
-        }
-        .hover-lift {
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(26, 31, 44, 0.08);
-        }
-    </style>
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                "primary-container": "#1a1f2c",
-                "outline-variant": "#c6c6cc",
-                "tertiary-fixed": "#d7e4f3",
-                "on-error-container": "#93000a",
-                "on-secondary-container": "#fefcff",
-                "on-tertiary-fixed": "#111d28",
-                "inverse-on-surface": "#eff1f3",
-                "surface-container-lowest": "#ffffff",
-                "on-primary": "#ffffff",
-                "on-primary-fixed-variant": "#424655",
-                "tertiary-container": "#14202b",
-                "secondary-container": "#2170e4",
-                "on-secondary": "#ffffff",
-                "secondary-fixed-dim": "#adc6ff",
-                "outline": "#76777c",
-                "on-primary-container": "#828697",
-                "on-tertiary": "#ffffff",
-                "on-secondary-fixed": "#001a42",
-                "on-tertiary-fixed-variant": "#3c4854",
-                "background": "#f7f9fb",
-                "surface-container-highest": "#e0e3e5",
-                "on-primary-fixed": "#161b28",
-                "on-secondary-fixed-variant": "#004395",
-                "surface-container-low": "#f2f4f6",
-                "error-container": "#ffdad6",
-                "primary": "#030612",
-                "primary-fixed-dim": "#c2c6d8",
-                "surface-container": "#eceef0",
-                "surface-dim": "#d8dadc",
-                "surface": "#f7f9fb",
-                "on-error": "#ffffff",
-                "secondary-fixed": "#d8e2ff",
-                "primary-fixed": "#dee2f4",
-                "inverse-primary": "#c2c6d8",
-                "success-emerald": "#10b981",
-                "surface-variant": "#e0e3e5",
-                "border-subtle": "rgba(26, 31, 44, 0.08)",
-                "on-background": "#191c1e",
-                "tertiary": "#000711",
-                "surface-container-high": "#e6e8ea",
-                "secondary": "#0058be",
-                "on-tertiary-container": "#7c8896",
-                "on-surface-variant": "#45464c",
-                "error": "#ba1a1a",
-                "surface-bright": "#f7f9fb",
-                "inverse-surface": "#2d3133",
-                "surface-glass": "rgba(248, 250, 252, 0.8)",
-                "surface-tint": "#595e6d",
-                "tertiary-fixed-dim": "#bbc8d7",
-                "on-surface": "#191c1e"
-            },
-            "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-            },
-            "spacing": {
-                "margin-desktop": "64px",
-                "stack-lg": "32px",
-                "container-max": "1280px",
-                "margin-mobile": "20px",
-                "stack-md": "16px",
-                "stack-sm": "8px",
-                "gutter": "24px"
-            },
-            "fontFamily": {
-                "display-lg-mobile": ["Sora"],
-                "label-sm": ["Inter"],
-                "label-md": ["Inter"],
-                "headline-md": ["Sora"],
-                "headline-lg": ["Sora"],
-                "headline-lg-mobile": ["Sora"],
-                "body-md": ["Inter"],
-                "body-lg": ["Inter"],
-                "display-lg": ["Sora"]
-            },
-            "fontSize": {
-                "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-            }
-          },
-        },
-      }
-    </script>
-</head>
-<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<nav class="bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto z-50 docked full-width top-0 sticky">
-    <a class="flex items-center gap-2" href="index.html">
-        <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
-    </a>
-    <div class="hidden md:flex items-center gap-gutter">
-        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="laptop-repair.html">Laptop</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html">Mobile</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html">MacBook</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html">Gaming PC</a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html">Surface</a>
-        <a class="text-secondary font-bold border-b-2 border-secondary font-label-md text-label-md" href="blog.html">Blog</a>
+    </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter">
+<nav id="mainNav" class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+        <a class="site-nav__logo flex items-center gap-2" href="index.html">
+            <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
+        </a>
+        <div class="site-nav__links hidden md:flex items-center gap-gutter">
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="laptop-repair.html" data-nav="laptop-repair.html">Laptop</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html" data-nav="mobile-repair.html">Mobile</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html" data-nav="macbook-repair.html">MacBook</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html" data-nav="gaming-pc.html">Gaming PC</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html" data-nav="surface-repair.html">Surface</a>
+            <a class="nav-link nav-link-active font-label-md text-label-md" href="blog.html" data-nav="blog.html" aria-current="page">Blog</a>
+        </div>
+        <div class="site-nav__actions flex items-center gap-4">
+            <button class="btn btn-primary font-label-md text-label-md" type="button">Get Free Quote</button>
+            <button id="mobileMenuBtn" class="site-nav__menu-btn md:hidden text-primary" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
     </div>
-    <button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg">
-        Get Free Quote
-    </button>
 </nav>
 
-<main class="py-20 px-margin-desktop max-w-container-max mx-auto">
+<div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu__links">
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="laptop-repair.html">Laptop</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="mobile-repair.html">Mobile</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="macbook-repair.html">MacBook</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="gaming-pc.html">Gaming PC</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="surface-repair.html">Surface</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+    </div>
+</div>
+
+    <main class="py-20 px-margin-desktop max-w-container-max mx-auto">
     <!-- Header -->
     <div class="text-center mb-16 max-w-[700px] mx-auto">
         <span class="text-secondary font-bold font-label-sm text-label-sm tracking-wider uppercase mb-2 block">Technical Insights &amp; Repair Science</span>
@@ -306,7 +210,7 @@
                 <label for="issueDescription" class="block text-sm font-medium text-primary mb-1">Describe the Issue</label>
                 <textarea id="issueDescription" rows="3" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Describe what's wrong with your device..."></textarea>
             </div>
-            <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg mt-2">
+            <button type="submit" class="btn btn-primary-lg w-full mt-2">
                 Get Repair Quote
             </button>
         </form>
@@ -314,5 +218,7 @@
 </div>
 
 <script src="../js/script.js"></script>
+<script src="../js/animations.js?v=1.0.1"></script>
+    <script src="../js/nav.js"></script>
 </body>
 </html>

@@ -1,150 +1,54 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="en"><head>
+<html class="" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Laptop Repair in Ahmedabad | Robuzta Techlabs</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script src="../js/tailwind-config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../css/styles.css">
-<style>
-        /* Inline styles specific to this page */
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(26, 31, 44, 0.08);
-            box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
-        }
-        .hover-lift {
-            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-        }
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(26, 31, 44, 0.08);
-        }
-    </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "primary-container": "#1a1f2c",
-                    "outline-variant": "#c6c6cc",
-                    "tertiary-fixed": "#d7e4f3",
-                    "on-error-container": "#93000a",
-                    "on-secondary-container": "#fefcff",
-                    "on-tertiary-fixed": "#111d28",
-                    "inverse-on-surface": "#eff1f3",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary": "#ffffff",
-                    "on-primary-fixed-variant": "#424655",
-                    "tertiary-container": "#14202b",
-                    "secondary-container": "#2170e4",
-                    "on-secondary": "#ffffff",
-                    "secondary-fixed-dim": "#adc6ff",
-                    "outline": "#76777c",
-                    "on-primary-container": "#828697",
-                    "on-tertiary": "#ffffff",
-                    "on-secondary-fixed": "#001a42",
-                    "on-tertiary-fixed-variant": "#3c4854",
-                    "background": "#f7f9fb",
-                    "surface-container-highest": "#e0e3e5",
-                    "on-primary-fixed": "#161b28",
-                    "on-secondary-fixed-variant": "#004395",
-                    "surface-container-low": "#f2f4f6",
-                    "error-container": "#ffdad6",
-                    "primary": "#030612",
-                    "primary-fixed-dim": "#c2c6d8",
-                    "surface-container": "#eceef0",
-                    "surface-dim": "#d8dadc",
-                    "surface": "#f7f9fb",
-                    "on-error": "#ffffff",
-                    "secondary-fixed": "#d8e2ff",
-                    "primary-fixed": "#dee2f4",
-                    "inverse-primary": "#c2c6d8",
-                    "success-emerald": "#10b981",
-                    "surface-variant": "#e0e3e5",
-                    "border-subtle": "rgba(26, 31, 44, 0.08)",
-                    "on-background": "#191c1e",
-                    "tertiary": "#000711",
-                    "surface-container-high": "#e6e8ea",
-                    "secondary": "#0058be",
-                    "on-tertiary-container": "#7c8896",
-                    "on-surface-variant": "#45464c",
-                    "error": "#ba1a1a",
-                    "surface-bright": "#f7f9fb",
-                    "inverse-surface": "#2d3133",
-                    "surface-glass": "rgba(248, 250, 252, 0.8)",
-                    "surface-tint": "#595e6d",
-                    "tertiary-fixed-dim": "#bbc8d7",
-                    "on-surface": "#191c1e"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "64px",
-                    "stack-lg": "32px",
-                    "container-max": "1280px",
-                    "margin-mobile": "20px",
-                    "stack-md": "16px",
-                    "stack-sm": "8px",
-                    "gutter": "24px"
-            },
-            "fontFamily": {
-                    "display-lg-mobile": ["Sora"],
-                    "label-sm": ["Inter"],
-                    "label-md": ["Inter"],
-                    "headline-md": ["Sora"],
-                    "headline-lg": ["Sora"],
-                    "headline-lg-mobile": ["Sora"],
-                    "body-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "display-lg": ["Sora"]
-            },
-            "fontSize": {
-                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-            }
-          },
-        },
-      }
-    </script>
 </head>
-<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
-<!-- TopNavBar -->
-<nav class="bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto z-50 docked full-width top-0 sticky">
-<a class="flex items-center gap-2" href="index.html">
-<img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
-</a>
-<div class="hidden md:flex items-center gap-gutter">
-<a class="text-secondary font-bold border-b-2 border-secondary font-label-md text-label-md" href="laptop-repair.html">Laptop</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html">Mobile</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html">MacBook</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html">Gaming PC</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html">Surface</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html">Blog</a>
-</div>
-<button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg">
-            Get Free Quote
-        </button>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter">
+<nav id="mainNav" class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+        <a class="site-nav__logo flex items-center gap-2" href="index.html">
+            <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
+        </a>
+        <div class="site-nav__links hidden md:flex items-center gap-gutter">
+            <a class="nav-link nav-link-active font-label-md text-label-md" href="laptop-repair.html" data-nav="laptop-repair.html" aria-current="page">Laptop</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html" data-nav="mobile-repair.html">Mobile</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html" data-nav="macbook-repair.html">MacBook</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html" data-nav="gaming-pc.html">Gaming PC</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html" data-nav="surface-repair.html">Surface</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html" data-nav="blog.html">Blog</a>
+        </div>
+        <div class="site-nav__actions flex items-center gap-4">
+            <button class="btn btn-primary font-label-md text-label-md" type="button">Get Free Quote</button>
+            <button id="mobileMenuBtn" class="site-nav__menu-btn md:hidden text-primary" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
 </nav>
-<main>
+
+<div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu__links">
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="laptop-repair.html">Laptop</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="mobile-repair.html">Mobile</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="macbook-repair.html">MacBook</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="gaming-pc.html">Gaming PC</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="surface-repair.html">Surface</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+    </div>
+</div>
+
+    <main>
 <!-- Hero Section -->
 <section class="relative pt-24 pb-32 md:pt-32 md:pb-48 px-margin-desktop overflow-hidden">
 <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center relative z-10">
@@ -153,17 +57,17 @@
 <h1 class="font-display-lg text-display-lg mb-6 leading-tight">Elite Laptop Repair &amp; <span class="text-secondary">Restoration.</span></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[580px]">From high-end workstation failures to specialized motherboard repairs, we provide surgical precision for your professional hardware. Starting from ₹999.</p>
 <div class="flex flex-wrap gap-4">
-<button class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-bold text-lg hover:scale-105 active:scale-95 transition-all duration-200 shadow-xl flex items-center gap-2">
+<button class="btn btn-primary-lg flex items-center gap-2">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
                             Book a Repair
                         </button>
-<button class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-primary hover:text-on-primary transition-all duration-200">
+<button class="btn btn-outline-dark">
                             Check Pricing
                         </button>
 </div>
 </div>
 <div class="relative mt-12 lg:mt-0">
-<div class="aspect-[1.51] rounded-2xl overflow-hidden shadow-2xl relative">
+<div class="device-frame aspect-[1.51] relative">
 <img alt="Elite laptop repair service with professional tools" class="w-full h-full object-cover" src="../images/service_laptop_1.jpg"/>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
 </div>
@@ -183,7 +87,7 @@
 <div class="absolute top-0 right-0 -z-10 opacity-30 w-1/2 h-full bg-gradient-to-l from-secondary/10 to-transparent blur-3xl"></div>
 </section>
 <!-- Brand Support Ticker -->
-<section class="py-12 bg-surface-container-low border-y border-border-subtle">
+<section class="section-padding-compact bg-surface-container-low border-y border-border-subtle">
 <div class="max-w-container-max mx-auto px-margin-desktop">
 <p class="text-center text-on-primary-container font-label-sm text-label-sm uppercase tracking-widest mb-8">Specialized Support for Global Brands</p>
 <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
@@ -197,7 +101,7 @@
 </div>
 </section>
 <!-- Symptoms Bento Grid -->
-<section class="py-32 px-margin-desktop bg-surface">
+<section class="section-padding px-margin-desktop bg-surface">
 <div class="max-w-container-max mx-auto">
 <div class="text-center mb-20">
 <h2 class="font-headline-lg text-headline-lg mb-4">Precision Diagnostics</h2>
@@ -233,14 +137,14 @@
 </div>
 <!-- Liquid Damage (Wide) -->
 <div class="md:col-span-2 glass-card p-stack-lg rounded-2xl flex flex-col md:flex-row gap-8 items-center hover-lift">
-<div class="w-24 h-24 flex-shrink-0 bg-red-500/5 text-red-500 rounded-2xl flex items-center justify-center">
+<div class="w-24 h-24 flex-shrink-0 bg-error/5 text-error rounded-2xl flex items-center justify-center">
 <span class="material-symbols-outlined text-5xl">water_drop</span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md mb-2">Advanced Liquid Restoration</h3>
 <p class="text-on-surface-variant mb-4">Ultra-sonic cleaning and micro-soldering to rescue laptops from major spills and oxidation.</p>
 <div class="flex items-center gap-4">
-<span class="bg-red-500 text-white px-3 py-1 rounded text-xs font-bold uppercase tracking-widest">High Priority</span>
+<span class="badge badge-error">High Priority</span>
 <p class="text-secondary font-bold">Inspection ₹499</p>
 </div>
 </div>
@@ -257,8 +161,58 @@
 </div>
 </div>
 </section>
+<section id="process" class="section-padding bg-white">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center section-header">How It Works</h2>
+<div class="process-timeline" data-process-timeline>
+<div class="process-timeline__track">
+<div class="process-timeline__line-wrap" aria-hidden="true"><span class="process-timeline__line no-js"></span></div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">01</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">calendar_month</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Book Repair</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Schedule online or call our lab to initiate your ticket.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">02</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">local_shipping</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Doorstep Pickup</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Our secure courier collects your device from your doorstep.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">03</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">build</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Lab Diagnosis</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Experts repair your device with real-time status updates.</p>
+        </div>
+    </div>
+    <div class="process-timeline__step">
+        <div class="process-timeline__icon">
+            <span class="process-timeline__badge">04</span>
+            <span class="material-symbols-outlined text-secondary text-3xl">handshake</span>
+        </div>
+        <div class="process-timeline__card">
+            <h4 class="step-title font-bold text-lg mb-2 text-primary">Safe Delivery</h4>
+            <p class="text-on-surface-variant font-body-md text-body-md">Receive your fixed device with a full warranty certificate.</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
 <!-- Process Section -->
-<section class="py-32 bg-primary-container text-on-primary">
+<section class="section-padding bg-primary-container text-on-primary">
 <div class="max-w-container-max mx-auto px-margin-desktop">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 <div>
@@ -267,21 +221,21 @@
 <div class="flex gap-6 group">
 <div class="w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center flex-shrink-0 font-bold group-hover:bg-secondary group-hover:text-white transition-all duration-300">01</div>
 <div>
-<h4 class="font-bold text-xl mb-2 text-white">Digital Booking</h4>
+<h4 class="step-title text-white">Digital Booking</h4>
 <p class="text-on-primary-container">Schedule your diagnostic online or walk into our precision lab.</p>
 </div>
 </div>
 <div class="flex gap-6 group">
 <div class="w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center flex-shrink-0 font-bold group-hover:bg-secondary group-hover:text-white transition-all duration-300">02</div>
 <div>
-<h4 class="font-bold text-xl mb-2 text-white">Diagnostic Deep-Dive</h4>
+<h4 class="step-title text-white">Diagnostic Deep-Dive</h4>
 <p class="text-on-primary-container">Component-level testing to identify the root cause, not just symptoms.</p>
 </div>
 </div>
 <div class="flex gap-6 group">
 <div class="w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center flex-shrink-0 font-bold group-hover:bg-secondary group-hover:text-white transition-all duration-300">03</div>
 <div>
-<h4 class="font-bold text-xl mb-2 text-white">Expert Execution</h4>
+<h4 class="step-title text-white">Expert Execution</h4>
 <p class="text-on-primary-container">Repairs performed in ESD-safe environments with certified parts.</p>
 </div>
 </div>
@@ -316,59 +270,59 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-32 px-margin-desktop bg-surface-container-low">
+<section class="section-padding px-margin-desktop bg-surface-container-low">
 <div class="max-w-[800px] mx-auto">
 <h2 class="font-headline-lg text-headline-lg text-center mb-16">Frequently Asked</h2>
 <div class="space-y-4">
-<details class="group bg-white rounded-xl shadow-sm border border-border-subtle" open="">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold text-lg">How long does a typical laptop repair take?</span>
+<details class="faq-item group" open="">
+<summary class="cursor-pointer list-none flex justify-between items-center">
+How long does a typical laptop repair take?
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<div class="p-6 pt-0 text-on-surface-variant border-t border-border-subtle">
-                            Most repairs completed within 3 hours; simple fixes like screen or battery replacements often done in 30–60 minutes. Complex problems may take longer depending on parts availability.
+<div class="faq-answer">
+Most repairs completed within 3 hours; simple fixes like screen or battery replacements often done in 30–60 minutes. Complex problems may take longer depending on parts availability.
                         </div>
 </details>
-<details class="group bg-white rounded-xl shadow-sm border border-border-subtle">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold text-lg">Do you offer a warranty and an invoice/bill?</span>
+<details class="faq-item group">
+<summary class="cursor-pointer list-none flex justify-between items-center">
+Do you offer a warranty and an invoice/bill?
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<div class="p-6 pt-0 text-on-surface-variant border-t border-border-subtle">
-                            Yes, we offer an assured warranty on all repair types. You will receive an Invoice ID and a digital invoice, valid at any Robuzta store.
+<div class="faq-answer">
+Yes, we offer an assured warranty on all repair types. You will receive an Invoice ID and a digital invoice, valid at any Robuzta store.
                         </div>
 </details>
-<details class="group bg-white rounded-xl shadow-sm border border-border-subtle">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold text-lg">How do you ensure my data stays safe?</span>
+<details class="faq-item group">
+<summary class="cursor-pointer list-none flex justify-between items-center">
+How do you ensure my data stays safe?
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<div class="p-6 pt-0 text-on-surface-variant border-t border-border-subtle">
-                            We never ask for your passwords or OTPs. If device access is required for hardware testing, it is strictly performed in your presence to assure complete data security.
+<div class="faq-answer">
+We never ask for your passwords or OTPs. If device access is required for hardware testing, it is strictly performed in your presence to assure complete data security.
                         </div>
 </details>
-<details class="group bg-white rounded-xl shadow-sm border border-border-subtle">
-<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
-<span class="font-bold text-lg">How can I trust that the spare parts used are original?</span>
+<details class="faq-item group">
+<summary class="cursor-pointer list-none flex justify-between items-center">
+How can I trust that the spare parts used are original?
 <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<div class="p-6 pt-0 text-on-surface-variant border-t border-border-subtle">
-                            All our parts are procured from OEM-approved suppliers. We show you the new parts, including serial numbers, before replacement, and perform the fix only after your approval. Plus, you get your old parts back.
+<div class="faq-answer">
+All our parts are procured from OEM-approved suppliers. We show you the new parts, including serial numbers, before replacement, and perform the fix only after your approval. Plus, you get your old parts back.
                         </div>
 </details>
 </div>
 </div>
 </section>
 <!-- Final CTA -->
-<section class="py-24 px-margin-desktop bg-secondary text-on-secondary relative overflow-hidden">
+<section class="section-padding-cta px-margin-desktop bg-secondary text-on-secondary relative overflow-hidden">
 <div class="max-w-container-max mx-auto text-center relative z-10">
 <h2 class="font-display-lg-mobile text-display-lg-mobile md:text-display-lg mb-8">Ready to restore your performance?</h2>
 <p class="text-white/80 font-body-lg text-body-lg mb-12 max-w-[600px] mx-auto">Get an instant quote online or speak with a senior technician today. No hidden costs, just precision engineering.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-6">
-<button class="bg-white text-secondary px-10 py-5 rounded-xl font-bold text-xl hover:bg-opacity-90 hover:scale-105 active:scale-95 transition-all duration-200">
+<button class="btn btn-secondary text-secondary">
                         Get Your Free Quote
                     </button>
-<button class="bg-primary text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-opacity-90 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+<button class="btn bg-primary text-on-primary flex items-center justify-center gap-3">
 <span class="material-symbols-outlined">call</span>
                         Call 1800-ROBUZTA
                     </button>
@@ -444,18 +398,18 @@
             <span class="material-symbols-outlined text-2xl">close</span>
         </button>
         <h3 class="font-headline-md text-headline-md text-primary mb-2">Get a Repair Quote</h3>
-        <p class="text-on-surface-variant mb-6 text-sm">Tell us about your device issue and our team will get back to you with a transparent estimate.</p>
+        <p class="text-on-surface-variant mb-6 font-body-md text-body-md">Tell us about your device issue and our team will get back to you with a transparent estimate.</p>
         <form id="quoteForm" class="space-y-4">
             <div>
-                <label for="clientName" class="block text-sm font-medium text-primary mb-1">Your Name</label>
+                <label for="clientName" class="block font-label-md text-label-md font-medium text-primary mb-1">Your Name</label>
                 <input type="text" id="clientName" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Enter your full name">
             </div>
             <div>
-                <label for="clientPhone" class="block text-sm font-medium text-primary mb-1">Phone Number</label>
+                <label for="clientPhone" class="block font-label-md text-label-md font-medium text-primary mb-1">Phone Number</label>
                 <input type="tel" id="clientPhone" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="e.g. +91 99999 99999">
             </div>
             <div>
-                <label for="deviceDropdown" class="block text-sm font-medium text-primary mb-1">Select Device</label>
+                <label for="deviceDropdown" class="block font-label-md text-label-md font-medium text-primary mb-1">Select Device</label>
                 <select id="deviceDropdown" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary">
                     <option value="" disabled selected class="text-primary-container">Choose a device...</option>
                     <option value="Laptop" class="text-primary-container">Laptop</option>
@@ -465,10 +419,10 @@
                 </select>
             </div>
             <div>
-                <label for="issueDescription" class="block text-sm font-medium text-primary mb-1">Describe the Issue</label>
+                <label for="issueDescription" class="block font-label-md text-label-md font-medium text-primary mb-1">Describe the Issue</label>
                 <textarea id="issueDescription" rows="3" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Describe what's wrong with your device..."></textarea>
             </div>
-            <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg mt-2">
+            <button type="submit" class="btn btn-primary-lg w-full mt-2">
                 Get Repair Quote
             </button>
         </form>
@@ -476,4 +430,6 @@
 </div>
 
 <script src="../js/script.js"></script>
+<script src="../js/animations.js?v=1.0.1"></script>
+<script src="../js/nav.js"></script>
 </body></html>
