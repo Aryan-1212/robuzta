@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Technical Blog &amp; Device Guides | Robuzta Techlabs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(26, 31, 44, 0.08);
+            box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
+        }
+        .hover-lift {
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(26, 31, 44, 0.08);
+        }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-container": "#1a1f2c",
+                "outline-variant": "#c6c6cc",
+                "tertiary-fixed": "#d7e4f3",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#fefcff",
+                "on-tertiary-fixed": "#111d28",
+                "inverse-on-surface": "#eff1f3",
+                "surface-container-lowest": "#ffffff",
+                "on-primary": "#ffffff",
+                "on-primary-fixed-variant": "#424655",
+                "tertiary-container": "#14202b",
+                "secondary-container": "#2170e4",
+                "on-secondary": "#ffffff",
+                "secondary-fixed-dim": "#adc6ff",
+                "outline": "#76777c",
+                "on-primary-container": "#828697",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#001a42",
+                "on-tertiary-fixed-variant": "#3c4854",
+                "background": "#f7f9fb",
+                "surface-container-highest": "#e0e3e5",
+                "on-primary-fixed": "#161b28",
+                "on-secondary-fixed-variant": "#004395",
+                "surface-container-low": "#f2f4f6",
+                "error-container": "#ffdad6",
+                "primary": "#030612",
+                "primary-fixed-dim": "#c2c6d8",
+                "surface-container": "#eceef0",
+                "surface-dim": "#d8dadc",
+                "surface": "#f7f9fb",
+                "on-error": "#ffffff",
+                "secondary-fixed": "#d8e2ff",
+                "primary-fixed": "#dee2f4",
+                "inverse-primary": "#c2c6d8",
+                "success-emerald": "#10b981",
+                "surface-variant": "#e0e3e5",
+                "border-subtle": "rgba(26, 31, 44, 0.08)",
+                "on-background": "#191c1e",
+                "tertiary": "#000711",
+                "surface-container-high": "#e6e8ea",
+                "secondary": "#0058be",
+                "on-tertiary-container": "#7c8896",
+                "on-surface-variant": "#45464c",
+                "error": "#ba1a1a",
+                "surface-bright": "#f7f9fb",
+                "inverse-surface": "#2d3133",
+                "surface-glass": "rgba(248, 250, 252, 0.8)",
+                "surface-tint": "#595e6d",
+                "tertiary-fixed-dim": "#bbc8d7",
+                "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "64px",
+                "stack-lg": "32px",
+                "container-max": "1280px",
+                "margin-mobile": "20px",
+                "stack-md": "16px",
+                "stack-sm": "8px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "display-lg-mobile": ["Sora"],
+                "label-sm": ["Inter"],
+                "label-md": ["Inter"],
+                "headline-md": ["Sora"],
+                "headline-lg": ["Sora"],
+                "headline-lg-mobile": ["Sora"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "display-lg": ["Sora"]
+            },
+            "fontSize": {
+                "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto z-50 docked full-width top-0 sticky">
+    <a class="flex items-center gap-2" href="index.html">
+        <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
+    </a>
+    <div class="hidden md:flex items-center gap-gutter">
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="laptop-repair.html">Laptop</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html">Mobile</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html">MacBook</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html">Gaming PC</a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html">Surface</a>
+        <a class="text-secondary font-bold border-b-2 border-secondary font-label-md text-label-md" href="blog.html">Blog</a>
+    </div>
+    <button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg">
+        Get Free Quote
+    </button>
+</nav>
+
+<main class="py-20 px-margin-desktop max-w-container-max mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-[700px] mx-auto">
+        <span class="text-secondary font-bold font-label-sm text-label-sm tracking-wider uppercase mb-2 block">Technical Insights &amp; Repair Science</span>
+        <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4 leading-tight">The Robuzta Lab Blog</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">Deep-dives into hardware diagnostics, component-level engineering, and device optimization.</p>
+    </div>
+
+    <!-- Blog Posts List -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Post 1: Water Damage -->
+        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-border-subtle flex flex-col justify-between hover-lift">
+            <div class="p-8 md:p-12">
+                <div class="flex items-center gap-4 text-xs font-semibold text-secondary mb-6">
+                    <span class="px-3 py-1 bg-secondary/10 rounded-full">Guides &amp; Repairs</span>
+                    <span>July 25, 2026</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-md text-primary mb-6 leading-tight">Everything you need to know about warranty on water damages</h2>
+                <div class="text-on-surface-variant space-y-4 leading-relaxed text-sm">
+                    <p>It is a common disappointment among smartphone and laptop owners to discover that their standard manufacturer warranties (like AppleCare or manufacturer hardware guarantees) do not cover liquid damage. Even if you have a device rated with IP67 or IP68 water resistance, a splash of tea or an accidental drop in the pool instantly voids your coverage. Manufacturers rely on built-in **Liquid Contact Indicators (LCIs)**—tiny stickers that turn crimson when exposed to moisture—to immediately reject warranty claims.</p>
+                    <p><strong>Why does this happen?</strong> Because liquid ingress triggers a highly unpredictable process called **electrolytic corrosion**. When current-carrying traces on a logic board are bridged by water (especially containing minerals or acids), it leads to immediate short circuits. Over the following days, copper traces corrode and form green oxidation (copper carbonate), permanently destroying micro-components.</p>
+                    <p><strong>What should you do immediately?</strong>
+                        <ol class="list-decimal pl-5 space-y-2 my-2">
+                            <li><strong>Power down instantly:</strong> Do not try to check if it works. Current running through a wet circuit is what kills it.</li>
+                            <li><strong>Skip the rice:</strong> Rice dust gets inside ports and turns into a sticky paste, locking in moisture rather than drawing it out.</li>
+                            <li><strong>Bring it to a lab:</strong> Independent premium labs like Robuzta Techlabs use specialized diagnostic equipment, ultrasonic cleaning baths (to lift minerals and oxidation), and microscopic micro-soldering to swap out individual blown resistors.</li>
+                        </ol>
+                    </p>
+                    <p>Unlike official service centers that force you to replace the entire logic board (costing up to 80% of the device's value), our technicians restore the existing board and offer a dedicated repair warranty on liquid restoration services.</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-low p-8 border-t border-border-subtle flex justify-between items-center">
+                <span class="text-xs text-outline">Written by Robuzta Engineering Team</span>
+                <button class="text-secondary font-bold hover:translate-x-1 transition-transform flex items-center gap-1 text-sm">
+                    Share Post <span class="material-symbols-outlined text-[16px]">share</span>
+                </button>
+            </div>
+        </article>
+
+        <!-- Post 2: Wireless Charging -->
+        <article class="bg-white rounded-3xl overflow-hidden card-shadow border border-border-subtle flex flex-col justify-between hover-lift">
+            <div class="p-8 md:p-12">
+                <div class="flex items-center gap-4 text-xs font-semibold text-secondary mb-6">
+                    <span class="px-3 py-1 bg-secondary/10 rounded-full">Battery Science</span>
+                    <span>July 25, 2026</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-md text-primary mb-6 leading-tight">How actually wireless charging effects your battery life?</h2>
+                <div class="text-on-surface-variant space-y-4 leading-relaxed text-sm">
+                    <p>Wireless charging is undeniably convenient. Setting your phone down on a Qi-certified pad or snapping a MagSafe disc to the back eliminates cable clutter. However, the physical process behind wireless power transmission has a hidden side-effect on the lifespan of your lithium-ion battery.</p>
+                    <p>Wireless charging relies on **magnetic induction**. An alternating current passes through a transmitter coil in the charging pad, creating an electromagnetic field. A receiver coil inside your device captures this field and converts it back into electrical current to charge the battery. This transfer is significantly less efficient than a copper cable; a portion of the energy is lost and dissipated as **heat**.</p>
+                    <p><strong>Heat is the absolute enemy of Lithium-Ion batteries.</strong> 
+                        Batteries degrade naturally due to chemical aging, but exposure to temperatures above 35°C (95°F) accelerates this degradation dramatically. When a device sits on a wireless pad, the inductive coils generate constant localized heat directly underneath the battery. Over months of daily use, this thermal stress breaks down the battery’s internal chemistry, reducing its maximum charging capacity faster than standard wired charging.
+                    </p>
+                    <p><strong>Tips for healthier battery charging:</strong>
+                        <ul class="list-disc pl-5 space-y-2 my-2">
+                            <li><strong>Remove thick cases:</strong> Rugged or thick plastic cases trap heat, preventing the device from cooling down during inductive charging.</li>
+                            <li><strong>Avoid overnight wireless charging:</strong> Keeping the device resting on a warm charger at 100% state-of-charge for hours maximums electrical and thermal stress.</li>
+                            <li><strong>Use certified accessories:</strong> Always choose Qi or MagSafe certified pads that include smart thermal management sensors to stop charging when temperatures rise.</li>
+                        </ul>
+                    </p>
+                    <p>Wired charging remains the cooler and faster option. If you do use wireless charging, do so in a cool environment and avoid using the phone simultaneously, as active screens create even more internal heat.</p>
+                </div>
+            </div>
+            <div class="bg-surface-container-low p-8 border-t border-border-subtle flex justify-between items-center">
+                <span class="text-xs text-outline">Written by Robuzta Engineering Team</span>
+                <button class="text-secondary font-bold hover:translate-x-1 transition-transform flex items-center gap-1 text-sm">
+                    Share Post <span class="material-symbols-outlined text-[16px]">share</span>
+                </button>
+            </div>
+        </article>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary-container text-on-primary-container py-stack-lg border-t border-outline-variant/10">
+    <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+        <div class="md:col-span-1">
+            <span class="font-headline-md text-headline-md font-bold text-on-secondary-container mb-4 block">Robuzta Techlabs</span>
+            <p class="font-body-md text-body-md text-on-primary-container/80 leading-relaxed">Precision Engineered Repairs for the Modern Digital Life. Trusted by thousands in Ahmedabad.</p>
+        </div>
+        <div>
+            <h5 class="text-white font-bold mb-6">Services</h5>
+            <ul class="space-y-4">
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="laptop-repair.html">Laptop Repair</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="mobile-repair.html">Mobile Repair</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="macbook-repair.html">MacBook Specialist</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="gaming-pc.html">Gaming PC Builds</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="surface-repair.html">Microsoft Surface Repair</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="text-white font-bold mb-6">Company</h5>
+            <ul class="space-y-4">
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="index.html#about">About Us</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="index.html#process">Our Lab</a></li>
+                <li><a class="hover:text-secondary-fixed transition-colors hover:translate-x-1 inline-block" href="blog.html">Technical Blog</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 class="text-white font-bold mb-6">Connect</h5>
+            <ul class="space-y-4">
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">call</span>
+                    <span>+91 999 245 2459</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">mail</span>
+                    <span>info@robuzta.com</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">location_on</span>
+                    <span>103, First Floor, Sun South Winds, Safal Parisar Road, South Bopal, Ahmedabad, Gujarat 380057</span>
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                    <span>Open 11:00 AM – 7:00 PM</span>
+                </li>
+            </ul>
+            <div class="flex gap-4 mt-8">
+                <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://facebook.com/robuztatechlabs" target="_blank" rel="noopener">F</a>
+                <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://youtube.com/@robuztatechlabs" target="_blank" rel="noopener">Y</a>
+                <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://instagram.com/robuztatechlabs" target="_blank" rel="noopener">I</a>
+                <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://linkedin.com/company/robuztatechlabs" target="_blank" rel="noopener">L</a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-container-max mx-auto px-margin-desktop mt-16 pt-8 border-t border-white/5 text-center">
+        <p class="font-label-sm text-label-sm">© 2026 Robuzta Techlabs. Precision Engineered Repairs. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Quote Modal -->
+<div id="quoteModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-primary-container/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card w-full max-w-lg rounded-3xl p-8 relative animate-fade-in-up">
+        <button id="closeQuoteModal" class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+        <h3 class="font-headline-md text-headline-md text-primary mb-2">Get a Repair Quote</h3>
+        <p class="text-on-surface-variant mb-6 text-sm">Tell us about your device issue and our team will get back to you with a transparent estimate.</p>
+        <form id="quoteForm" class="space-y-4">
+            <div>
+                <label for="clientName" class="block text-sm font-medium text-primary mb-1">Your Name</label>
+                <input type="text" id="clientName" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Enter your full name">
+            </div>
+            <div>
+                <label for="clientPhone" class="block text-sm font-medium text-primary mb-1">Phone Number</label>
+                <input type="tel" id="clientPhone" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="e.g. +91 99999 99999">
+            </div>
+            <div>
+                <label for="deviceDropdown" class="block text-sm font-medium text-primary mb-1">Select Device</label>
+                <select id="deviceDropdown" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary">
+                    <option value="" disabled selected class="text-primary-container">Choose a device...</option>
+                    <option value="Laptop" class="text-primary-container">Laptop</option>
+                    <option value="MacBook" class="text-primary-container">MacBook</option>
+                    <option value="Mobile" class="text-primary-container">Mobile</option>
+                    <option value="Desktop" class="text-primary-container">Desktop</option>
+                </select>
+            </div>
+            <div>
+                <label for="issueDescription" class="block text-sm font-medium text-primary mb-1">Describe the Issue</label>
+                <textarea id="issueDescription" rows="3" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Describe what's wrong with your device..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg mt-2">
+                Get Repair Quote
+            </button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+/* Tailwind Configuration Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables from Design System */
+:root {
+    --surface: #f7f9fb;
+    --surface-dim: #d8dadc;
+    --surface-bright: #f7f9fb;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f2f4f6;
+    --surface-container: #eceef0;
+    --surface-container-high: #e6e8ea;
+    --surface-container-highest: #e0e3e5;
+    --on-surface: #191c1e;
+    --on-surface-variant: #45464c;
+    --inverse-surface: #2d3133;
+    --inverse-on-surface: #eff1f3;
+    --outline: #76777c;
+    --outline-variant: #c6c6cc;
+    --surface-tint: #595e6d;
+    --primary: #030612;
+    --on-primary: #ffffff;
+    --primary-container: #1a1f2c;
+    --on-primary-container: #828697;
+    --inverse-primary: #c2c6d8;
+    --secondary: #0058be;
+    --on-secondary: #ffffff;
+    --secondary-container: #2170e4;
+    --on-secondary-container: #fefcff;
+    --tertiary: #000711;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #14202b;
+    --on-tertiary-container: #7c8896;
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+    --primary-fixed: #dee2f4;
+    --primary-fixed-dim: #c2c6d8;
+    --on-primary-fixed: #161b28;
+    --on-primary-fixed-variant: #424655;
+    --secondary-fixed: #d8e2ff;
+    --secondary-fixed-dim: #adc6ff;
+    --on-secondary-fixed: #001a42;
+    --on-secondary-fixed-variant: #004395;
+    --tertiary-fixed: #d7e4f3;
+    --tertiary-fixed-dim: #bbc8d7;
+    --on-tertiary-fixed: #111d28;
+    --on-tertiary-fixed-variant: #3c4854;
+    --background: #f7f9fb;
+    --on-background: #191c1e;
+    --surface-variant: #e0e3e5;
+    --surface-glass: rgba(248, 250, 252, 0.8);
+    --border-subtle: rgba(26, 31, 44, 0.08);
+    --success-emerald: #10b981;
+    
+    --margin-desktop: 64px;
+    --stack-lg: 32px;
+    --container-max: 1280px;
+    --margin-mobile: 20px;
+    --stack-md: 16px;
+    --stack-sm: 8px;
+    --gutter: 24px;
+}
+
+/* Custom Utility Classes */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(26, 31, 44, 0.08);
+    box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
+}
+
+.apple-shadow {
+    box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
+}
+
+.hero-gradient {
+    background: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #f7f9fb 100%);
+}
+
+.hover-lift {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(26, 31, 44, 0.08);
+}
+
+.card-shadow {
+    box-shadow: 0 4px 20px rgba(26, 31, 44, 0.04);
+}
+
+/* Scrollbar Styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Material Symbols Default Settings */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Tailwind Colors */
+.bg-background {
+    background-color: var(--background);
+}
+
+.text-on-background {
+    color: var(--on-background);
+}
+
+.bg-surface-glass {
+    background-color: var(--surface-glass);
+}
+
+.border-border-subtle {
+    border-color: var(--border-subtle);
+}
+
+.text-on-surface-variant {
+    color: var(--on-surface-variant);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.text-on-secondary {
+    color: var(--on-secondary);
+}
+
+.bg-primary-container {
+    background-color: var(--primary-container);
+}
+
+.text-on-primary-container {
+    color: var(--on-primary-container);
+}
+
+.text-on-secondary-container {
+    color: var(--on-secondary-container);
+}
+
+.bg-secondary-fixed {
+    background-color: var(--secondary-fixed);
+}
+
+.text-on-secondary-fixed {
+    color: var(--on-secondary-fixed);
+}
+
+.bg-surface-container-low {
+    background-color: var(--surface-container-low);
+}
+
+.bg-surface-container-high {
+    background-color: var(--surface-container-high);
+}
+
+.text-success-emerald {
+    color: var(--success-emerald);
+}
+
+.bg-success-emerald {
+    background-color: var(--success-emerald);
+}
+
+.text-secondary-fixed {
+    color: var(--secondary-fixed);
+}
+
+.text-secondary-fixed-dim {
+    color: var(--secondary-fixed-dim);
+}
+
+.border-outline-variant {
+    border-color: var(--outline-variant);
+}
+
+/* Typography Classes */
+.font-display-lg {
+    font-family: 'Sora', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+}
+
+.font-display-lg-mobile {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-display-lg-mobile {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.font-headline-lg {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-headline-lg {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+
+.text-headline-lg-mobile {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.font-headline-md {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-headline-md {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.font-body-lg {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.font-body-md {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-body-md {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.font-label-md {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+}
+
+.font-label-sm {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-label-sm {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+/* Spacing Classes */
+.px-margin-desktop {
+    padding-left: var(--margin-desktop);
+    padding-right: var(--margin-desktop);
+}
+
+.py-stack-md {
+    padding-top: var(--stack-md);
+    padding-bottom: var(--stack-md);
+}
+
+.py-stack-lg {
+    padding-top: var(--stack-lg);
+    padding-bottom: var(--stack-lg);
+}
+
+.p-stack-lg {
+    padding: var(--stack-lg);
+}
+
+.gap-gutter {
+    gap: var(--gutter);
+}
+
+.max-w-container-max {
+    max-width: var(--container-max);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .px-margin-desktop {
+        padding-left: var(--margin-mobile);
+        padding-right: var(--margin-mobile);
+    }
+    
+    .font-display-lg,
+    .text-display-lg {
+        font-size: 40px;
+        line-height: 48px;
+    }
+    
+    .font-headline-lg,
+    .text-headline-lg {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Fade-in Animation */
+section {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: var(--secondary) !important;
+    font-weight: 700;
+}
+
+/* Details/Summary Styling */
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Loading Shimmer Effect */
+@keyframes shimmer {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+.shimmer {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+/* Hover Effects */
+a, button {
+    transition: all 0.2s ease-out;
+}
+
+/* Focus Styles */
+button:focus,
+input:focus,
+a:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 640px) {
+    .grid {
+        gap: 1rem;
+    }
+}
