@@ -451,6 +451,7 @@
         }
     }
 
+
     /* ─── Main Orchestrator ─── */
     async function orchestrate() {
         // Init Pure-JS components immediately

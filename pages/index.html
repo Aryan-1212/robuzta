@@ -17,12 +17,9 @@
 <script>(function(){const t=localStorage.getItem("robuzta-theme");if(t==="circuit")document.documentElement.classList.add("theme-circuit");})();</script>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md antialiased">
-    
-    
 
-
-<!-- Top Navigation Bar -->
-<nav id="mainNav" class="site-nav" aria-label="Main navigation">
+    <!-- Top Navigation Bar -->
+    <nav id="mainNav" class="site-nav" aria-label="Main navigation">
     <div class="site-nav__inner">
         <a class="site-nav__logo flex items-center gap-2" href="index.html">
             <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
@@ -98,7 +95,9 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-gradient relative pt-24 pb-32 overflow-hidden">
-        <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Interactive Particle Network Canvas -->
+        <canvas id="hero-circuit-canvas" class="absolute inset-0 w-full h-full pointer-events-auto" style="z-index: 1;"></canvas>
+        <div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" style="position: relative; z-index: 2;">
             <div class="z-10 text-center lg:text-left">
                 <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-1.5 rounded-full mb-6">
                     <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
@@ -701,5 +700,6 @@
     <script src="../js/script.js"></script>
     <script src="../js/animations.js?v=1.0.1"></script>
     <script src="../js/nav.js"></script>
+    <script src="../js/hero-particles.js"></script>
 </body>
 </html>
