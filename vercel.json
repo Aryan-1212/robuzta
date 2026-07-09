@@ -1,17 +1,14 @@
 {
-  "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/pages/index.html"
-    },
-    {
-      "source": "/(about-us|blog|contact|gaming-pc|laptop-repair|macbook-repair|mobile-repair|surface-repair)",
-      "destination": "/pages/$1.html"
-    },
-    {
-      "source": "/(.*\\.html)",
-      "destination": "/pages/$1"
-    }
+    { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/about-us.html", "destination": "/pages/about-us.html" },
+    { "source": "/blog.html", "destination": "/pages/blog.html" },
+    { "source": "/contact.html", "destination": "/pages/contact.html" },
+    { "source": "/gaming-pc.html", "destination": "/pages/gaming-pc.html" },
+    { "source": "/index.html", "destination": "/pages/index.html" },
+    { "source": "/laptop-repair.html", "destination": "/pages/laptop-repair.html" },
+    { "source": "/macbook-repair.html", "destination": "/pages/macbook-repair.html" },
+    { "source": "/mobile-repair.html", "destination": "/pages/mobile-repair.html" },
+    { "source": "/surface-repair.html", "destination": "/pages/surface-repair.html" }
   ]
 }
