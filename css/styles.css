@@ -566,6 +566,12 @@ textarea:focus {
     transition: background-color var(--transition-fast);
 }
 
+@media (min-width: 768px) {
+    .site-nav__menu-btn {
+        display: none !important;
+    }
+}
+
 .site-nav__menu-btn:hover {
     background-color: var(--surface-container-low);
 }
@@ -1239,4 +1245,374 @@ textarea:focus {
         transform: none !important;
     }
 }
+
+/* ─── Modern Motherboard PCB Theme (Lab Mode) ─── */
+
+/* Universal Theme Transitions for smooth theme switching */
+:root {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel, footer, p, h1, h2, h3, h4, span, a, input, textarea, select {
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* PCB Motherboard variables */
+:root.theme-circuit {
+    --background: #050b08; /* Dark Matte PCB Green */
+    --on-background: #edf5f2;
+    --surface: #0a1310; /* PCB component board surface */
+    --on-surface: #edf5f2;
+    --on-surface-variant: #8faea1;
+    --primary: #edf5f2;
+    --on-primary: #050b08;
+    --secondary: #00e676; /* Glowing neon green circuit trace */
+    --on-secondary: #050b08;
+    --border-subtle: rgba(0, 230, 118, 0.15);
+    --surface-glass: rgba(10, 19, 16, 0.85);
+    --outline-variant: rgba(0, 230, 118, 0.25);
+    
+    /* Redefine all system surface variables to prevent FOUC / light card backgrounds */
+    --surface-container-lowest: #050b08;
+    --surface-container-low: #08100d;
+    --surface-container: #0a1310;
+    --surface-container-high: #0d1a16;
+    --surface-container-highest: #11211b;
+
+    /* Highly creative, non-repetitive vector blueprint circuit pattern combined with background alignment grid lines */
+    --pcb-grid-x: linear-gradient(rgba(0, 230, 118, 0.02) 1px, transparent 1px);
+    --pcb-grid-y: linear-gradient(90deg, rgba(0, 230, 118, 0.02) 1px, transparent 1px);
+    --pcb-traces: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cpath d='M 10,20 L 70,20 L 90,40 L 90,110 L 120,140 L 220,140 L 230,150 M 240,40 L 240,80 L 190,130 L 190,170 L 170,190 M 40,280 L 100,280 L 140,240 L 140,200 L 120,180' fill='none' stroke='%2300e676' stroke-width='0.8' stroke-opacity='0.05' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='10' cy='20' r='2.5' fill='none' stroke='%23ffd700' stroke-width='0.8' stroke-opacity='0.25'/%3E%3Ccircle cx='10' cy='20' r='1' fill='%23ffd700' fill-opacity='0.35'/%3E%3Ccircle cx='230' cy='150' r='2.5' fill='none' stroke='%23ffd700' stroke-width='0.8' stroke-opacity='0.25'/%3E%3Ccircle cx='230' cy='150' r='1' fill='%23ffd700' fill-opacity='0.35'/%3E%3Ccircle cx='240' cy='40' r='2.5' fill='none' stroke='%23ffd700' stroke-width='0.8' stroke-opacity='0.25'/%3E%3Ccircle cx='240' cy='40' r='1' fill='%23ffd700' fill-opacity='0.35'/%3E%3Ccircle cx='90' cy='40' r='1.2' fill='%2300e676' fill-opacity='0.2'/%3E%3Ccircle cx='190' cy='130' r='1.2' fill='%2300e676' fill-opacity='0.2'/%3E%3Ccircle cx='140' cy='240' r='1.2' fill='%2300e676' fill-opacity='0.2'/%3E%3C/svg%3E");
+}
+
+/* PCB theme styling overrides */
+:root.theme-circuit body {
+    background-color: var(--background) !important;
+    background-image: var(--pcb-grid-x), var(--pcb-grid-y), var(--pcb-traces);
+    background-size: 40px 40px, 40px 40px, 320px 320px;
+    background-repeat: repeat, repeat, repeat;
+    color: var(--on-background) !important;
+}
+
+/* Component Overrides to dark PCB mode */
+:root.theme-circuit .bg-white,
+:root.theme-circuit .bg-background,
+:root.theme-circuit .bg-surface,
+:root.theme-circuit .bg-surface-glass,
+:root.theme-circuit .glass-card,
+:root.theme-circuit .bg-surface-container-low,
+:root.theme-circuit .bg-surface-container,
+:root.theme-circuit .bg-surface-container-lowest,
+:root.theme-circuit .bg-surface-container-high,
+:root.theme-circuit .bg-surface-container-highest {
+    background-color: var(--surface) !important;
+    color: var(--on-surface) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: 0 4px 20px rgba(0, 230, 118, 0.02) !important;
+}
+
+:root.theme-circuit .bg-slate-50,
+:root.theme-circuit .bg-slate-100,
+:root.theme-circuit .bg-white\/50,
+:root.theme-circuit .bg-white\/80,
+:root.theme-circuit .bg-white\/90 {
+    background-color: rgba(10, 19, 16, 0.6) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+/* Ensure the Why Choose Us and dark sections remain dark green/black, not light */
+:root.theme-circuit section.bg-primary {
+    background-color: #030604 !important;
+}
+
+/* Badge/tag overlay transparent greens instead of light blues */
+:root.theme-circuit .bg-secondary\/10 {
+    background-color: rgba(0, 230, 118, 0.1) !important;
+}
+:root.theme-circuit .bg-secondary\/5 {
+    background-color: rgba(0, 230, 118, 0.05) !important;
+}
+
+/* Text Overrides for contrast */
+:root.theme-circuit .text-slate-800,
+:root.theme-circuit .text-slate-900,
+:root.theme-circuit .text-primary,
+:root.theme-circuit .text-on-background,
+:root.theme-circuit .text-slate-700 {
+    color: var(--on-background) !important;
+}
+
+:root.theme-circuit .text-slate-500,
+:root.theme-circuit .text-slate-600,
+:root.theme-circuit .text-on-surface-variant {
+    color: var(--on-surface-variant) !important;
+}
+
+:root.theme-circuit .border-slate-100,
+:root.theme-circuit .border-border-subtle,
+:root.theme-circuit .border-gray-100,
+:root.theme-circuit .border-white\/10 {
+    border-color: var(--border-subtle) !important;
+}
+
+/* Button & Nav Overrides */
+:root.theme-circuit .btn-primary {
+    background-color: var(--secondary) !important;
+    color: var(--on-secondary) !important;
+}
+
+:root.theme-circuit .btn-secondary {
+    background-color: rgba(0, 230, 118, 0.04) !important;
+    color: var(--secondary) !important;
+    border-color: var(--secondary) !important;
+}
+
+:root.theme-circuit .site-nav {
+    background-color: rgba(5, 11, 8, 0.85) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+}
+
+:root.theme-circuit .nav-dropdown__panel {
+    background-color: #050b08 !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+:root.theme-circuit .nav-dropdown__item:hover {
+    background-color: rgba(0, 230, 118, 0.08) !important;
+}
+
+:root.theme-circuit footer {
+    background-color: #030604 !important;
+    border-top: 1px solid var(--border-subtle) !important;
+}
+
+:root.theme-circuit footer .border-white\/5 {
+    border-color: var(--border-subtle) !important;
+}
+
+/* Input Fields on Form Overrides */
+:root.theme-circuit input,
+:root.theme-circuit textarea,
+:root.theme-circuit select {
+    background-color: rgba(5, 11, 8, 0.6) !important;
+    color: var(--on-background) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+:root.theme-circuit input:focus,
+:root.theme-circuit textarea:focus,
+:root.theme-circuit select:focus {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 0 2px rgba(0, 230, 118, 0.15) !important;
+}
+
+/* Transform Google maps into high-tech blueprints */
+:root.theme-circuit iframe {
+    filter: invert(90%) hue-rotate(115deg) brightness(88%) contrast(110%);
+    opacity: 0.85;
+}
+
+/* Testimonial slider cards inside Lab Theme */
+:root.theme-circuit .card-testimonial {
+    background-color: var(--surface-container-low) !important;
+    color: var(--on-background) !important;
+    box-shadow: 0 4px 20px rgba(0, 230, 118, 0.03) !important;
+}
+
+/* Global trace borders for all structural cards in Lab Theme */
+:root.theme-circuit .glass-card,
+:root.theme-circuit .bg-white,
+:root.theme-circuit .card-service,
+:root.theme-circuit .card-featured,
+:root.theme-circuit .card-testimonial {
+    border: 1.5px solid var(--border-subtle) !important;
+}
+
+/* Schematic Annotations overlay for cards and sections */
+:root.theme-circuit .glass-card,
+:root.theme-circuit .card-testimonial {
+    position: relative;
+    overflow: hidden;
+}
+
+:root.theme-circuit .glass-card::before {
+    content: "IC_NODE_SYS_MOD_U" !important;
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    color: var(--secondary);
+    opacity: 0.35;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+/* Stenciled hardware markers on corners of structural cards */
+:root.theme-circuit .glass-card::after {
+    content: "[ DIAG_PORT_J2 ]" !important;
+    display: block;
+    position: absolute;
+    bottom: 6px;
+    right: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    color: #ffd700; /* Gold pad labels */
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Neon digital glowing indicators (LEDs) for sections */
+:root.theme-circuit h2::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    box-shadow: 0 0 8px var(--secondary);
+    margin-right: 10px;
+    vertical-align: middle;
+    opacity: 0.9;
+}
+
+/* Micro monospace prefix for page headers */
+:root.theme-circuit h1::before {
+    content: "ROBUZTA_LABS // DIAGNOSTIC_INTERFACE";
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 10px;
+    color: var(--secondary);
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Process Timeline Overrides in Lab Mode */
+:root.theme-circuit .process-timeline__track::before {
+    background: var(--surface-container-high) !important;
+}
+
+:root.theme-circuit .process-timeline__icon {
+    background-color: var(--surface) !important;
+    border-color: var(--border-subtle) !important;
+}
+
+:root.theme-circuit .process-timeline__icon::before {
+    border-color: rgba(0, 230, 118, 0.25) !important;
+}
+
+:root.theme-circuit .process-timeline__step:hover .process-timeline__icon {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 24px rgba(0, 230, 118, 0.15) !important;
+}
+
+:root.theme-circuit .process-timeline__step:hover .process-timeline__icon::before {
+    border-color: var(--secondary) !important;
+}
+
+:root.theme-circuit .process-timeline__badge {
+    background: var(--secondary) !important;
+    color: var(--on-secondary) !important;
+    border-color: var(--surface) !important;
+}
+
+:root.theme-circuit .process-timeline__card {
+    background-color: rgba(10, 19, 16, 0.6) !important;
+    border-color: var(--border-subtle) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+:root.theme-circuit .process-timeline__step:hover .process-timeline__card {
+    background-color: var(--surface) !important;
+    border-color: var(--secondary) !important;
+    box-shadow: 0 4px 30px rgba(0, 230, 118, 0.05) !important;
+}
+
+/* Ensure step description text is highly readable (high contrast) */
+:root.theme-circuit .process-timeline__card .step-title,
+:root.theme-circuit .process-timeline__card h4 {
+    color: var(--on-background) !important;
+}
+
+:root.theme-circuit .process-timeline__card p,
+:root.theme-circuit .process-timeline__card .text-on-surface-variant {
+    color: #c4dcd2 !important; /* Premium high-contrast light sage green */
+}
+
+/* Invert the solid screaming neon green CTA section to a premium dark PCB circuit card */
+:root.theme-circuit section.bg-secondary {
+    background-color: #070d0a !important;
+    background-image: var(--pcb-traces) !important;
+    background-size: 320px 320px !important;
+    border-top: 1.5px solid var(--border-subtle) !important;
+    border-bottom: 1.5px solid var(--border-subtle) !important;
+    color: var(--on-background) !important;
+}
+
+:root.theme-circuit section.bg-secondary h2,
+:root.theme-circuit section.bg-secondary h3,
+:root.theme-circuit section.bg-secondary p,
+:root.theme-circuit section.bg-secondary div {
+    color: var(--on-background) !important;
+}
+
+:root.theme-circuit section.bg-secondary .btn,
+:root.theme-circuit section.bg-secondary button {
+    background-color: var(--secondary) !important;
+    color: var(--on-secondary) !important;
+    border: none !important;
+    padding: 14px 28px !important;
+}
+
+/* Global button padding override for secondary CTA banners in all themes */
+section.bg-secondary .btn,
+section.bg-secondary button {
+    padding: 14px 28px !important;
+}
+
+/* Override white gradient utilities in Lab Theme to be translucent dark green */
+:root.theme-circuit .from-white {
+    --tw-gradient-from: #0a1310 !important;
+    --tw-gradient-to: rgba(10, 19, 16, 0) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+:root.theme-circuit .via-white\/80 {
+    --tw-gradient-stops: var(--tw-gradient-from), rgba(10, 19, 16, 0.8) 50%, var(--tw-gradient-to) !important;
+}
+
+/* High-tech matrix/diagnostic filter for hero background cover images in Lab Theme */
+:root.theme-circuit .bg-cover {
+    filter: brightness(0.3) contrast(1.1) sepia(0.2) hue-rotate(95deg) !important;
+    opacity: 0.8;
+}
+
+/* Badge colors alignment in Lab Theme */
+:root.theme-circuit .bg-secondary-fixed {
+    background-color: var(--secondary) !important;
+}
+:root.theme-circuit .text-on-secondary-fixed {
+    color: var(--on-secondary) !important;
+}
+
+/* Ensure all primary-container divs (highlight blocks/cards) remain dark green/black, not white */
+:root.theme-circuit div.bg-primary {
+    background-color: #08100d !important;
+    border: 1.5px solid var(--border-subtle) !important;
+}
+
+:root.theme-circuit div.bg-primary h2,
+:root.theme-circuit div.bg-primary h3,
+:root.theme-circuit div.bg-primary h4,
+:root.theme-circuit div.bg-primary p,
+:root.theme-circuit div.bg-primary span {
+    color: var(--on-background) !important;
+}
+
+
+
+
+
 

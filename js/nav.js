@@ -68,18 +68,6 @@
         }
     }
 
-    function initNavScroll() {
-        const mainNav = document.getElementById('mainNav');
-        if (!mainNav) return;
-
-        const updateScrollState = () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            mainNav.classList.toggle('is-scrolled', scrollTop > 50);
-        };
-
-        updateScrollState();
-        window.addEventListener('scroll', updateScrollState, { passive: true });
-    }
 
     /** Services dropdown (desktop) */
     function initServicesDropdown() {
@@ -163,11 +151,156 @@
         }
     }
 
+    function initThemeToggle() {
+        const actions = document.querySelector('.site-nav__actions');
+        if (!actions) return;
+
+        // Create diagnostics status bar
+        const diagBar = document.createElement('div');
+        diagBar.id = 'diagnosticsBar';
+        diagBar.className = 'w-full bg-[#030604] text-[#00e676] font-mono text-[9px] md:text-[10px] px-margin-desktop flex justify-between items-center border-b border-[rgba(0,230,118,0.15)] select-none z-[100] relative';
+        diagBar.style.height = '24px';
+        diagBar.style.display = 'none';
+        diagBar.innerHTML = `
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#00e676]" style="animation: pulse 1s infinite alternate; box-shadow: 0 0 8px #00e676;"></span>
+                    SYS_DIAG: ACTIVE
+                </span>
+                <span class="opacity-30">|</span>
+                <span class="hidden xs:inline">VOLTAGE: STABLE (5.12V)</span>
+                <span class="xs:hidden">5.12V</span>
+            </div>
+            <div class="flex gap-4">
+                <span>THERM_SENS: 34°C</span>
+                <span class="opacity-30">|</span>
+                <span>CALIBRATION: OK</span>
+            </div>
+        `;
+        document.body.insertBefore(diagBar, document.body.firstChild);
+
+        // Create desktop toggle button
+        const toggleBtn = document.createElement('button');
+        toggleBtn.id = 'themeToggleBtn';
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'w-10 h-10 rounded-xl bg-white/5 border border-border-subtle flex items-center justify-center hover:bg-secondary/10 transition-colors text-primary relative';
+        toggleBtn.title = 'Toggle Lab Theme (Motherboard Pattern)';
+        toggleBtn.innerHTML = `<span class="material-symbols-outlined" id="themeToggleIcon" style="font-size: 20px;">developer_board</span>`;
+        
+        // Insert before "Get Free Quote" button
+        actions.insertBefore(toggleBtn, actions.firstChild);
+
+        // Create mobile toggle button
+        const mobileLinks = document.querySelector('.mobile-menu__links');
+        if (mobileLinks) {
+            const mobileToggleBtn = document.createElement('button');
+            mobileToggleBtn.id = 'mobileThemeToggleBtn';
+            mobileToggleBtn.type = 'button';
+            mobileToggleBtn.className = 'mobile-menu__link font-headline-md text-headline-md flex items-center justify-between w-full text-left py-4 border-b border-border-subtle';
+            mobileToggleBtn.innerHTML = `
+                <span>Lab Theme</span>
+                <span class="material-symbols-outlined" id="mobileThemeToggleIcon" style="font-size: 24px;">toggle_off</span>
+            `;
+            // Insert before the Get Free Quote CTA
+            const cta = mobileLinks.querySelector('.mobile-menu__cta');
+            if (cta) {
+                mobileLinks.insertBefore(mobileToggleBtn, cta);
+            } else {
+                mobileLinks.appendChild(mobileToggleBtn);
+            }
+        }
+
+        const htmlEl = document.documentElement;
+        const mainNav = document.getElementById('mainNav');
+        
+        // Check localStorage
+        const savedTheme = localStorage.getItem('robuzta-theme');
+        const isCircuit = savedTheme === 'circuit';
+        
+        const setTema = (enable) => {
+            if (enable) {
+                htmlEl.classList.add('theme-circuit');
+                localStorage.setItem('robuzta-theme', 'circuit');
+                document.querySelectorAll('#themeToggleIcon').forEach(icon => {
+                    icon.textContent = 'developer_board';
+                    icon.style.color = '#00e676';
+                });
+                const mobileIcon = document.getElementById('mobileThemeToggleIcon');
+                if (mobileIcon) {
+                    mobileIcon.textContent = 'toggle_on';
+                    mobileIcon.style.color = '#00e676';
+                }
+                diagBar.style.display = 'flex';
+                // Offset navbar if at top
+                if (mainNav) {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    mainNav.style.top = scrollTop > 24 ? '0' : '24px';
+                }
+            } else {
+                htmlEl.classList.remove('theme-circuit');
+                localStorage.setItem('robuzta-theme', 'light');
+                document.querySelectorAll('#themeToggleIcon').forEach(icon => {
+                    icon.textContent = 'developer_board';
+                    icon.style.color = '';
+                });
+                const mobileIcon = document.getElementById('mobileThemeToggleIcon');
+                if (mobileIcon) {
+                    mobileIcon.textContent = 'toggle_off';
+                    mobileIcon.style.color = '';
+                }
+                diagBar.style.display = 'none';
+                if (mainNav) {
+                    mainNav.style.top = '0';
+                }
+            }
+        };
+
+        // Initial state
+        setTema(isCircuit);
+
+        // Desktop listener
+        toggleBtn.addEventListener('click', () => {
+            const currentlyEnabled = htmlEl.classList.contains('theme-circuit');
+            setTema(!currentlyEnabled);
+        });
+
+        // Mobile listener
+        const mobToggle = document.getElementById('mobileThemeToggleBtn');
+        if (mobToggle) {
+            mobToggle.addEventListener('click', () => {
+                const currentlyEnabled = htmlEl.classList.contains('theme-circuit');
+                setTema(!currentlyEnabled);
+            });
+        }
+    }
+
+    function initNavScroll() {
+        const mainNav = document.getElementById('mainNav');
+        if (!mainNav) return;
+
+        const updateScrollState = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            mainNav.classList.toggle('is-scrolled', scrollTop > 50);
+
+            // Handle diagnostics bar offset in scroll calculation
+            const isCircuit = document.documentElement.classList.contains('theme-circuit');
+            if (isCircuit) {
+                mainNav.style.top = scrollTop > 24 ? '0' : '24px';
+            } else {
+                mainNav.style.top = '0';
+            }
+        };
+
+        updateScrollState();
+        window.addEventListener('scroll', updateScrollState, { passive: true });
+    }
+
     function init() {
         initMobileMenu();
         initNavScroll();
         initServicesDropdown();
         verifyActiveNavLink();
+        initThemeToggle();
     }
 
     if (document.readyState === 'loading') {
