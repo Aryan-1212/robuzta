@@ -1,10 +1,10 @@
 /**
  * Robuzta — Interactive Neural Circuit Canvas
  * A living, breathing particle network that covers the full viewport.
- * - Fixed behind all content; visible only where background is plain
+ * - Fixed behind all content; visible through semi-transparent sections
  * - Particles drift slowly and form glowing circuit-like connections
  * - Mouse cursor creates a magnetic repulsion field
- * - Connections glow brighter when particles are close
+ * - Auto-detects dark/circuit theme and swaps particle colors
  * - Auto-pauses when tab is hidden for zero wasted GPU cycles
  */
 (function () {
@@ -16,7 +16,7 @@
     const ctx = canvas.getContext('2d');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Config — tuned for full-page performance
+    // Config
     const PARTICLE_COUNT_DESKTOP = 65;
     const PARTICLE_COUNT_MOBILE = 28;
     const CONNECTION_DISTANCE = 110;
@@ -25,12 +25,35 @@
     const PARTICLE_BASE_SPEED = 0.25;
     const LINE_OPACITY_MAX = 0.2;
 
-    // Colors from the Robuzta design system
-    const COLORS = {
-        particle: 'rgba(0, 88, 190, ',      // --secondary #0058be
-        connection: 'rgba(0, 88, 190, ',
-        particleAlt: 'rgba(16, 185, 129, ',  // --success-emerald
-    };
+    // Theme-aware colors
+    function getColors() {
+        const isCircuit = document.documentElement.classList.contains('theme-circuit');
+        if (isCircuit) {
+            return {
+                particle: 'rgba(0, 230, 118, ',      // neon green
+                connection: 'rgba(0, 230, 118, ',
+                particleAlt: 'rgba(255, 215, 0, ',    // gold accent
+                mouseGlow: 'rgba(0, 230, 118, ',
+            };
+        }
+        return {
+            particle: 'rgba(0, 88, 190, ',            // --secondary blue
+            connection: 'rgba(0, 88, 190, ',
+            particleAlt: 'rgba(16, 185, 129, ',       // emerald accent
+            mouseGlow: 'rgba(0, 88, 190, ',
+        };
+    }
+
+    let COLORS = getColors();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(() => {
+        COLORS = getColors();
+    });
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
 
     let particles = [];
     let mouse = { x: -9999, y: -9999, active: false };
@@ -95,13 +118,11 @@
             const color = this.isAlt ? COLORS.particleAlt : COLORS.particle;
             const alpha = 0.35 + Math.sin(this.pulsePhase) * 0.15;
 
-            // Outer glow
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius * 3, 0, Math.PI * 2);
             ctx.fillStyle = color + (alpha * 0.12) + ')';
             ctx.fill();
 
-            // Core dot
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fillStyle = color + alpha + ')';
@@ -139,8 +160,8 @@
         const gradient = ctx.createRadialGradient(
             mouse.x, mouse.y, 0, mouse.x, mouse.y, MOUSE_RADIUS
         );
-        gradient.addColorStop(0, 'rgba(0, 88, 190, 0.06)');
-        gradient.addColorStop(1, 'rgba(0, 88, 190, 0)');
+        gradient.addColorStop(0, COLORS.mouseGlow + '0.06)');
+        gradient.addColorStop(1, COLORS.mouseGlow + '0)');
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, MOUSE_RADIUS, 0, Math.PI * 2);
         ctx.fillStyle = gradient;
@@ -181,29 +202,19 @@
         }
     }
 
-    // Mouse tracking (viewport-relative since canvas is fixed)
     document.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
         mouse.active = true;
     });
-
-    document.addEventListener('mouseleave', () => {
-        mouse.active = false;
-    });
-
-    // Touch support
+    document.addEventListener('mouseleave', () => { mouse.active = false; });
     document.addEventListener('touchmove', (e) => {
         mouse.x = e.touches[0].clientX;
         mouse.y = e.touches[0].clientY;
         mouse.active = true;
     }, { passive: true });
+    document.addEventListener('touchend', () => { mouse.active = false; });
 
-    document.addEventListener('touchend', () => {
-        mouse.active = false;
-    });
-
-    // Pause when tab is hidden — zero GPU waste
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             isVisible = false;
@@ -214,7 +225,6 @@
         }
     });
 
-    // Resize with debounce
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
