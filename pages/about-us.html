@@ -1,20 +1,406 @@
+<!DOCTYPE html>
+<html class="" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About Us | Robuzta Techlabs — Premium Device Repairs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--outline-variant);
+            top: 40px;
+            bottom: -20px;
+            left: 20px;
+            z-index: 0;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .hero-glow {
+            box-shadow: 0 0 50px 10px rgba(0, 88, 190, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter">
 
+    <!-- Top Navigation Bar -->
+    <nav id="mainNav" class="site-nav" aria-label="Main navigation">
+        <div class="site-nav__inner">
+            <a class="site-nav__logo flex items-center gap-2" href="index.html">
+                <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
+            </a>
+            <div class="site-nav__links hidden md:flex items-center gap-gutter">
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="index.html" data-nav="index.html">Home</a>
+                <div class="nav-dropdown" id="servicesDropdown">
+                    <button class="nav-link nav-dropdown__trigger text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md flex items-center gap-1" aria-haspopup="true" aria-expanded="false" id="servicesBtn">
+                        Services
+                        <span class="material-symbols-outlined nav-dropdown__chevron" style="font-size:16px;">expand_more</span>
+                    </button>
+                    <div class="nav-dropdown__panel" role="menu" aria-labelledby="servicesBtn">
+                        <a class="nav-dropdown__item" href="laptop-repair.html" data-nav="laptop-repair.html" role="menuitem">
+                            <span class="material-symbols-outlined nav-dropdown__icon">laptop</span>
+                            <div><span class="nav-dropdown__label">Laptop Repair</span><span class="nav-dropdown__desc">HP, Dell, Lenovo & more</span></div>
+                        </a>
+                        <a class="nav-dropdown__item" href="mobile-repair.html" data-nav="mobile-repair.html" role="menuitem">
+                            <span class="material-symbols-outlined nav-dropdown__icon">smartphone</span>
+                            <div><span class="nav-dropdown__label">Mobile Repair</span><span class="nav-dropdown__desc">iOS & Android specialists</span></div>
+                        </a>
+                        <a class="nav-dropdown__item" href="macbook-repair.html" data-nav="macbook-repair.html" role="menuitem">
+                            <span class="material-symbols-outlined nav-dropdown__icon">laptop_mac</span>
+                            <div><span class="nav-dropdown__label">MacBook Repair</span><span class="nav-dropdown__desc">Logic board micro-soldering</span></div>
+                        </a>
+                        <a class="nav-dropdown__item" href="gaming-pc.html" data-nav="gaming-pc.html" role="menuitem">
+                            <span class="material-symbols-outlined nav-dropdown__icon">sports_esports</span>
+                            <div><span class="nav-dropdown__label">Gaming PC</span><span class="nav-dropdown__desc">Builds, upgrades & cooling</span></div>
+                        </a>
+                        <a class="nav-dropdown__item" href="surface-repair.html" data-nav="surface-repair.html" role="menuitem">
+                            <span class="material-symbols-outlined nav-dropdown__icon">window</span>
+                            <div><span class="nav-dropdown__label">Microsoft Surface</span><span class="nav-dropdown__desc">Screen, battery & SSD</span></div>
+                        </a>
+                    </div>
+                </div>
+                <a class="nav-link nav-link-active font-label-md text-label-md" href="about-us.html" data-nav="about-us.html" aria-current="page">About Us</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html" data-nav="blog.html">Blog</a>
+                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="contact.html" data-nav="contact.html">Contact Us</a>
+            </div>
+            <div class="site-nav__actions flex items-center gap-4">
+                <button class="btn btn-primary font-label-md text-label-md" type="button">Get Free Quote</button>
+                <button id="mobileMenuBtn" class="site-nav__menu-btn md:hidden text-primary" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+        <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <div class="mobile-menu__links">
+            <a class="mobile-menu__link font-headline-md text-headline-md" href="index.html">Home</a>
+            <div class="mobile-menu__services-group">
+                <button class="mobile-menu__link mobile-menu__services-toggle font-headline-md text-headline-md flex items-center gap-2" aria-expanded="false" id="mobileServicesToggle">
+                    Services
+                    <span class="material-symbols-outlined mobile-services-chevron" style="font-size:20px;">expand_more</span>
+                </button>
+                <div class="mobile-menu__services-panel hidden" id="mobileServicesPanel">
+                    <a class="mobile-menu__sub-link" href="laptop-repair.html">Laptop Repair</a>
+                    <a class="mobile-menu__sub-link" href="mobile-repair.html">Mobile Repair</a>
+                    <a class="mobile-menu__sub-link" href="macbook-repair.html">MacBook Repair</a>
+                    <a class="mobile-menu__sub-link" href="gaming-pc.html">Gaming PC</a>
+                    <a class="mobile-menu__sub-link" href="surface-repair.html">Microsoft Surface</a>
+                </div>
+            </div>
+            <a class="mobile-menu__link font-headline-md text-headline-md mobile-menu__link--active" href="about-us.html">About Us</a>
+            <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+            <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Contact Us</a>
+            <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+        </div>
+    </div>
 
+    <!-- Main About Content -->
+    <main class="pt-32 pb-24">
+        <!-- Hero Section -->
+        <section class="max-w-container-max mx-auto px-margin-desktop mb-20 text-center">
+            <div class="relative inline-block mb-10">
+                <div class="absolute inset-0 bg-secondary/10 rounded-full blur-3xl opacity-60"></div>
+                <div class="relative w-36 h-36 mx-auto rounded-full bg-white flex items-center justify-center shadow-xl border border-slate-100 p-2">
+                    <img src="../logo.gif" alt="Robuzta Logo" class="w-full h-full object-contain rounded-full" onerror="this.src='../images/robuzta_logo_scaled.png'">
+                </div>
+            </div>
+            <h1 class="font-display-lg text-primary mb-6 leading-tight max-w-3xl mx-auto">About Robuzta</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto leading-relaxed">
+                Robuzta is a multi-device repair centre built to make electronics care easy, fast, and trustworthy. We repair smartphones, tablets, laptops, and desktop computers using genuine parts, transparent pricing, and a customer-first process. Our mission is simple: return your device in top working order — quickly and without surprises.
+            </p>
+        </section>
 
+        <!-- Expertise section -->
+        <section class="max-w-container-max mx-auto px-margin-desktop mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+            <div class="glass-card p-10 md:p-12 rounded-[2rem] border border-border-subtle flex flex-col justify-center">
+                <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-2xl flex items-center justify-center mb-8">
+                    <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">build_circle</span>
+                </div>
+                <h2 class="font-headline-lg text-primary mb-6">Our Expertise</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-6 leading-relaxed">
+                    We service the full spectrum of consumer devices — from everyday Android phones and iPhones to MacBooks, Microsoft Surface devices, Windows laptops, tablets, and desktop PCs.
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                    Our technicians are trained to handle everything from simple screen and battery replacements to motherboard-level diagnostics and data recovery. This multi-brand, multi-device approach is at the core of what we do.
+                </p>
+            </div>
+            
+            <div class="relative overflow-hidden rounded-[2rem] bg-primary shadow-2xl p-10 md:p-12 text-white flex flex-col justify-between">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-20"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-8">
+                        <span class="material-symbols-outlined text-[32px]">workspace_premium</span>
+                    </div>
+                    <h3 class="font-headline-lg mb-6 text-white">ISO 9001:2015 Standards</h3>
+                    <p class="font-body-lg text-body-lg text-white/80 leading-relaxed mb-6">
+                        We run high-precision lab diagnostics, tracking repairs step-by-step. Standardized quality control checklists guarantee your repairs are built to last.
+                    </p>
+                </div>
+                <div class="relative z-10 flex gap-12 mt-8 border-t border-white/10 pt-8">
+                    <div>
+                        <h4 class="text-3xl font-bold font-display-lg-mobile">10+</h4>
+                        <p class="text-xs text-white/60 uppercase tracking-widest mt-1">Years Experience</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-bold font-display-lg-mobile">15K+</h4>
+                        <p class="text-xs text-white/60 uppercase tracking-widest mt-1">Devices Restored</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- What Sets Us Apart Section -->
+        <section class="bg-surface-container-low py-24 mb-24 border-y border-border-subtle">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="text-center mb-16">
+                    <span class="text-secondary font-bold font-label-md text-label-md tracking-wider uppercase mb-4 block">The Robuzta Difference</span>
+                    <h2 class="font-headline-lg text-primary mb-4">What Sets Us Apart</h2>
+                    <p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl mx-auto">Providing a safe, transparent, and hassle-free repair journey.</p>
+                </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center text-secondary border border-border-subtle shadow-sm">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-primary mb-2">Certified & Experienced Technicians</h4>
+                            <p class="text-on-surface-variant leading-relaxed">Our team follows proven repair procedures and quality checks so repairs are done right the first time.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center text-secondary border border-border-subtle shadow-sm">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-primary mb-2">Genuine Parts with Warranty</h4>
+                            <p class="text-on-surface-variant leading-relaxed">We use verified parts and back repairs with an assurance of quality so you can have peace of mind.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center text-secondary border border-border-subtle shadow-sm">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-primary mb-2">Free Pickup & Delivery</h4>
+                            <p class="text-on-surface-variant leading-relaxed">If you prefer not to visit the store, we’ll collect, repair and return your device safely.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center text-secondary border border-border-subtle shadow-sm">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg text-primary mb-2">Data Safety & Transparency</h4>
+                            <p class="text-on-surface-variant leading-relaxed">We never ask for passwords or OTPs. Any testing that requires your device access is done in your presence which is explained to you clearly prior the device collection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Our Story / Timeline Section -->
+        <section class="max-w-[800px] mx-auto px-margin-desktop mb-24">
+            <h2 class="font-headline-lg text-primary text-center mb-16">Our Story</h2>
+            
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="timeline-item relative flex gap-8 pl-0">
+                    <div class="relative z-10 w-10 h-10 shrink-0 bg-white border-2 border-secondary rounded-full flex items-center justify-center text-secondary font-bold text-sm">
+                        2012
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-2">Inception & Experiments</h4>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            Robuzta began with a simple curiosity: how do gadgets really work — and how can they be repaired better? The journey started in 2012 with hands-on experiments on early smartphones, driven by a deep curiosity for how devices function. This passion soon transformed into professional training, mastering diagnostics, repair processes, and quality standards.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- Step 2 -->
+                <div class="timeline-item relative flex gap-8">
+                    <div class="relative z-10 w-10 h-10 shrink-0 bg-white border-2 border-secondary rounded-full flex items-center justify-center text-secondary font-bold text-sm">
+                        2014
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-2">Axiom Technologies</h4>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            By 2014, the first venture — Axiom Technologies — was launched, a multi-brand repair shop designed as a one-stop solution for smartphone users. Over the years, thousands of repairs built both technical mastery and a reputation for transparent, reliable service.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- Step 3 -->
+                <div class="timeline-item relative flex gap-8">
+                    <div class="relative z-10 w-10 h-10 shrink-0 bg-white border-2 border-secondary rounded-full flex items-center justify-center text-secondary font-bold text-sm">
+                        2020
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-2">Adapting to the Pandemic</h4>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            When the pandemic reshaped how people lived and worked in 2020, the demand for laptops and tablets surged. Rising to the challenge, the team quickly expanded beyond mobiles into laptops, tablets, desktops, and more, adapting to the new digital-first lifestyle.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- Step 4 -->
+                <div class="timeline-item relative flex gap-8">
+                    <div class="relative z-10 w-10 h-10 shrink-0 bg-white border-2 border-secondary rounded-full flex items-center justify-center text-secondary font-bold text-sm">
+                        2021
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-2">Evolving to Robuzta Techlabs</h4>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            In 2021, the brand evolved into Robuzta Techlabs — a name inspired by “robust,” symbolizing strength and reliability, and “Techlabs,” reflecting a commitment to precision and innovation. Today, Robuzta is a full-service, multi-brand repair network covering smartphones, laptops, tablets, smartwatches, AIO systems, and gaming PCs.
+                        </p>
+                    </div>
+                </div>
 
+                <!-- Step 5 -->
+                <div class="timeline-item relative flex gap-8">
+                    <div class="relative z-10 w-10 h-10 shrink-0 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        Now
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-primary mb-2">A Decade of Precision</h4>
+                        <p class="text-on-surface-variant leading-relaxed">
+                            With multiple service centres, a dedicated laboratory, and a team of skilled engineers, Robuzta combines modern tools, strict parts verification, and rigorous quality checks. Over a decade of hands-on experience has shaped one guiding principle: repair with care, accuracy, and transparency. Every repair is backed by genuine parts, clear estimates, and warranty-protected service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Young Founder Quote Section -->
+        <section class="max-w-4xl mx-auto px-margin-desktop text-center mt-24">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-secondary mb-4">Meet Our Young Founder</h3>
+            <div class="inline-block bg-white border border-border-subtle p-8 md:p-12 rounded-[2rem] shadow-xl relative overflow-hidden">
+                <span class="material-symbols-outlined text-[64px] text-secondary/10 absolute -top-4 -left-4">format_quote</span>
+                <p class="text-3xl md:text-4xl font-extrabold text-primary mb-4 italic tracking-tight relative z-10">
+                    "Robuzta Hai Na!"
+                </p>
+                <div class="w-12 h-1 bg-secondary mx-auto rounded-full mb-4"></div>
+                <p class="font-bold text-primary">Mr. Pranshu Maheshwari</p>
+                <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Founder, Robuzta Techlabs</p>
+            </div>
+        </section>
+    </main>
 
+    <!-- Footer -->
+    <footer class="bg-primary-container text-on-primary-container border-t border-outline-variant/10">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+            <div class="flex flex-col gap-6">
+                <h3 class="font-headline-md text-headline-md font-bold text-on-secondary-container">Robuzta Techlabs</h3>
+                <p class="font-body-md text-body-md opacity-80">Precision Engineered Repairs for the Modern Workforce. Trusted by thousands in Ahmedabad.</p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://facebook.com/robuztatechlabs" target="_blank" rel="noopener">F</a>
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://youtube.com/@robuztatechlabs" target="_blank" rel="noopener">Y</a>
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://instagram.com/robuztatechlabs" target="_blank" rel="noopener">I</a>
+                    <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-secondary transition-colors text-white font-bold" href="https://linkedin.com/company/robuztatechlabs" target="_blank" rel="noopener">L</a>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold mb-2">Company</h4>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="index.html#about">About Us</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="index.html#process">Our Lab</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="index.html#services">Services</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="blog.html">Blog</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold mb-2">Services</h4>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="laptop-repair.html">Laptop Repair</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="mobile-repair.html">Mobile Repair</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="macbook-repair.html">MacBook Repair</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="gaming-pc.html">Gaming PC Builds</a>
+                <a class="text-on-primary-container hover:text-secondary-fixed transition-colors hover:translate-x-1 duration-200" href="surface-repair.html">Microsoft Surface Repair</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold mb-2">Connect</h4>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">call</span>
+                    <span>+91 999 245 2459</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">mail</span>
+                    <span>info@robuzta.com</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">pin_drop</span>
+                    <span>103, First Floor, Sun South Winds, Safal Parisar Road, South Bopal, Ahmedabad, Gujarat 380057</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                    <span>Open 11:00 AM - 7:00 PM</span>
+                </div>
+                <div class="mt-4">
+                    <p class="font-label-sm text-label-sm mb-4">Subscribe to tech tips</p>
+                    <div class="flex gap-2">
+                        <input class="bg-white/5 border border-white/10 rounded-lg px-4 py-2 w-full focus:outline-none focus:border-secondary" placeholder="Email" type="email"/>
+                        <button class="bg-secondary text-white p-2 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-label-sm text-label-sm opacity-60">© 2026 Robuzta Techlabs. Precision Engineered Repairs.</p>
+            <div class="flex gap-8 font-label-sm text-label-sm opacity-60">
+                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-primary-container/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card w-full max-w-lg rounded-3xl p-8 relative animate-fade-in-up">
+            <button id="closeQuoteModal" class="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <h3 class="font-headline-md text-headline-md text-primary mb-2">Get a Repair Quote</h3>
+            <p class="text-on-surface-variant mb-6 text-sm">Tell us about your device issue and our team will get back to you with a transparent estimate.</p>
+            <form id="quoteForm" class="space-y-4">
+                <div>
+                    <label for="clientName" class="block text-sm font-medium text-primary mb-1">Your Name</label>
+                    <input type="text" id="clientName" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Enter your full name">
+                </div>
+                <div>
+                    <label for="clientPhone" class="block text-sm font-medium text-primary mb-1">Phone Number</label>
+                    <input type="tel" id="clientPhone" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="e.g. +91 99999 99999">
+                </div>
+                <div>
+                    <label for="deviceDropdown" class="block text-sm font-medium text-primary mb-1">Select Device</label>
+                    <select id="deviceDropdown" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary">
+                        <option value="" disabled selected class="text-primary-container">Choose a device...</option>
+                        <option value="Laptop" class="text-primary-container">Laptop</option>
+                        <option value="MacBook" class="text-primary-container">MacBook</option>
+                        <option value="Mobile" class="text-primary-container">Mobile</option>
+                        <option value="Desktop" class="text-primary-container">Desktop</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="issueDescription" class="block text-sm font-medium text-primary mb-1">Describe the Issue</label>
+                    <textarea id="issueDescription" rows="3" required class="w-full bg-white/5 border border-border-subtle rounded-xl px-4 py-3 focus:outline-none focus:border-secondary text-primary" placeholder="Describe what's wrong with your device..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg mt-2">
+                    Get Repair Quote
+                </button>
+            </form>
+        </div>
+    </div>
 
-
-
-
-
-
+    <script src="../js/script.js"></script>
+    <script src="../js/animations.js?v=1.0.1"></script>
+    <script src="../js/nav.js"></script>
+</body>
+</html>

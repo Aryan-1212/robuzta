@@ -20,6 +20,7 @@
 <body class="text-on-background">
 
 
+
 <!-- Top Navigation Bar -->
 <nav id="mainNav" class="site-nav" aria-label="Main navigation">
     <div class="site-nav__inner">
@@ -68,6 +69,33 @@
         </div>
     </div>
 </nav>
+
+<div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu__links">
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="index.html">Home</a>
+        <div class="mobile-menu__services-group">
+            <button class="mobile-menu__link mobile-menu__services-toggle font-headline-md text-headline-md flex items-center gap-2" aria-expanded="false" id="mobileServicesToggle">
+                Services
+                <span class="material-symbols-outlined mobile-services-chevron" style="font-size:20px;">expand_more</span>
+            </button>
+            <div class="mobile-menu__services-panel hidden" id="mobileServicesPanel">
+                <a class="mobile-menu__sub-link" href="laptop-repair.html">Laptop Repair</a>
+                <a class="mobile-menu__sub-link" href="mobile-repair.html">Mobile Repair</a>
+                <a class="mobile-menu__sub-link" href="macbook-repair.html">MacBook Repair</a>
+                <a class="mobile-menu__sub-link" href="gaming-pc.html">Gaming PC</a>
+                <a class="mobile-menu__sub-link" href="surface-repair.html">Microsoft Surface</a>
+            </div>
+        </div>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="about-us.html">About Us</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Contact Us</a>
+        <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+    </div>
+</div>
+
 
 <div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
     <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
