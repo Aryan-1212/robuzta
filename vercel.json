@@ -1,8 +1,17 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/",
       "destination": "/pages/index.html"
+    },
+    {
+      "source": "/(about-us|blog|contact|gaming-pc|laptop-repair|macbook-repair|mobile-repair|surface-repair)",
+      "destination": "/pages/$1.html"
+    },
+    {
+      "source": "/(.*\\.html)",
+      "destination": "/pages/$1"
     }
   ]
 }
