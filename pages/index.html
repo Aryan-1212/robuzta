@@ -11,41 +11,111 @@
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md antialiased">
     
-    <!-- Top Navigation Bar -->
-    <nav id="mainNav" class="bg-surface-glass backdrop-blur-md border-b border-border-subtle shadow-sm sticky top-0 z-50 transition-all duration-300">
-        <div class="flex justify-between items-center w-full px-margin-desktop py-stack-md max-w-container-max mx-auto">
-            <a class="flex items-center gap-2" href="index.html">
-                <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
-            </a>
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="laptop-repair.html">Laptop</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html">Mobile</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html">MacBook</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html">Gaming PC</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html">Surface</a>
-                <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html">Blog</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <button class="bg-secondary text-on-secondary px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold hover:scale-105 transition-transform active:scale-95">
-                    Get Free Quote
-                </button>
-                <button id="mobileMenuBtn" class="md:hidden text-primary">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
-        </div>
-    </nav>
+    
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden fixed inset-0 z-40 bg-primary-container/95 backdrop-blur-lg">
-        <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a class="text-white text-2xl font-bold" href="laptop-repair.html" onclick="closeMobileMenu()">Laptop</a>
-            <a class="text-white text-2xl font-bold" href="mobile-repair.html" onclick="closeMobileMenu()">Mobile</a>
-            <a class="text-white text-2xl font-bold" href="macbook-repair.html" onclick="closeMobileMenu()">MacBook</a>
-            <a class="text-white text-2xl font-bold" href="gaming-pc.html" onclick="closeMobileMenu()">Gaming PC</a>
-            <a class="text-white text-2xl font-bold" href="surface-repair.html" onclick="closeMobileMenu()">Surface</a>
-            <a class="text-white text-2xl font-bold" href="blog.html" onclick="closeMobileMenu()">Blog</a>
+<!-- Top Navigation Bar -->
+<nav id="mainNav" class="site-nav" aria-label="Main navigation">
+    <div class="site-nav__inner">
+        <a class="site-nav__logo flex items-center gap-2" href="index.html">
+            <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
+        </a>
+        <div class="site-nav__links hidden md:flex items-center gap-gutter">
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="index.html" data-nav="index.html">Home</a>
+            <div class="nav-dropdown" id="servicesDropdown">
+                <button class="nav-link nav-dropdown__trigger text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md flex items-center gap-1" aria-haspopup="true" aria-expanded="false" id="servicesBtn">
+                    Services
+                    <span class="material-symbols-outlined nav-dropdown__chevron" style="font-size:16px;">expand_more</span>
+                </button>
+                <div class="nav-dropdown__panel" role="menu" aria-labelledby="servicesBtn">
+                    <a class="nav-dropdown__item" href="laptop-repair.html" data-nav="laptop-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">laptop</span>
+                        <div><span class="nav-dropdown__label">Laptop Repair</span><span class="nav-dropdown__desc">HP, Dell, Lenovo & more</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="mobile-repair.html" data-nav="mobile-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">smartphone</span>
+                        <div><span class="nav-dropdown__label">Mobile Repair</span><span class="nav-dropdown__desc">iOS & Android specialists</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="macbook-repair.html" data-nav="macbook-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">laptop_mac</span>
+                        <div><span class="nav-dropdown__label">MacBook Repair</span><span class="nav-dropdown__desc">Logic board micro-soldering</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="gaming-pc.html" data-nav="gaming-pc.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">sports_esports</span>
+                        <div><span class="nav-dropdown__label">Gaming PC</span><span class="nav-dropdown__desc">Builds, upgrades & cooling</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="surface-repair.html" data-nav="surface-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">window</span>
+                        <div><span class="nav-dropdown__label">Microsoft Surface</span><span class="nav-dropdown__desc">Screen, battery & SSD</span></div>
+                    </a>
+                </div>
+            </div>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="about-us.html" data-nav="about-us.html">About Us</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html" data-nav="blog.html">Blog</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="contact.html" data-nav="contact.html">Contact Us</a>
         </div>
+        <div class="site-nav__actions flex items-center gap-4">
+            <button class="btn btn-primary font-label-md text-label-md" type="button">Get Free Quote</button>
+            <button id="mobileMenuBtn" class="site-nav__menu-btn md:hidden text-primary" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu__links">
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="index.html">Home</a>
+        <div class="mobile-menu__services-group">
+            <button class="mobile-menu__link mobile-menu__services-toggle font-headline-md text-headline-md flex items-center gap-2" aria-expanded="false" id="mobileServicesToggle">
+                Services
+                <span class="material-symbols-outlined mobile-services-chevron" style="font-size:20px;">expand_more</span>
+            </button>
+            <div class="mobile-menu__services-panel hidden" id="mobileServicesPanel">
+                <a class="mobile-menu__sub-link" href="laptop-repair.html">Laptop Repair</a>
+                <a class="mobile-menu__sub-link" href="mobile-repair.html">Mobile Repair</a>
+                <a class="mobile-menu__sub-link" href="macbook-repair.html">MacBook Repair</a>
+                <a class="mobile-menu__sub-link" href="gaming-pc.html">Gaming PC</a>
+                <a class="mobile-menu__sub-link" href="surface-repair.html">Microsoft Surface</a>
+            </div>
+        </div>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="about-us.html">About Us</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Contact Us</a>
+        <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+    </div>
+</div>
+
+
+<div id="mobileMenu" class="mobile-menu hidden" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+    <button id="mobileMenuClose" class="mobile-menu__close" type="button" aria-label="Close navigation menu">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="mobile-menu__links">
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="index.html">Home</a>
+        <div class="mobile-menu__services-group">
+            <button class="mobile-menu__link mobile-menu__services-toggle font-headline-md text-headline-md flex items-center gap-2" aria-expanded="false" id="mobileServicesToggle">
+                Services
+                <span class="material-symbols-outlined mobile-services-chevron" style="font-size:20px;">expand_more</span>
+            </button>
+            <div class="mobile-menu__services-panel hidden" id="mobileServicesPanel">
+                <a class="mobile-menu__sub-link" href="laptop-repair.html">Laptop Repair</a>
+                <a class="mobile-menu__sub-link" href="mobile-repair.html">Mobile Repair</a>
+                <a class="mobile-menu__sub-link" href="macbook-repair.html">MacBook Repair</a>
+                <a class="mobile-menu__sub-link" href="gaming-pc.html">Gaming PC</a>
+                <a class="mobile-menu__sub-link" href="surface-repair.html">Microsoft Surface</a>
+            </div>
+        </div>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Locations</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="about-us.html">About Us</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Contact Us</a>
+        <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
+    </div>
+</div>
+
     </div>
 
     <!-- Hero Section -->

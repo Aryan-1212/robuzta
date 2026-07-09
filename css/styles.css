@@ -200,6 +200,7 @@
     line-height: 20px;
     letter-spacing: 0.01em;
     cursor: pointer;
+    user-select: none;
     border: 2px solid transparent;
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
@@ -617,6 +618,166 @@ textarea:focus {
 
 .mobile-menu__cta {
     margin-top: var(--space-4);
+}
+
+/* ─── Nav Dropdown ─── */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown__trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-dropdown__chevron {
+    transition: transform var(--transition-fast);
+    display: inline-block;
+}
+
+.nav-dropdown.is-open .nav-dropdown__chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown__panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 48px rgba(26, 31, 44, 0.12), 0 2px 8px rgba(26, 31, 44, 0.06);
+    min-width: 280px;
+    padding: var(--space-2) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-8px);
+    transition: opacity 200ms ease-out, transform 200ms ease-out, visibility 200ms ease-out;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* Arrow pointer */
+.nav-dropdown__panel::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-left: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 2px;
+}
+
+.nav-dropdown.is-open .nav-dropdown__panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.nav-dropdown__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    color: var(--primary);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-dropdown__item:hover {
+    background-color: var(--surface-container-low);
+    color: var(--secondary);
+}
+
+.nav-dropdown__item:hover .nav-dropdown__icon {
+    color: var(--secondary);
+}
+
+.nav-dropdown__icon {
+    color: var(--on-surface-variant);
+    font-size: 20px;
+    transition: color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.nav-dropdown__label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.nav-dropdown__desc {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--on-surface-variant);
+    line-height: 16px;
+    margin-top: 1px;
+}
+
+/* ─── Mobile Services Sub-menu ─── */
+.mobile-menu__services-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.mobile-menu__services-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--on-primary);
+    font-family: inherit;
+}
+
+.mobile-services-chevron {
+    transition: transform var(--transition-fast);
+}
+
+.mobile-menu__services-toggle[aria-expanded="true"] .mobile-services-chevron {
+    transform: rotate(180deg);
+}
+
+.mobile-menu__services-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    width: 100%;
+    overflow: hidden;
+}
+
+.mobile-menu__services-panel.hidden {
+    display: none;
+}
+
+.mobile-menu__sub-link {
+    color: var(--secondary-fixed-dim);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+    text-decoration: none;
+    text-align: center;
+}
+
+.mobile-menu__sub-link:hover {
+    color: var(--on-primary);
+    background: rgba(255,255,255,0.08);
 }
 
 /* ─── Hero Comparison Slider ─── */

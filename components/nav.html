@@ -5,12 +5,38 @@
             <img alt="Robuzta Techlabs Logo" class="h-8 w-auto" src="../images/robuzta_logo_scaled.png"/>
         </a>
         <div class="site-nav__links hidden md:flex items-center gap-gutter">
-            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="laptop-repair.html" data-nav="laptop-repair.html">Laptop</a>
-            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="mobile-repair.html" data-nav="mobile-repair.html">Mobile</a>
-            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="macbook-repair.html" data-nav="macbook-repair.html">MacBook</a>
-            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="gaming-pc.html" data-nav="gaming-pc.html">Gaming PC</a>
-            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="surface-repair.html" data-nav="surface-repair.html">Surface</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="index.html" data-nav="index.html">Home</a>
+            <div class="nav-dropdown" id="servicesDropdown">
+                <button class="nav-link nav-dropdown__trigger text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md flex items-center gap-1" aria-haspopup="true" aria-expanded="false" id="servicesBtn">
+                    Services
+                    <span class="material-symbols-outlined nav-dropdown__chevron" style="font-size:16px;">expand_more</span>
+                </button>
+                <div class="nav-dropdown__panel" role="menu" aria-labelledby="servicesBtn">
+                    <a class="nav-dropdown__item" href="laptop-repair.html" data-nav="laptop-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">laptop</span>
+                        <div><span class="nav-dropdown__label">Laptop Repair</span><span class="nav-dropdown__desc">HP, Dell, Lenovo & more</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="mobile-repair.html" data-nav="mobile-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">smartphone</span>
+                        <div><span class="nav-dropdown__label">Mobile Repair</span><span class="nav-dropdown__desc">iOS & Android specialists</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="macbook-repair.html" data-nav="macbook-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">laptop_mac</span>
+                        <div><span class="nav-dropdown__label">MacBook Repair</span><span class="nav-dropdown__desc">Logic board micro-soldering</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="gaming-pc.html" data-nav="gaming-pc.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">sports_esports</span>
+                        <div><span class="nav-dropdown__label">Gaming PC</span><span class="nav-dropdown__desc">Builds, upgrades & cooling</span></div>
+                    </a>
+                    <a class="nav-dropdown__item" href="surface-repair.html" data-nav="surface-repair.html" role="menuitem">
+                        <span class="material-symbols-outlined nav-dropdown__icon">window</span>
+                        <div><span class="nav-dropdown__label">Microsoft Surface</span><span class="nav-dropdown__desc">Screen, battery & SSD</span></div>
+                    </a>
+                </div>
+            </div>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="about-us.html" data-nav="about-us.html">About Us</a>
             <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="blog.html" data-nav="blog.html">Blog</a>
+            <a class="nav-link text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="contact.html" data-nav="contact.html">Contact Us</a>
         </div>
         <div class="site-nav__actions flex items-center gap-4">
             <button class="btn btn-primary font-label-md text-label-md" type="button">Get Free Quote</button>
@@ -26,12 +52,23 @@
         <span class="material-symbols-outlined">close</span>
     </button>
     <div class="mobile-menu__links">
-        <a class="mobile-menu__link font-headline-md text-headline-md" href="laptop-repair.html">Laptop</a>
-        <a class="mobile-menu__link font-headline-md text-headline-md" href="mobile-repair.html">Mobile</a>
-        <a class="mobile-menu__link font-headline-md text-headline-md" href="macbook-repair.html">MacBook</a>
-        <a class="mobile-menu__link font-headline-md text-headline-md" href="gaming-pc.html">Gaming PC</a>
-        <a class="mobile-menu__link font-headline-md text-headline-md" href="surface-repair.html">Surface</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="index.html">Home</a>
+        <div class="mobile-menu__services-group">
+            <button class="mobile-menu__link mobile-menu__services-toggle font-headline-md text-headline-md flex items-center gap-2" aria-expanded="false" id="mobileServicesToggle">
+                Services
+                <span class="material-symbols-outlined mobile-services-chevron" style="font-size:20px;">expand_more</span>
+            </button>
+            <div class="mobile-menu__services-panel hidden" id="mobileServicesPanel">
+                <a class="mobile-menu__sub-link" href="laptop-repair.html">Laptop Repair</a>
+                <a class="mobile-menu__sub-link" href="mobile-repair.html">Mobile Repair</a>
+                <a class="mobile-menu__sub-link" href="macbook-repair.html">MacBook Repair</a>
+                <a class="mobile-menu__sub-link" href="gaming-pc.html">Gaming PC</a>
+                <a class="mobile-menu__sub-link" href="surface-repair.html">Microsoft Surface</a>
+            </div>
+        </div>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="about-us.html">About Us</a>
         <a class="mobile-menu__link font-headline-md text-headline-md" href="blog.html">Blog</a>
+        <a class="mobile-menu__link font-headline-md text-headline-md" href="contact.html">Contact Us</a>
         <button class="btn btn-primary-lg mobile-menu__cta" type="button">Get Free Quote</button>
     </div>
 </div>
