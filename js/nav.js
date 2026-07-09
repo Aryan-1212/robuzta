@@ -218,6 +218,17 @@
         const isCircuit = savedTheme === 'circuit';
         
         const setTema = (enable) => {
+            // Swap logos based on theme
+            document.querySelectorAll('.site-nav__logo img').forEach(logoImg => {
+                if (logoImg) {
+                    if (enable) {
+                        logoImg.src = logoImg.src.replace('robuzta_logo_scaled.png', 'robuzta_logo_white.png');
+                    } else {
+                        logoImg.src = logoImg.src.replace('robuzta_logo_white.png', 'robuzta_logo_scaled.png');
+                    }
+                }
+            });
+
             if (enable) {
                 htmlEl.classList.add('theme-circuit');
                 localStorage.setItem('robuzta-theme', 'circuit');

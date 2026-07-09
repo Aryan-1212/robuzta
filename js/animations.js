@@ -85,7 +85,7 @@
 
         const setPosition = (percent) => {
             position = Math.min(Math.max(percent, 4), 96);
-            afterLayer.style.clipPath = `inset(0 ${100 - position}% 0 0)`;
+            afterLayer.style.clipPath = `inset(0 0 0 ${position}%)`;
             handle.style.left = `${position}%`;
             handle.setAttribute('aria-valuenow', Math.round(position));
         };
