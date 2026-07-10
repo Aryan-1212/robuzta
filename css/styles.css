@@ -203,6 +203,28 @@ html.theme-circuit {
 .font-label-sm { font-family: 'Inter', sans-serif; }
 .text-label-sm { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 600; }
 
+/* ─── Responsive stat heading (About section) ─── */
+/* Scales from compact on mobile up to display-large on desktop */
+.stat-heading {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+    .stat-heading {
+        font-size: 48px;
+        line-height: 56px;
+    }
+}
+@media (min-width: 1024px) {
+    .stat-heading {
+        font-size: 64px;
+        line-height: 72px;
+    }
+}
+
 /* ─── Spacing utilities ─── */
 .px-margin-desktop { padding-left: var(--margin-desktop); padding-right: var(--margin-desktop); }
 .py-stack-md { padding-top: var(--stack-md); padding-bottom: var(--stack-md); }
@@ -216,8 +238,17 @@ html.theme-circuit {
 
 @media (max-width: 768px) {
     .px-margin-desktop { padding-left: var(--margin-mobile); padding-right: var(--margin-mobile); }
-    .font-display-lg, .text-display-lg { font-size: 40px; line-height: 48px; }
-    .font-headline-lg, .text-headline-lg { font-size: 32px; line-height: 40px; }
+    .font-display-lg, .text-display-lg { font-size: 36px; line-height: 44px; }
+    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
+    .font-headline-md, .text-headline-md { font-size: 20px; line-height: 28px; }
+    .section-padding { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+    .section-padding-compact { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+    .section-padding-cta { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+}
+
+@media (max-width: 480px) {
+    .font-display-lg, .text-display-lg { font-size: 30px; line-height: 38px; }
+    .font-headline-lg, .text-headline-lg { font-size: 24px; line-height: 32px; }
 }
 
 /* ─── Elevation & surfaces ─── */
@@ -360,7 +391,7 @@ html.theme-circuit {
     border-radius: var(--radius-xl);
     padding: var(--space-10);
     box-shadow: var(--shadow-1);
-    min-width: 400px;
+    min-width: min(400px, 85vw);
 }
 
 .card-service {
@@ -387,20 +418,31 @@ html.theme-circuit {
 
 .faq-item summary {
     padding: var(--space-6);
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 28px;
     cursor: pointer;
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .faq-item summary {
+        font-size: 16px;
+        line-height: 24px;
+        padding: var(--space-5);
+    }
 }
 
 .faq-item .faq-answer {
     padding: 0 var(--space-6) var(--space-6);
     color: var(--on-surface-variant);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
     line-height: 1.625;
     will-change: height, opacity;
 }
@@ -605,6 +647,8 @@ textarea:focus {
 
 @media (max-width: 768px) {
     .site-nav__inner {
+        padding-top: 10px;
+        padding-bottom: 10px;
         padding-left: var(--margin-mobile);
         padding-right: var(--margin-mobile);
     }
@@ -630,54 +674,309 @@ textarea:focus {
     background-color: var(--surface-container-low);
 }
 
+/* ─── Mobile Menu Overlay ─── */
 .mobile-menu {
     position: fixed;
     inset: 0;
-    z-index: 40;
-    background: rgba(26, 31, 44, 0.96);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    z-index: 110;
+    /* Rich dark layered background with subtle radial brand glow */
+    background: #0d1117;
+    background-image:
+        radial-gradient(ellipse 60% 50% at 80% 10%, rgba(0, 88, 190, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 20% 85%, rgba(0, 88, 190, 0.07) 0%, transparent 55%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Slide-in from right */
+    transform: translateX(100%);
+    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* JS adds .is-open to show it */
+.mobile-menu.is-open {
+    transform: translateX(0);
+}
+
+/* ─── Mobile Menu Header ─── */
+.mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px var(--margin-mobile);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.mobile-menu__header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* ─── Mobile Menu Close Button ─── */
 .mobile-menu__close {
-    position: absolute;
-    top: var(--space-8);
-    right: var(--margin-mobile);
-    color: var(--on-primary);
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
 }
 
 .mobile-menu__close:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    transform: rotate(90deg);
 }
 
+/* ─── Mobile Menu Scrollable Body ─── */
+.mobile-menu__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-6) var(--margin-mobile) var(--space-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ─── Nav Link List ─── */
 .mobile-menu__links {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: var(--space-8);
-    padding: var(--space-16) var(--margin-mobile);
+    gap: 2px;
 }
 
+/* ─── Individual Nav Link ─── */
 .mobile-menu__link {
-    color: var(--on-primary);
-    transition: color var(--transition-fast), transform var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: 13px var(--space-4);
+    border-radius: var(--radius-md);
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 200ms ease, color 200ms ease, transform 180ms ease;
+    position: relative;
 }
 
-.mobile-menu__link:hover {
-    color: var(--secondary-fixed);
+.mobile-menu__link:hover,
+.mobile-menu__link:focus-visible {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
     transform: translateX(4px);
 }
 
+/* Icon container for each link */
+.mobile-menu__link-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: rgba(0, 88, 190, 0.15);
+    border: 1px solid rgba(0, 88, 190, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    flex-shrink: 0;
+    transition: background 200ms ease, border-color 200ms ease;
+}
+
+.mobile-menu__link:hover .mobile-menu__link-icon {
+    background: rgba(0, 88, 190, 0.28);
+    border-color: rgba(0, 88, 190, 0.45);
+}
+
+.mobile-menu__link-icon .material-symbols-outlined {
+    font-size: 18px;
+}
+
+/* Services chevron on the right side */
+.mobile-menu__services-toggle {
+    justify-content: flex-start;
+}
+
+.mobile-menu__services-toggle .mobile-services-chevron {
+    margin-left: auto;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms ease;
+}
+
+.mobile-menu__services-toggle[aria-expanded="true"] .mobile-services-chevron {
+    transform: rotate(180deg);
+    color: var(--secondary);
+}
+
+/* ─── Services Sub-panel ─── */
+.mobile-menu__services-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile-menu__services-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: var(--space-2) 0 var(--space-2) calc(36px + var(--space-2));
+    overflow: hidden;
+}
+
+.mobile-menu__services-panel.hidden {
+    display: none;
+}
+
+.mobile-menu__sub-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px var(--space-2);
+    border-radius: var(--radius-sm);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 200ms ease, color 200ms ease, transform 180ms ease;
+}
+
+.mobile-menu__sub-link .material-symbols-outlined {
+    font-size: 16px;
+    color: var(--secondary);
+    opacity: 0.7;
+    flex-shrink: 0;
+    transition: opacity 200ms ease;
+}
+
+.mobile-menu__sub-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateX(4px);
+}
+
+.mobile-menu__sub-link:hover .material-symbols-outlined {
+    opacity: 1;
+}
+
+/* ─── Divider ─── */
+.mobile-menu__divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: var(--space-4) 0;
+    flex-shrink: 0;
+}
+
+/* ─── Quick Contact Chips ─── */
+.mobile-menu__contact-row {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.mobile-menu__contact-chip {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 11px var(--space-4);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.mobile-menu__contact-chip .material-symbols-outlined {
+    font-size: 18px;
+    color: var(--secondary);
+}
+
+.mobile-menu__contact-chip:hover {
+    background: rgba(0, 88, 190, 0.15);
+    border-color: rgba(0, 88, 190, 0.35);
+    color: #ffffff;
+}
+
+/* WhatsApp chip — green accent */
+.mobile-menu__contact-chip--wa {
+    border-color: rgba(37, 211, 102, 0.2);
+}
+
+.mobile-menu__contact-chip--wa svg {
+    color: #25d366;
+}
+
+.mobile-menu__contact-chip--wa:hover {
+    background: rgba(37, 211, 102, 0.12);
+    border-color: rgba(37, 211, 102, 0.35);
+}
+
+/* ─── Mobile Menu CTA ─── */
 .mobile-menu__cta {
-    margin-top: var(--space-4);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 16px var(--space-8);
+    background: var(--secondary);
+    color: var(--on-secondary);
+    border-radius: var(--radius-md);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+    box-shadow: 0 4px 24px rgba(0, 88, 190, 0.35);
+    margin-bottom: var(--space-5);
+}
+
+.mobile-menu__cta .material-symbols-outlined {
+    font-size: 20px;
+    transition: transform 200ms ease;
+}
+
+.mobile-menu__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 88, 190, 0.5);
+}
+
+.mobile-menu__cta:hover .material-symbols-outlined {
+    transform: translateX(4px);
+}
+
+.mobile-menu__cta:active {
+    transform: scale(0.97);
+}
+
+/* ─── Tagline ─── */
+.mobile-menu__tagline {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.25);
+    letter-spacing: 0.03em;
 }
 
 /* ─── Nav Dropdown ─── */
@@ -875,6 +1174,13 @@ textarea:focus {
 
 .comparison-slider__after {
     clip-path: inset(0 0 0 50%);
+}
+
+/* Constrain slider height on mobile so hero section remains usable */
+@media (max-width: 768px) {
+    .comparison-slider {
+        max-height: 260px;
+    }
 }
 
 .comparison-slider__label {
@@ -1419,6 +1725,12 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
     background-color: rgba(0, 230, 118, 0.04) !important;
     color: var(--secondary) !important;
     border-color: var(--secondary) !important;
+}
+
+/* Force high contrast text on neon green backgrounds */
+:root.theme-circuit .bg-secondary.text-white,
+:root.theme-circuit .bg-secondary .text-white {
+    color: var(--on-secondary) !important;
 }
 
 :root.theme-circuit .site-nav {

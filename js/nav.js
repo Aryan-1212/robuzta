@@ -15,9 +15,11 @@
     function closeMobileMenu() {
         const { btn, menu } = getMobileMenuElements();
         if (menu) {
-            menu.classList.add('hidden');
+            menu.classList.remove('is-open');
             menu.setAttribute('aria-hidden', 'true');
             document.body.classList.remove('overflow-hidden');
+            // Wait for slide-out transition before hiding from DOM
+            setTimeout(() => { menu.classList.add('hidden'); }, 330);
         }
         if (btn) {
             btn.setAttribute('aria-expanded', 'false');
@@ -31,11 +33,17 @@
         if (!btn || !menu) return;
 
         btn.addEventListener('click', () => {
-            const isOpen = !menu.classList.contains('hidden');
+            const isOpen = menu.classList.contains('is-open');
             if (isOpen) {
                 closeMobileMenu();
             } else {
                 menu.classList.remove('hidden');
+                // Allow display change to render before triggering transition
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        menu.classList.add('is-open');
+                    });
+                });
                 menu.setAttribute('aria-hidden', 'false');
                 btn.setAttribute('aria-expanded', 'true');
                 document.body.classList.add('overflow-hidden');
@@ -51,7 +59,7 @@
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+            if (e.key === 'Escape' && menu.classList.contains('is-open')) {
                 closeMobileMenu();
             }
         });
@@ -158,23 +166,23 @@
         // Create diagnostics status bar
         const diagBar = document.createElement('div');
         diagBar.id = 'diagnosticsBar';
-        diagBar.className = 'w-full bg-[#030604] text-[#00e676] font-mono text-[9px] md:text-[10px] px-margin-desktop flex justify-between items-center border-b border-[rgba(0,230,118,0.15)] select-none z-[100] relative';
+        diagBar.className = 'w-full bg-[#030604] text-[#00e676] font-mono text-[9px] md:text-[10px] px-margin-desktop flex justify-between items-center border-b border-[rgba(0,230,118,0.15)] select-none z-[100] relative whitespace-nowrap overflow-hidden';
         diagBar.style.height = '24px';
         diagBar.style.display = 'none';
         diagBar.innerHTML = `
-            <div class="flex items-center gap-3">
-                <span class="inline-flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#00e676]" style="animation: pulse 1s infinite alternate; box-shadow: 0 0 8px #00e676;"></span>
-                    SYS_DIAG: ACTIVE
+            <div class="flex items-center gap-1.5 md:gap-3 min-w-0">
+                <span class="inline-flex items-center gap-1">
+                    <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-[#00e676]" style="animation: pulse 1s infinite alternate; box-shadow: 0 0 8px #00e676;"></span>
+                    <span class="hidden sm:inline">SYS_DIAG: </span>ACTIVE
                 </span>
                 <span class="opacity-30">|</span>
-                <span class="hidden xs:inline">VOLTAGE: STABLE (5.12V)</span>
-                <span class="xs:hidden">5.12V</span>
+                <span class="hidden md:inline">VOLTAGE: STABLE (5.12V)</span>
+                <span class="md:hidden">5.12V</span>
             </div>
-            <div class="flex gap-4">
-                <span>THERM_SENS: 34°C</span>
-                <span class="opacity-30">|</span>
-                <span>CALIBRATION: OK</span>
+            <div class="flex gap-2 md:gap-4 shrink-0">
+                <span>TEMP: 34°C</span>
+                <span class="hidden sm:inline opacity-30">|</span>
+                <span class="hidden sm:inline">CALIBRATION: OK</span>
             </div>
         `;
         document.body.insertBefore(diagBar, document.body.firstChild);
@@ -189,26 +197,6 @@
         
         // Insert before "Get Free Quote" button
         actions.insertBefore(toggleBtn, actions.firstChild);
-
-        // Create mobile toggle button
-        const mobileLinks = document.querySelector('.mobile-menu__links');
-        if (mobileLinks) {
-            const mobileToggleBtn = document.createElement('button');
-            mobileToggleBtn.id = 'mobileThemeToggleBtn';
-            mobileToggleBtn.type = 'button';
-            mobileToggleBtn.className = 'mobile-menu__link font-headline-md text-headline-md flex items-center justify-between w-full text-left py-4 border-b border-border-subtle';
-            mobileToggleBtn.innerHTML = `
-                <span>Lab Theme</span>
-                <span class="material-symbols-outlined" id="mobileThemeToggleIcon" style="font-size: 24px;">toggle_off</span>
-            `;
-            // Insert before the Get Free Quote CTA
-            const cta = mobileLinks.querySelector('.mobile-menu__cta');
-            if (cta) {
-                mobileLinks.insertBefore(mobileToggleBtn, cta);
-            } else {
-                mobileLinks.appendChild(mobileToggleBtn);
-            }
-        }
 
         const htmlEl = document.documentElement;
         const mainNav = document.getElementById('mainNav');
@@ -236,11 +224,6 @@
                     icon.textContent = 'developer_board';
                     icon.style.color = '#00e676';
                 });
-                const mobileIcon = document.getElementById('mobileThemeToggleIcon');
-                if (mobileIcon) {
-                    mobileIcon.textContent = 'toggle_on';
-                    mobileIcon.style.color = '#00e676';
-                }
                 diagBar.style.display = 'flex';
                 // Offset navbar if at top
                 if (mainNav) {
@@ -254,11 +237,6 @@
                     icon.textContent = 'developer_board';
                     icon.style.color = '';
                 });
-                const mobileIcon = document.getElementById('mobileThemeToggleIcon');
-                if (mobileIcon) {
-                    mobileIcon.textContent = 'toggle_off';
-                    mobileIcon.style.color = '';
-                }
                 diagBar.style.display = 'none';
                 if (mainNav) {
                     mainNav.style.top = '0';
@@ -274,15 +252,6 @@
             const currentlyEnabled = htmlEl.classList.contains('theme-circuit');
             setTema(!currentlyEnabled);
         });
-
-        // Mobile listener
-        const mobToggle = document.getElementById('mobileThemeToggleBtn');
-        if (mobToggle) {
-            mobToggle.addEventListener('click', () => {
-                const currentlyEnabled = htmlEl.classList.contains('theme-circuit');
-                setTema(!currentlyEnabled);
-            });
-        }
     }
 
     function initNavScroll() {
