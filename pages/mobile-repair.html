@@ -24,7 +24,7 @@
     </style>
 <script>(function(){const t=localStorage.getItem("robuzta-theme");if(t==="circuit")document.documentElement.classList.add("theme-circuit");})();</script>
 </head>
-<body class="text-on-background">
+<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter overflow-x-hidden">
     <!-- Interactive Particle Network Canvas (fixed full-viewport background) -->
     <canvas id="hero-circuit-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;opacity:0.6;"></canvas>
 
@@ -143,17 +143,17 @@
 
     <main class="pt-16 md:pt-24">
 <!-- Hero Section -->
-<section class="relative min-h-[70vh] flex items-center overflow-hidden bg-white">
+<section class="relative min-h-[50vh] md:min-h-[70vh] flex items-center overflow-hidden bg-white">
 <div class="absolute inset-0 z-0">
 <div class="w-full h-full bg-cover bg-center" style="background-image: url('../images/tech_repair_laboratory.png')"></div>
-<div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+<div class="absolute inset-0 bg-white/90 sm:bg-white/80 md:bg-gradient-to-r md:from-white md:via-white/80 md:to-transparent"></div>
 </div>
 <div class="relative z-10 w-full px-margin-desktop max-w-container-max mx-auto py-stack-lg">
-<div class="max-w-[640px]">
+<div class="max-w-[640px] page-hero-content">
 <span class="inline-block px-4 py-1.5 bg-secondary-fixed text-on-secondary-fixed rounded-full font-label-sm text-label-sm mb-6">Expert Mobile &amp; Tablet Solutions</span>
 <h1 class="font-display-lg text-display-lg text-primary mb-6 leading-tight">Precision Repair for the Devices You Love.</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[540px]">We restore performance to your iPhone, Samsung, and Android devices with surgical precision. Certified components, transparent pricing, and rapid turnaround.</p>
-<div class="flex flex-col sm:flex-row gap-4">
+<div class="flex flex-col sm:flex-row gap-4 page-hero-actions">
 <button class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-label-md text-label-md hover:scale-105 transition-all shadow-lg shadow-secondary/20">
                             Book Your Repair
                         </button>
@@ -179,8 +179,8 @@
 </div>
 </section>
 <!-- Symptoms Bento Grid -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
-<div class="mb-16 text-center max-w-[680px] mx-auto">
+<section class="section-padding px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-10 md:mb-16 text-center max-w-[680px] mx-auto">
 <h2 class="font-headline-lg text-headline-lg text-primary mb-4">Common Issues We Resolve</h2>
 <p class="font-body-md text-body-md text-on-surface-variant">Identify your device's symptoms and let our technicians provide a permanent solution.</p>
 </div>
@@ -250,9 +250,9 @@
 </div>
 </section>
 <!-- Process Section -->
-<section class="bg-primary text-white py-24">
+<section class="bg-primary text-white section-padding">
 <div class="px-margin-desktop max-w-container-max mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 <div>
 <h2 class="font-headline-lg text-headline-lg mb-8">The Engineering Process</h2>
 <div class="space-y-12">
@@ -287,8 +287,8 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="py-24 px-margin-desktop max-w-[800px] mx-auto">
-<h2 class="font-headline-lg text-headline-lg text-center mb-16">Frequently Asked</h2>
+<section class="section-padding px-margin-desktop max-w-[800px] mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-center mb-10 md:mb-16">Frequently Asked</h2>
 <div class="space-y-6">
 <details class="group bg-white rounded-xl card-shadow border border-border-subtle" open="">
 <summary class="list-none p-6 flex justify-between items-center cursor-pointer font-headline-md text-[18px]">
@@ -329,8 +329,8 @@
 </div>
 </section>
 <!-- Final CTA -->
-<section class="py-24 px-margin-desktop">
-<div class="max-w-container-max mx-auto bg-secondary rounded-3xl p-12 md:p-20 relative overflow-hidden text-center text-on-secondary">
+<section class="section-padding px-margin-desktop">
+<div class="max-w-container-max mx-auto bg-secondary rounded-3xl p-8 md:p-12 lg:p-20 relative overflow-hidden text-center text-on-secondary">
 <div class="absolute inset-0 opacity-10">
 <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
 </div>

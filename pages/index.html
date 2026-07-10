@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/styles.css">
 <script>(function(){const t=localStorage.getItem("robuzta-theme");if(t==="circuit")document.documentElement.classList.add("theme-circuit");})();</script>
 </head>
-<body class="bg-background text-on-background font-body-md text-body-md antialiased">
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden">
 
     <!-- Interactive Particle Network Canvas (fixed full-viewport background) -->
     <canvas id="hero-circuit-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;opacity:0.6;"></canvas>
@@ -246,56 +246,56 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter" data-services-grid>
                 <!-- Laptop Repair -->
-                <a href="laptop-repair.html" class="md:col-span-8 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[240px] sm:h-[320px] md:h-[400px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
-                    <img alt="Laptop Repair" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/service_laptop_1.jpg"/>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 z-20 text-white">
+                <a href="laptop-repair.html" class="block w-full md:col-span-8 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[320px] sm:h-[360px] md:h-[420px]">
+                    <img alt="Laptop Repair" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" src="../images/service_laptop_1.jpg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white z-20">
                         <span class="material-symbols-outlined text-4xl mb-4">laptop</span>
                         <h3 class="text-3xl font-bold mb-2">Laptop Repair</h3>
-                        <p class="opacity-80 max-w-md">Chip-level servicing for all major brands including HP, Dell, and Lenovo.</p>
+                        <p class="opacity-90 max-w-md">Chip-level servicing for all major brands including HP, Dell, and Lenovo.</p>
                     </div>
                 </a>
                 <!-- Mobile & Tablet -->
-                <a href="mobile-repair.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[240px] sm:h-[300px] md:h-[400px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent z-10"></div>
-                    <img alt="Mobile Repair" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/mobile_repair_card.jpg"/>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 z-20 text-white">
+                <a href="mobile-repair.html" class="block w-full md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[320px] sm:h-[360px] md:h-[420px]">
+                    <img alt="Mobile Repair" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" src="../images/mobile_repair_card.jpg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#001a42]/90 via-[#001a42]/40 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white z-20">
                         <span class="material-symbols-outlined text-4xl mb-4">smartphone</span>
                         <h3 class="text-2xl font-bold mb-2">Mobile & Tablet</h3>
-                        <p class="opacity-80">Screen, battery, and logic board specialists for iOS and Android.</p>
+                        <p class="opacity-90">Screen, battery, and logic board specialists for iOS and Android.</p>
                     </div>
                 </a>
                 <!-- MacBook Repair -->
-                <a href="macbook-repair.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[240px] sm:h-[300px] md:h-[400px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
-                    <img alt="MacBook disassembled for logic board micro repair" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/macbook_disassembled.png"/>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 z-20 text-white w-full">
+                <a href="macbook-repair.html" class="block w-full md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[320px] sm:h-[360px] md:h-[420px]">
+                    <img alt="MacBook disassembled for logic board micro repair" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" src="../images/macbook_disassembled.png"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white z-20">
                         <span class="material-symbols-outlined text-4xl mb-4 text-secondary" style="font-variation-settings: 'FILL' 1;">laptop_mac</span>
                         <h3 class="text-2xl font-bold mb-2">MacBook Repair</h3>
-                        <p class="opacity-80 mb-4">Certified logic board micro-soldering and screen restoration.</p>
+                        <p class="opacity-90 mb-4">Certified logic board micro-soldering and screen restoration.</p>
                         <div class="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                             <div class="h-full bg-secondary w-0 group-hover:w-full transition-all duration-500"></div>
                         </div>
                     </div>
                 </a>
                 <!-- Gaming PC Builds -->
-                <a href="gaming-pc.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[240px] sm:h-[300px] md:h-[400px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent z-10"></div>
-                    <img alt="Custom water-cooled gaming PC inside lighting" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/blog_5.jpg"/>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 z-20 text-white">
+                <a href="gaming-pc.html" class="block w-full md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[320px] sm:h-[360px] md:h-[420px]">
+                    <img alt="Custom water-cooled gaming PC inside lighting" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" src="../images/blog_5.jpg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white z-20">
                         <span class="material-symbols-outlined text-4xl mb-4 text-secondary">sports_esports</span>
                         <h3 class="text-2xl font-bold mb-2">Gaming PC Builds</h3>
-                        <p class="opacity-80">Liquid cooling loops, hardware upgrades, and clean benchmarks.</p>
+                        <p class="opacity-90">Liquid cooling loops, hardware upgrades, and clean benchmarks.</p>
                     </div>
                 </a>
                 <!-- Microsoft Surface -->
-                <a href="surface-repair.html" class="md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[240px] sm:h-[300px] md:h-[400px]">
-                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent z-10"></div>
-                    <img alt="Microsoft Surface screen replacement under process" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="../images/tech_repair_laboratory.png"/>
-                    <div class="absolute bottom-0 left-0 p-6 md:p-10 z-20 text-white">
+                <a href="surface-repair.html" class="block w-full md:col-span-4 bg-white rounded-3xl overflow-hidden apple-shadow group cursor-pointer relative h-[320px] sm:h-[360px] md:h-[420px]">
+                    <img alt="Microsoft Surface screen replacement under process" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-110 transition-transform duration-700" src="../images/tech_repair_laboratory.png"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#001a42]/90 via-[#001a42]/40 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-10 text-white z-20">
                         <span class="material-symbols-outlined text-4xl mb-4">window</span>
                         <h3 class="text-2xl font-bold mb-2">Microsoft Surface</h3>
-                        <p class="opacity-80">Screen calibration, battery replacements, and SSD recovery.</p>
+                        <p class="opacity-90">Screen calibration, battery replacements, and SSD recovery.</p>
                     </div>
                 </a>
             </div>

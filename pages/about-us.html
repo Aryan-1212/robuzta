@@ -34,7 +34,7 @@
     </style>
 <script>(function(){const t=localStorage.getItem("robuzta-theme");if(t==="circuit")document.documentElement.classList.add("theme-circuit");})();</script>
 </head>
-<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter">
+<body class="bg-background text-on-background font-body-md text-body-md antialiased page-enter overflow-x-hidden">
     <!-- Interactive Particle Network Canvas (fixed full-viewport background) -->
     <canvas id="hero-circuit-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;pointer-events:none;opacity:0.6;"></canvas>
 
@@ -151,7 +151,7 @@
 
     <main class="pt-20 md:pt-32 pb-12 md:pb-24">
         <!-- Hero Section -->
-        <section class="max-w-container-max mx-auto px-margin-desktop mb-20 text-center">
+        <section class="max-w-container-max mx-auto px-margin-desktop mb-12 md:mb-20 text-center">
             <div class="relative max-w-xl mx-auto mb-10 overflow-hidden rounded-2xl bg-[#2f5168] border border-slate-700/30 shadow-2xl">
                 <!-- Browser-like header bar -->
                 <div class="flex items-center gap-1.5 px-4 py-3 bg-slate-900/60 border-b border-slate-700/30">
@@ -170,8 +170,8 @@
         </section>
 
         <!-- Expertise section -->
-        <section class="max-w-container-max mx-auto px-margin-desktop mb-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            <div class="glass-card p-10 md:p-12 rounded-[2rem] border border-border-subtle flex flex-col justify-center">
+        <section class="max-w-container-max mx-auto px-margin-desktop mb-16 md:mb-24 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-stretch">
+            <div class="glass-card p-6 md:p-10 lg:p-12 rounded-[2rem] border border-border-subtle flex flex-col justify-center">
                 <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-2xl flex items-center justify-center mb-8">
                     <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">build_circle</span>
                 </div>
@@ -184,7 +184,7 @@
                 </p>
             </div>
             
-            <div class="relative overflow-hidden rounded-[2rem] bg-primary shadow-2xl p-10 md:p-12 text-white flex flex-col justify-between">
+            <div class="relative overflow-hidden rounded-[2rem] bg-primary shadow-2xl p-6 md:p-10 lg:p-12 text-white flex flex-col justify-between">
                 <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-20"></div>
                 <div class="relative z-10">
                     <div class="w-14 h-14 bg-white/10 text-white rounded-2xl flex items-center justify-center mb-8">
@@ -195,7 +195,7 @@
                         We run high-precision lab diagnostics, tracking repairs step-by-step. Standardized quality control checklists guarantee your repairs are built to last.
                     </p>
                 </div>
-                <div class="relative z-10 flex gap-12 mt-8 border-t border-white/10 pt-8">
+                <div class="relative z-10 flex stats-row gap-6 sm:gap-12 mt-8 border-t border-white/10 pt-8">
                     <div>
                         <h4 class="text-3xl font-bold font-display-lg-mobile">10+</h4>
                         <p class="text-xs text-white/60 uppercase tracking-widest mt-1">Years Experience</p>
@@ -209,15 +209,15 @@
         </section>
 
         <!-- What Sets Us Apart Section -->
-        <section class="bg-surface-container-low py-24 mb-24 border-y border-border-subtle">
+        <section class="bg-surface-container-low py-12 md:py-24 mb-16 md:mb-24 border-y border-border-subtle">
             <div class="max-w-container-max mx-auto px-margin-desktop">
-                <div class="text-center mb-16">
+                <div class="text-center mb-10 md:mb-16">
                     <span class="text-secondary font-bold font-label-md text-label-md tracking-wider uppercase mb-4 block">The Robuzta Difference</span>
                     <h2 class="font-headline-lg text-primary mb-4">What Sets Us Apart</h2>
                     <p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl mx-auto">Providing a safe, transparent, and hassle-free repair journey.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                     <div class="flex gap-6">
                         <div class="w-12 h-12 shrink-0 bg-white rounded-full flex items-center justify-center text-secondary border border-border-subtle shadow-sm">
                             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
@@ -259,8 +259,8 @@
         </section>
 
         <!-- Our Story / Timeline Section -->
-        <section class="max-w-[800px] mx-auto px-margin-desktop mb-24">
-            <h2 class="font-headline-lg text-primary text-center mb-16">Our Story</h2>
+        <section class="max-w-[800px] mx-auto px-margin-desktop mb-16 md:mb-24">
+            <h2 class="font-headline-lg text-primary text-center mb-10 md:mb-16">Our Story</h2>
             
             <div class="space-y-12">
                 <!-- Step 1 -->
@@ -331,13 +331,13 @@
         </section>
 
         <!-- Young Founder Quote Section -->
-        <section class="max-w-5xl mx-auto px-margin-desktop mt-24 mb-16">
+        <section class="max-w-5xl mx-auto px-margin-desktop mt-16 md:mt-24 mb-12 md:mb-16">
             <div class="text-center mb-12">
                 <span class="text-secondary font-bold font-label-sm text-label-sm uppercase tracking-widest block mb-2">Our Leadership</span>
                 <h2 class="font-headline-lg text-primary">Meet Our Founder</h2>
             </div>
             
-            <div class="glass-card border border-border-subtle rounded-[2.5rem] shadow-xl overflow-hidden p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 relative">
+            <div class="glass-card border border-border-subtle rounded-[2.5rem] shadow-xl overflow-hidden p-6 md:p-10 lg:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 relative">
                 <!-- Glowing tech accent background elements -->
                 <div class="absolute -top-16 -left-16 w-48 h-48 bg-secondary/5 rounded-full blur-2xl"></div>
                 <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-secondary/5 rounded-full blur-2xl"></div>
@@ -354,7 +354,7 @@
                 <!-- Biography / quote area -->
                 <div class="flex-1 text-center md:text-left relative z-10">
                     
-                    <p class="text-2xl md:text-3xl font-extrabold text-primary mb-6 italic tracking-tight leading-snug">
+                    <p class="text-xl sm:text-2xl md:text-3xl font-extrabold text-primary mb-6 italic tracking-tight leading-snug">
                         "Robuzta Hai Na!"
                     </p>
                     

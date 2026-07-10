@@ -251,6 +251,104 @@ html.theme-circuit {
     .font-headline-lg, .text-headline-lg { font-size: 24px; line-height: 32px; }
 }
 
+/* ─── Global Responsive Layout ─── */
+html {
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    min-width: 0;
+}
+
+img, video, iframe, svg {
+    max-width: 100%;
+}
+
+.grid > *,
+.flex > * {
+    min-width: 0;
+}
+
+/* Service / inner-page hero — center on tablet & mobile */
+@media (max-width: 1023px) {
+    .page-hero-content {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page-hero-content .page-hero-actions {
+        justify-content: center;
+    }
+
+    .page-hero-content .page-hero-actions .btn,
+    .page-hero-content .page-hero-actions button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .page-hero-content .page-hero-actions .btn,
+    .page-hero-content .page-hero-actions button {
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .device-frame {
+        border-width: 8px;
+        border-radius: 16px;
+    }
+
+    .device-frame--phone {
+        border-width: 14px 6px;
+        border-radius: 24px;
+    }
+
+    .card-testimonial {
+        min-width: 0;
+        padding: var(--space-6);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-8);
+    }
+
+    .section-intro {
+        margin-bottom: var(--space-6);
+    }
+
+    /* Blog post card footers */
+    .blog-post-footer {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: var(--space-4);
+    }
+
+    /* Footer long address text */
+    .footer-connect-item span:not(.material-symbols-outlined) {
+        word-break: break-word;
+    }
+
+    /* Location / contact cards */
+    .location-card-body {
+        padding: var(--space-6) !important;
+    }
+
+    /* About page stat row */
+    .stats-row {
+        flex-direction: column;
+        gap: var(--space-6);
+    }
+}
+
+@media (min-width: 640px) {
+    .stats-row {
+        flex-direction: row;
+    }
+}
+
 /* ─── Elevation & surfaces ─── */
 .glass-card {
     background: rgba(255, 255, 255, 0.7);
@@ -1975,6 +2073,793 @@ section.bg-secondary button {
 :root.theme-circuit div.bg-primary p,
 :root.theme-circuit div.bg-primary span {
     color: var(--on-background) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE RESPONSIVE DESIGN IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Service Pages Hero Sections ─── */
+@media (max-width: 1023px) {
+    /* Center align hero text and buttons on tablets and mobile */
+    .page-hero-content {
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+    
+    .page-hero-content h1,
+    .page-hero-content p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Reduce hero padding on mobile */
+    section[class*="pt-"] {
+        padding-top: var(--space-12) !important;
+    }
+    
+    section[class*="pb-"] {
+        padding-bottom: var(--space-12) !important;
+    }
+    
+    /* Make hero images properly sized on mobile */
+    .device-frame {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Stack grid layouts on mobile */
+    .grid.grid-cols-2,
+    .grid.grid-cols-3 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ─── About Us Page Responsive Fixes ─── */
+@media (max-width: 1023px) {
+    /* Stack about us two-column layouts */
+    .grid.lg\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+    }
+    
+    /* Adjust logo/gif container on mobile */
+    .about-us .relative.max-w-xl {
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* About page specific adjustments */
+    .glass-card {
+        padding: var(--space-6) !important;
+    }
+    
+    /* Timeline items on about page */
+    .timeline-item {
+        padding-left: var(--space-6) !important;
+    }
+    
+    /* Stat boxes and feature cards */
+    .stats-row {
+        flex-direction: column !important;
+        gap: var(--space-6) !important;
+    }
+    
+    .stat-heading {
+        font-size: 32px !important;
+        line-height: 40px !important;
+    }
+}
+
+/* ─── Blog Page Responsive Fixes ─── */
+@media (max-width: 1023px) {
+    /* Stack blog grid on tablet and mobile */
+    .grid.lg\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Blog post cards */
+    article.rounded-3xl {
+        margin-bottom: var(--space-6);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Blog page header */
+    main.py-8 {
+        padding-top: var(--space-12) !important;
+        padding-bottom: var(--space-12) !important;
+    }
+    
+    /* Blog card padding */
+    article .p-5,
+    article .p-8,
+    article .p-12 {
+        padding: var(--space-6) !important;
+    }
+    
+    /* Blog post footer */
+    .blog-post-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-3) !important;
+    }
+    
+    /* Blog post lists */
+    article ol,
+    article ul {
+        padding-left: var(--space-5) !important;
+    }
+}
+
+/* ─── Contact Page Responsive Fixes ─── */
+@media (max-width: 767px) {
+    /* Stack location cards on mobile */
+    .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Location card adjustments */
+    .location-card-body {
+        padding: var(--space-6) !important;
+    }
+    
+    /* Map embed height adjustment */
+    .location-card-body + div {
+        height: 200px !important;
+    }
+    
+    /* Contact form adjustments */
+    .glass-card.rounded-\[2\.5rem\] {
+        padding: var(--space-6) !important;
+        border-radius: var(--radius-xl) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Further contact page adjustments for small mobile */
+    .contact h1,
+    .contact h2 {
+        font-size: 28px !important;
+        line-height: 36px !important;
+    }
+}
+
+/* ─── Service Pages (All Service Repair Pages) Responsive Fixes ─── */
+@media (max-width: 1023px) {
+    /* Service hero sections - stack on tablet */
+    section .grid.lg\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+    }
+    
+    /* Service card grids */
+    .grid.md\\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-6) !important;
+    }
+    
+    /* Wide service cards */
+    .md\\:col-span-2 {
+        grid-column: span 1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Brand support ticker - wrap items */
+    .flex.flex-wrap.justify-center {
+        gap: var(--space-6) !important;
+    }
+    
+    .flex.flex-wrap.justify-center span {
+        font-size: 18px !important;
+    }
+    
+    /* Service symptom cards */
+    .glass-card.p-stack-lg {
+        padding: var(--space-6) !important;
+    }
+    
+    /* Liquid damage wide card */
+    .md\\:flex-row {
+        flex-direction: column !important;
+    }
+    
+    .md\\:flex-row .w-24 {
+        width: 64px !important;
+        height: 64px !important;
+    }
+    
+    /* Service pricing text */
+    .text-secondary.font-bold {
+        font-size: 14px;
+    }
+}
+
+/* ─── FAQ Section Responsive ─── */
+@media (max-width: 768px) {
+    .faq-item {
+        margin-bottom: var(--space-4);
+    }
+    
+    .faq-item summary,
+    details summary {
+        padding: var(--space-4) !important;
+        font-size: 15px !important;
+        line-height: 22px !important;
+    }
+    
+    /* Target FAQ summaries with arbitrary font sizes */
+    summary.text-\[18px\] {
+        font-size: 15px !important;
+    }
+    
+    .faq-item .faq-answer,
+    details > div {
+        padding: 0 var(--space-4) var(--space-4) !important;
+        font-size: 14px !important;
+    }
+    
+    /* FAQ arrow icons on mobile */
+    details summary .material-symbols-outlined {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Further reduce FAQ font on small mobile */
+    .faq-item summary,
+    details summary,
+    summary.text-\[18px\] {
+        font-size: 14px !important;
+        line-height: 20px !important;
+        padding: var(--space-3) !important;
+    }
+    
+    .faq-item .faq-answer,
+    details > div {
+        font-size: 13px !important;
+        line-height: 20px !important;
+    }
+}
+
+/* ─── Form Elements Responsive ─── */
+@media (max-width: 768px) {
+    input,
+    textarea,
+    select {
+        font-size: 16px !important; /* Prevents iOS zoom on focus */
+        padding: var(--space-3) var(--space-4) !important;
+    }
+    
+    button[type="submit"],
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ─── Hero Action Buttons Responsive ─── */
+@media (max-width: 639px) {
+    .page-hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    
+    .page-hero-actions .btn {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .page-hero-actions {
+        justify-content: center !important;
+    }
+}
+
+/* ─── Images and Media Responsive ─── */
+@media (max-width: 768px) {
+    img {
+        height: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Service page hero images */
+    .device-frame img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ─── Typography Responsive Scaling ─── */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 32px !important;
+        line-height: 40px !important;
+    }
+    
+    h2 {
+        font-size: 24px !important;
+        line-height: 32px !important;
+    }
+    
+    h3 {
+        font-size: 20px !important;
+        line-height: 28px !important;
+    }
+    
+    p {
+        font-size: 15px !important;
+        line-height: 24px !important;
+    }
+    
+    .font-body-lg,
+    .text-body-lg {
+        font-size: 16px !important;
+        line-height: 26px !important;
+    }
+}
+
+/* ─── Padding and Spacing Mobile Optimization ─── */
+@media (max-width: 768px) {
+    /* Reduce excessive padding on all sections */
+    section {
+        padding-left: var(--margin-mobile) !important;
+        padding-right: var(--margin-mobile) !important;
+    }
+    
+    /* Container max widths */
+    .max-w-container-max {
+        padding-left: var(--margin-mobile);
+        padding-right: var(--margin-mobile);
+    }
+    
+    /* Card spacing */
+    .card,
+    .card-glass,
+    .card-service {
+        margin-bottom: var(--space-6);
+    }
+}
+
+/* ─── Floater Elements Mobile Hide ─── */
+@media (max-width: 767px) {
+    /* Hide decorative floater badges on mobile */
+    .glass-card.absolute,
+    .absolute.-bottom-6,
+    .absolute.-top-6 {
+        display: none !important;
+    }
+}
+
+/* ─── Process Timeline Mobile Optimization ─── */
+@media (max-width: 768px) {
+    .process-timeline__track {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-6) !important;
+    }
+    
+    .process-timeline__step {
+        padding: 0 !important;
+    }
+    
+    .process-timeline__icon {
+        width: 64px !important;
+        height: 64px !important;
+    }
+    
+    .process-timeline__card {
+        padding: var(--space-5) var(--space-4) !important;
+    }
+}
+
+/* ─── Testimonial Cards Mobile ─── */
+@media (max-width: 768px) {
+    .card-testimonial {
+        min-width: 280px !important;
+        padding: var(--space-6) !important;
+    }
+}
+
+/* ─── Navigation Dropdown Mobile Prevention ─── */
+@media (max-width: 767px) {
+    .nav-dropdown__panel {
+        display: none !important;
+    }
+}
+
+/* ─── Overflow Prevention ─── */
+@media (max-width: 768px) {
+    * {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+    
+    /* Prevent horizontal scroll */
+    body, html, main {
+        overflow-x: hidden !important;
+        max-width: 100vw;
+    }
+    
+    /* Force containers to respect viewport */
+    section,
+    div,
+    article {
+        max-width: 100%;
+    }
+}
+
+/* ─── Grid System Mobile Fallbacks ─── */
+@media (max-width: 768px) {
+    /* Force all multi-column grids to single column on mobile */
+    .grid[class*="grid-cols-"]:not([class*="md:"]):not([class*="sm:"]) {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Ensure grid gaps are appropriate for mobile */
+    .grid {
+        gap: var(--space-4) !important;
+    }
+}
+
+/* ─── Flex Layout Mobile Adjustments ─── */
+@media (max-width: 768px) {
+    /* Stack flex rows on mobile unless explicitly prevented */
+    .flex.flex-row:not(.md\\:flex-row):not(.sm\\:flex-row) {
+        flex-direction: column !important;
+    }
+    
+    /* Adjust flex gaps */
+    .flex {
+        gap: var(--space-3) !important;
+    }
+}
+
+/* ─── Button Sizing Mobile ─── */
+@media (max-width: 768px) {
+    .btn-primary-lg {
+        font-size: 15px !important;
+        padding: var(--space-3) var(--space-6) !important;
+    }
+    
+    .btn-primary {
+        font-size: 14px !important;
+        padding: var(--space-2) var(--space-5) !important;
+    }
+}
+
+/* ─── Icon Sizing Mobile ─── */
+@media (max-width: 768px) {
+    .icon-box {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .icon-box-sm {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .material-symbols-outlined {
+        font-size: 20px !important;
+    }
+}
+
+/* ─── Service Page Specific Grid Fixes ─── */
+@media (max-width: 1023px) {
+    /* Services grid - force single column on tablet and below */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .service-card--featured {
+        grid-column: span 1 !important;
+    }
+}
+
+/* ─── About Page Stats and Timeline ─── */
+@media (max-width: 768px) {
+    /* Stats display */
+    .flex.stats-row {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    
+    /* Timeline adjustments */
+    .timeline-item::after {
+        display: none !important;
+    }
+}
+
+/* ─── Blog Page Long Content ─── */
+@media (max-width: 768px) {
+    /* Ensure blog content doesn't overflow */
+    article p,
+    article div {
+        max-width: 100%;
+    }
+    
+    /* Blog images */
+    article img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* ─── Contact Form Full Width Mobile ─── */
+@media (max-width: 768px) {
+    form input,
+    form textarea,
+    form select,
+    form button {
+        width: 100% !important;
+    }
+    
+    form .flex {
+        flex-direction: column !important;
+    }
+    
+    /* Contact page form grid layouts */
+    form .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+    }
+    
+    /* Contact CTA sections */
+    .rounded-\[2\.5rem\] {
+        border-radius: var(--radius-xl) !important;
+        padding: var(--space-8) var(--space-6) !important;
+    }
+    
+    /* CTA buttons in contact sections */
+    .rounded-\[2\.5rem\] button,
+    .rounded-\[2\.5rem\] .btn {
+        width: 100% !important;
+        padding: var(--space-4) var(--space-6) !important;
+        font-size: 15px !important;
+    }
+}
+
+/* ─── Mobile Repair Page Specific Fixes ─── */
+@media (max-width: 768px) {
+    /* Check circle icons with arbitrary sizes */
+    .text-\[18px\] {
+        font-size: 16px !important;
+    }
+    
+    /* Mobile repair service cards */
+    .bg-white.rounded-xl.p-6 {
+        padding: var(--space-5) !important;
+    }
+    
+    /* Mobile repair benefits list */
+    .space-y-4 {
+        gap: var(--space-3) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Further reduce arbitrary icon sizes */
+    .text-\[18px\] {
+        font-size: 14px !important;
+    }
+}
+
+/* ─── Maximum Mobile Compatibility ─── */
+@media (max-width: 480px) {
+    /* Extra small mobile devices */
+    .px-margin-desktop {
+        padding-left: var(--space-4) !important;
+        padding-right: var(--space-4) !important;
+    }
+    
+    h1 {
+        font-size: 28px !important;
+        line-height: 36px !important;
+    }
+    
+    .btn {
+        font-size: 14px !important;
+        padding: var(--space-3) var(--space-4) !important;
+    }
+    
+    /* Further reduce card padding */
+    .glass-card,
+    .card,
+    .card-service {
+        padding: var(--space-4) !important;
+    }
+    
+    /* Mobile repair FAQ on tiny screens */
+    details.rounded-xl {
+        border-radius: var(--radius-md) !important;
+    }
+}
+
+/* ─── Footer Responsiveness ─── */
+@media (max-width: 768px) {
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+    }
+    
+    /* Footer connect section with long address */
+    footer .flex.items-center.gap-3 span:not(.material-symbols-outlined) {
+        font-size: 14px !important;
+        line-height: 20px !important;
+        word-break: break-word !important;
+    }
+    
+    /* Footer bottom links */
+    footer .flex.gap-8 {
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+    
+    /* Footer email subscription */
+    footer input[type="email"] {
+        min-width: 0 !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Footer social icons */
+    footer .flex.gap-4 a {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* ─── Landscape Mobile Orientation ─── */
+@media (max-width: 896px) and (orientation: landscape) {
+    /* Reduce vertical padding in landscape mode */
+    section[class*="pt-"],
+    section[class*="pb-"] {
+        padding-top: var(--space-8) !important;
+        padding-bottom: var(--space-8) !important;
+    }
+}
+
+/* ─── Print Styles (Bonus) ─── */
+@media print {
+    .site-nav,
+    .mobile-menu,
+    footer,
+    .btn,
+    button {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ─── Modal and Quote Forms Responsive ─── */
+@media (max-width: 768px) {
+    /* Quote modal containers */
+    #quoteModal .glass-card {
+        max-width: calc(100vw - 2rem) !important;
+        padding: var(--space-6) !important;
+        margin: var(--space-4);
+    }
+    
+    /* Modal form spacing */
+    #quoteModal form .space-y-4 > * + * {
+        margin-top: var(--space-3) !important;
+    }
+    
+    /* Modal labels */
+    #quoteModal label {
+        font-size: 13px !important;
+    }
+    
+    /* Modal inputs */
+    #quoteModal input,
+    #quoteModal textarea,
+    #quoteModal select {
+        padding: var(--space-3) !important;
+        font-size: 15px !important;
+    }
+    
+    /* Modal close button */
+    #quoteModal #closeQuoteModal {
+        top: var(--space-4) !important;
+        right: var(--space-4) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    /* Further optimize modals for small screens */
+    #quoteModal h3 {
+        font-size: 20px !important;
+        line-height: 28px !important;
+    }
+    
+    #quoteModal p {
+        font-size: 13px !important;
+    }
+}
+
+/* ─── CTA Final Sections Responsive ─── */
+@media (max-width: 768px) {
+    /* Final CTA sections with gradient backgrounds */
+    section.bg-secondary {
+        padding: var(--space-10) var(--space-6) !important;
+        border-radius: var(--radius-xl) !important;
+    }
+    
+    section.bg-secondary h2 {
+        font-size: 24px !important;
+        line-height: 32px !important;
+        margin-bottom: var(--space-4) !important;
+    }
+    
+    section.bg-secondary p {
+        font-size: 15px !important;
+        line-height: 24px !important;
+        margin-bottom: var(--space-6) !important;
+    }
+    
+    section.bg-secondary .flex.gap-4 {
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+    
+    section.bg-secondary button {
+        width: 100% !important;
+        padding: var(--space-4) var(--space-6) !important;
+    }
+}
+
+/* ─── Service Cards with Checkmarks Responsive ─── */
+@media (max-width: 768px) {
+    /* Cards with check circle icons and features */
+    .bg-white.rounded-xl.card-shadow {
+        padding: var(--space-5) !important;
+    }
+    
+    .bg-white.rounded-xl.card-shadow h3 {
+        font-size: 18px !important;
+        line-height: 26px !important;
+    }
+    
+    .bg-white.rounded-xl.card-shadow p {
+        font-size: 14px !important;
+        line-height: 22px !important;
+    }
+    
+    /* Feature list items with icons */
+    .flex.items-center.gap-3 {
+        gap: var(--space-2) !important;
+    }
+}
+
+/* ─── Contact Page Specific Location Cards ─── */
+@media (max-width: 768px) {
+    /* Location information display */
+    .location-card-body h2 {
+        font-size: 20px !important;
+        margin-bottom: var(--space-6) !important;
+    }
+    
+    .location-card-body h3 {
+        font-size: 15px !important;
+        margin-bottom: 2px !important;
+    }
+    
+    .location-card-body p {
+        font-size: 14px !important;
+        line-height: 22px !important;
+        margin-bottom: var(--space-4) !important;
+    }
 }
 
 
