@@ -112,7 +112,7 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// Section entrance animations are handled by GSAP ScrollTrigger in js/phase3.js
+// Section entrance animations are handled by GSAP ScrollTrigger in js/animations.js
 
 // FAQ Accordion - Close others when one opens
 document.querySelectorAll('details').forEach((detail) => {
@@ -282,7 +282,7 @@ if (quoteForm) {
     });
 }
 
-// Parallax is handled by GSAP/Lenis in phase3.js — removed to prevent scroll conflicts
+// Parallax is handled by GSAP/Lenis in js/animations.js — removed to prevent scroll conflicts
 
 // Lazy Loading for Images (if needed in future)
 if ('IntersectionObserver' in window) {

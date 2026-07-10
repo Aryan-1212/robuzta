@@ -968,7 +968,7 @@ html {
     scroll-behavior: auto;
 }
 
-/* Section entrance transitions owned by GSAP phase3.js — no CSS transition here to avoid conflicts */
+/* Section entrance transitions owned by GSAP animations.js — no CSS transition here to avoid conflicts */
 
 a,
 button {
