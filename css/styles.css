@@ -149,59 +149,220 @@
 html {
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 88, 190, 0.2) #f1f3f5;
+    background-color: var(--background) !important;
 }
 
 html.theme-circuit {
     scrollbar-color: rgba(0, 230, 118, 0.25) #030604 !important;
 }
 
+body {
+    background-color: transparent !important;
+}
+
 /* ─── Surface & color utilities ─── */
-.bg-background { background-color: var(--background); }
-.text-on-background { color: var(--on-background); }
-.bg-surface-glass { background-color: var(--surface-glass); }
-.border-border-subtle { border-color: var(--border-subtle); }
-.text-on-surface-variant { color: var(--on-surface-variant); }
-.text-primary { color: var(--primary); }
-.bg-primary { background-color: var(--primary); }
-.text-secondary { color: var(--secondary); }
-.bg-secondary { background-color: var(--secondary); }
-.text-on-secondary { color: var(--on-secondary); }
-.bg-primary-container { background-color: var(--primary-container); }
-.text-on-primary-container { color: var(--on-primary-container); }
-.text-on-secondary-container { color: var(--on-secondary-container); }
-.bg-secondary-fixed { background-color: var(--secondary-fixed); }
-.text-on-secondary-fixed { color: var(--on-secondary-fixed); }
-.bg-surface-container-low { background-color: var(--surface-container-low); }
-.bg-surface-container-high { background-color: var(--surface-container-high); }
-.text-success-emerald { color: var(--success-emerald); }
-.bg-success-emerald { background-color: var(--success-emerald); }
-.text-secondary-fixed { color: var(--secondary-fixed); }
-.text-secondary-fixed-dim { color: var(--secondary-fixed-dim); }
-.border-outline-variant { border-color: var(--outline-variant); }
-.text-outline { color: var(--outline); }
-.bg-surface { background-color: var(--surface); }
-.text-on-primary { color: var(--on-primary); }
-.text-error { color: var(--error); }
-.bg-error { background-color: var(--error); }
+.bg-background {
+    background-color: transparent !important;
+}
+
+.text-on-background {
+    color: var(--on-background);
+}
+
+.bg-surface-glass {
+    background-color: var(--surface-glass);
+}
+
+.border-border-subtle {
+    border-color: var(--border-subtle);
+}
+
+.text-on-surface-variant {
+    color: var(--on-surface-variant);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.text-on-secondary {
+    color: var(--on-secondary);
+}
+
+.bg-primary-container {
+    background-color: var(--primary-container);
+}
+
+.text-on-primary-container {
+    color: var(--on-primary-container);
+}
+
+.text-on-secondary-container {
+    color: var(--on-secondary-container);
+}
+
+.bg-secondary-fixed {
+    background-color: var(--secondary-fixed);
+}
+
+.text-on-secondary-fixed {
+    color: var(--on-secondary-fixed);
+}
+
+.bg-surface-container-low {
+    background-color: transparent !important;
+}
+
+.bg-surface-container-high {
+    background-color: var(--surface-container-high);
+}
+
+.text-success-emerald {
+    color: var(--success-emerald);
+}
+
+.bg-success-emerald {
+    background-color: var(--success-emerald);
+}
+
+.text-secondary-fixed {
+    color: var(--secondary-fixed);
+}
+
+.text-secondary-fixed-dim {
+    color: var(--secondary-fixed-dim);
+}
+
+.border-outline-variant {
+    border-color: var(--outline-variant);
+}
+
+.text-outline {
+    color: var(--outline);
+}
+
+.bg-surface {
+    background-color: transparent !important;
+}
+
+.text-on-primary {
+    color: var(--on-primary);
+}
+
+.text-error {
+    color: var(--error);
+}
+
+.bg-error {
+    background-color: var(--error);
+}
 
 /* ─── Typography scale ─── */
-.font-display-lg { font-family: 'Sora', sans-serif; font-size: 64px; font-weight: 700; line-height: 72px; letter-spacing: -0.02em; }
-.text-display-lg { font-size: 64px; line-height: 72px; letter-spacing: -0.02em; }
-.font-display-lg-mobile { font-family: 'Sora', sans-serif; }
-.text-display-lg-mobile { font-size: 40px; line-height: 48px; letter-spacing: -0.02em; font-weight: 700; }
-.font-headline-lg { font-family: 'Sora', sans-serif; }
-.text-headline-lg { font-size: 40px; line-height: 48px; letter-spacing: -0.01em; font-weight: 600; }
-.text-headline-lg-mobile { font-size: 32px; line-height: 40px; font-weight: 600; }
-.font-headline-md { font-family: 'Sora', sans-serif; }
-.text-headline-md { font-size: 24px; line-height: 32px; font-weight: 600; }
-.font-body-lg { font-family: 'Inter', sans-serif; }
-.text-body-lg { font-size: 18px; line-height: 28px; font-weight: 400; }
-.font-body-md { font-family: 'Inter', sans-serif; }
-.text-body-md { font-size: 16px; line-height: 24px; font-weight: 400; }
-.font-label-md { font-family: 'Inter', sans-serif; }
-.text-label-md { font-size: 14px; line-height: 20px; letter-spacing: 0.01em; font-weight: 500; }
-.font-label-sm { font-family: 'Inter', sans-serif; }
-.text-label-sm { font-size: 12px; line-height: 16px; letter-spacing: 0.05em; font-weight: 600; }
+.font-display-lg {
+    font-family: 'Sora', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -0.02em;
+}
+
+.font-display-lg-mobile {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-display-lg-mobile {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.font-headline-lg {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-headline-lg {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+}
+
+.text-headline-lg-mobile {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.font-headline-md {
+    font-family: 'Sora', sans-serif;
+}
+
+.text-headline-md {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.font-body-lg {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+.font-body-md {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-body-md {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.font-label-md {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+}
+
+.font-label-sm {
+    font-family: 'Inter', sans-serif;
+}
+
+.text-label-sm {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
 
 /* ─── Responsive stat heading (About section) ─── */
 /* Scales from compact on mobile up to display-large on desktop */
@@ -212,12 +373,14 @@ html.theme-circuit {
     font-weight: 700;
     letter-spacing: -0.02em;
 }
+
 @media (min-width: 768px) {
     .stat-heading {
         font-size: 48px;
         line-height: 56px;
     }
 }
+
 @media (min-width: 1024px) {
     .stat-heading {
         font-size: 64px;
@@ -226,29 +389,111 @@ html.theme-circuit {
 }
 
 /* ─── Spacing utilities ─── */
-.px-margin-desktop { padding-left: var(--margin-desktop); padding-right: var(--margin-desktop); }
-.py-stack-md { padding-top: var(--stack-md); padding-bottom: var(--stack-md); }
-.py-stack-lg { padding-top: var(--stack-lg); padding-bottom: var(--stack-lg); }
-.p-stack-lg { padding: var(--stack-lg); }
-.gap-gutter { gap: var(--gutter); }
-.max-w-container-max { max-width: var(--container-max); }
-.section-padding { padding-top: var(--section-y); padding-bottom: var(--section-y); }
-.section-padding-compact { padding-top: var(--section-y-compact); padding-bottom: var(--section-y-compact); }
-.section-padding-cta { padding-top: var(--section-y-cta); padding-bottom: var(--section-y-cta); }
+.px-margin-desktop {
+    padding-left: var(--margin-desktop);
+    padding-right: var(--margin-desktop);
+}
+
+.py-stack-md {
+    padding-top: var(--stack-md);
+    padding-bottom: var(--stack-md);
+}
+
+.py-stack-lg {
+    padding-top: var(--stack-lg);
+    padding-bottom: var(--stack-lg);
+}
+
+.p-stack-lg {
+    padding: var(--stack-lg);
+}
+
+.gap-gutter {
+    gap: var(--gutter);
+}
+
+.max-w-container-max {
+    max-width: var(--container-max);
+}
+
+.section-padding {
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
+}
+
+.section-padding-compact {
+    padding-top: var(--section-y-compact);
+    padding-bottom: var(--section-y-compact);
+}
+
+.section-padding-cta {
+    padding-top: var(--section-y-cta);
+    padding-bottom: var(--section-y-cta);
+}
 
 @media (max-width: 768px) {
-    .px-margin-desktop { padding-left: var(--margin-mobile); padding-right: var(--margin-mobile); }
-    .font-display-lg, .text-display-lg { font-size: 36px; line-height: 44px; }
-    .font-headline-lg, .text-headline-lg { font-size: 28px; line-height: 36px; }
-    .font-headline-md, .text-headline-md { font-size: 20px; line-height: 28px; }
-    .section-padding { padding-top: var(--space-16); padding-bottom: var(--space-16); }
-    .section-padding-compact { padding-top: var(--space-8); padding-bottom: var(--space-8); }
-    .section-padding-cta { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+    .px-margin-desktop {
+        padding-left: var(--margin-mobile);
+        padding-right: var(--margin-mobile);
+    }
+
+    .font-display-lg,
+    .text-display-lg {
+        font-size: 36px;
+        line-height: 44px;
+    }
+
+    .font-headline-lg,
+    .text-headline-lg {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .font-headline-md,
+    .text-headline-md {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .section-padding {
+        padding-top: var(--space-16);
+        padding-bottom: var(--space-16);
+    }
+
+    .section-padding-compact {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-8);
+    }
+
+    .section-padding-cta {
+        padding-top: var(--space-12);
+        padding-bottom: var(--space-12);
+    }
 }
 
 @media (max-width: 480px) {
-    .font-display-lg, .text-display-lg { font-size: 30px; line-height: 38px; }
-    .font-headline-lg, .text-headline-lg { font-size: 24px; line-height: 32px; }
+
+    .font-display-lg,
+    .text-display-lg {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .font-headline-lg,
+    .text-headline-lg {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    footer .py-8.border-t {
+        gap: var(--space-3) !important;
+    }
+
+    footer .flex.gap-4.sm\:gap-8 {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+
 }
 
 /* ─── Global Responsive Layout ─── */
@@ -261,12 +506,15 @@ body {
     min-width: 0;
 }
 
-img, video, iframe, svg {
+img,
+video,
+iframe,
+svg {
     max-width: 100%;
 }
 
-.grid > *,
-.flex > * {
+.grid>*,
+.flex>* {
     min-width: 0;
 }
 
@@ -289,6 +537,7 @@ img, video, iframe, svg {
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
+
     .page-hero-content .page-hero-actions .btn,
     .page-hero-content .page-hero-actions button {
         width: auto;
@@ -388,7 +637,9 @@ img, video, iframe, svg {
     transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
-.btn:active { transform: scale(0.97); }
+.btn:active {
+    transform: scale(0.97);
+}
 
 .btn-primary {
     background-color: var(--secondary);
@@ -621,8 +872,14 @@ details.faq-item[open] summary .material-symbols-outlined {
 }
 
 /* ─── Scrollbar ─── */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 /* ─── Material Symbols ─── */
 .material-symbols-outlined {
@@ -650,7 +907,9 @@ details.faq-item[open] summary .material-symbols-outlined {
 }
 
 /* ─── Details / FAQ ─── */
-details summary::-webkit-details-marker { display: none; }
+details summary::-webkit-details-marker {
+    display: none;
+}
 
 details[open] summary {
     border-bottom: 1px solid var(--border-subtle);
@@ -658,15 +917,29 @@ details[open] summary {
 
 /* ─── Animations ─── */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.animate-fade-in-up { animation: fadeInUp 0.6s ease forwards; }
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
 
 @keyframes shimmer {
-    from { background-position: 200% 0; }
-    to { background-position: -200% 0; }
+    from {
+        background-position: 200% 0;
+    }
+
+    to {
+        background-position: -200% 0;
+    }
 }
 
 .shimmer {
@@ -676,8 +949,13 @@ details[open] summary {
 }
 
 @keyframes pageFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .page-enter {
@@ -686,11 +964,14 @@ details[open] summary {
 
 /* ─── Global interactions ─── */
 /* Lenis owns smooth scrolling — CSS scroll-behavior must be auto to avoid double-smoothing conflict */
-html { scroll-behavior: auto; }
+html {
+    scroll-behavior: auto;
+}
 
 /* Section entrance transitions owned by GSAP phase3.js — no CSS transition here to avoid conflicts */
 
-a, button {
+a,
+button {
     transition: all var(--transition-fast);
 }
 
@@ -704,7 +985,9 @@ textarea:focus {
 }
 
 @media (max-width: 640px) {
-    .grid { gap: var(--stack-md); }
+    .grid {
+        gap: var(--stack-md);
+    }
 }
 
 /* ─── Unified Site Navigation ─── */
@@ -741,6 +1024,17 @@ textarea:focus {
     margin: 0 auto;
     padding: var(--stack-md) var(--margin-desktop);
     transition: padding var(--transition-fast);
+}
+
+.site-nav__logo img {
+    height: 36px !important;
+    width: auto !important;
+}
+
+@media (min-width: 768px) {
+    .site-nav__logo img {
+        height: 40px !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1234,7 +1528,7 @@ textarea:focus {
 
 .mobile-menu__sub-link:hover {
     color: var(--on-primary);
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* ─── Hero Comparison Slider ─── */
@@ -1349,7 +1643,8 @@ textarea:focus {
 .device-frame {
     position: relative;
     background: #000;
-    border: 12px solid #1a1f2c; /* Sleek dark bezel */
+    border: 12px solid #1a1f2c;
+    /* Sleek dark bezel */
     border-radius: 24px;
     box-shadow: var(--shadow-2), 0 25px 50px -12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -1372,7 +1667,8 @@ textarea:focus {
 }
 
 .device-frame--phone {
-    border-width: 24px 8px; /* Thicker top/bottom, slim sides */
+    border-width: 24px 8px;
+    /* Thicker top/bottom, slim sides */
     border-radius: 36px;
 }
 
@@ -1481,6 +1777,7 @@ textarea:focus {
 }
 
 @media (max-width: 768px) {
+
     .process-timeline__track::before,
     .process-timeline__track::after {
         display: none;
@@ -1518,16 +1815,19 @@ textarea:focus {
     position: relative;
     text-align: center;
     padding: 0 var(--space-2);
-    z-index: 1; /* Ensures icon (z-index:2) renders above the ::before/::after track lines (z-index:0) */
+    z-index: 1;
+    /* Ensures icon (z-index:2) renders above the ::before/::after track lines (z-index:0) */
 }
 
 .process-timeline__icon {
     width: 80px;
     height: 80px;
     margin: 0 auto var(--space-6);
-    background: #ffffff; /* Solid background masks the horizontal line behind it */
+    background: #ffffff;
+    /* Solid background masks the horizontal line behind it */
     border: 2px solid rgba(0, 88, 190, 0.1);
-    border-radius: 50%; /* perfect circle reticle design */
+    border-radius: 50%;
+    /* perfect circle reticle design */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1632,6 +1932,7 @@ textarea:focus {
 }
 
 @media (max-width: 767px) {
+
     .service-card--featured,
     .service-card {
         min-height: 300px;
@@ -1668,7 +1969,8 @@ textarea:focus {
 .testimonials-swiper {
     overflow: hidden;
     width: 100%;
-    min-height: 280px; /* Pre-allocate space for testimonial cards to prevent CLS */
+    min-height: 280px;
+    /* Pre-allocate space for testimonial cards to prevent CLS */
 }
 
 .testimonials-swiper .swiper-wrapper {
@@ -1688,7 +1990,7 @@ textarea:focus {
 }
 
 /* ─── Data-stagger containers (grid children animate in sequence) ─── */
-[data-stagger] > * {
+[data-stagger]>* {
     will-change: opacity, transform;
 }
 
@@ -1698,7 +2000,8 @@ textarea:focus {
     }
 
     /* Ensure sections and stagger children are visible without animation */
-    section, [data-stagger] > * {
+    section,
+    [data-stagger]>* {
         opacity: 1 !important;
         transform: none !important;
     }
@@ -1711,25 +2014,44 @@ textarea:focus {
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel, footer, p, h1, h2, h3, h4, span, a, input, textarea, select {
+body,
+.site-nav,
+.glass-card,
+.btn-primary,
+.btn-secondary,
+.nav-dropdown__panel,
+footer,
+p,
+h1,
+h2,
+h3,
+h4,
+span,
+a,
+input,
+textarea,
+select {
     transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
 /* PCB Motherboard variables */
 :root.theme-circuit {
-    --background: #050b08; /* Dark Matte PCB Green */
+    --background: #050b08;
+    /* Dark Matte PCB Green */
     --on-background: #edf5f2;
-    --surface: #0a1310; /* PCB component board surface */
+    --surface: #0a1310;
+    /* PCB component board surface */
     --on-surface: #edf5f2;
     --on-surface-variant: #8faea1;
     --primary: #edf5f2;
     --on-primary: #050b08;
-    --secondary: #00e676; /* Glowing neon green circuit trace */
+    --secondary: #00e676;
+    /* Glowing neon green circuit trace */
     --on-secondary: #050b08;
     --border-subtle: rgba(0, 230, 118, 0.15);
     --surface-glass: rgba(10, 19, 16, 0.85);
     --outline-variant: rgba(0, 230, 118, 0.25);
-    
+
     /* Redefine all system surface variables to prevent FOUC / light card backgrounds */
     --surface-container-lowest: #050b08;
     --surface-container-low: #08100d;
@@ -1744,21 +2066,23 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
 }
 
 /* PCB theme styling overrides */
-:root.theme-circuit body {
+:root.theme-circuit {
     background-color: var(--background) !important;
     background-image: var(--pcb-grid-x), var(--pcb-grid-y), var(--pcb-traces);
     background-size: 40px 40px, 40px 40px, 320px 320px;
     background-repeat: repeat, repeat, repeat;
+}
+
+:root.theme-circuit body {
+    background-color: transparent !important;
+    background-image: none !important;
     color: var(--on-background) !important;
 }
 
 /* Component Overrides to dark PCB mode */
 :root.theme-circuit .bg-white,
-:root.theme-circuit .bg-background,
-:root.theme-circuit .bg-surface,
 :root.theme-circuit .bg-surface-glass,
 :root.theme-circuit .glass-card,
-:root.theme-circuit .bg-surface-container-low,
 :root.theme-circuit .bg-surface-container,
 :root.theme-circuit .bg-surface-container-lowest,
 :root.theme-circuit .bg-surface-container-high,
@@ -1767,6 +2091,15 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
     color: var(--on-surface) !important;
     border-color: var(--border-subtle) !important;
     box-shadow: 0 4px 20px rgba(0, 230, 118, 0.02) !important;
+}
+
+:root.theme-circuit .bg-background,
+:root.theme-circuit .bg-surface,
+:root.theme-circuit .bg-surface-container-low {
+    background-color: transparent !important;
+    color: var(--on-surface) !important;
+    border-color: var(--border-subtle) !important;
+    box-shadow: none !important;
 }
 
 :root.theme-circuit .bg-slate-50,
@@ -1787,6 +2120,7 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
 :root.theme-circuit .bg-secondary\/10 {
     background-color: rgba(0, 230, 118, 0.1) !important;
 }
+
 :root.theme-circuit .bg-secondary\/5 {
     background-color: rgba(0, 230, 118, 0.05) !important;
 }
@@ -1922,7 +2256,8 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
     right: 12px;
     font-family: 'Courier New', monospace;
     font-size: 8px;
-    color: #ffd700; /* Gold pad labels */
+    color: #ffd700;
+    /* Gold pad labels */
     opacity: 0.35;
     pointer-events: none;
 }
@@ -2002,7 +2337,8 @@ body, .site-nav, .glass-card, .btn-primary, .btn-secondary, .nav-dropdown__panel
 
 :root.theme-circuit .process-timeline__card p,
 :root.theme-circuit .process-timeline__card .text-on-surface-variant {
-    color: #c4dcd2 !important; /* Premium high-contrast light sage green */
+    color: #c4dcd2 !important;
+    /* Premium high-contrast light sage green */
 }
 
 /* Invert the solid screaming neon green CTA section to a premium dark PCB circuit card */
@@ -2047,6 +2383,20 @@ section.bg-secondary button {
     --tw-gradient-stops: var(--tw-gradient-from), rgba(10, 19, 16, 0.8) 50%, var(--tw-gradient-to) !important;
 }
 
+:root.theme-circuit .absolute.inset-0.bg-white\/90,
+:root.theme-circuit .absolute.inset-0.bg-white\/80 {
+    background-color: rgba(10, 19, 16, 0.9) !important;
+    background-image: none !important;
+}
+
+@media (min-width: 768px) {
+    :root.theme-circuit .absolute.inset-0.bg-white\/90,
+    :root.theme-circuit .absolute.inset-0.bg-white\/80 {
+        background-color: transparent !important;
+        background-image: linear-gradient(to right, #0a1310 30%, rgba(10, 19, 16, 0.8) 60%, transparent 100%) !important;
+    }
+}
+
 /* High-tech matrix/diagnostic filter for hero background cover images in Lab Theme */
 :root.theme-circuit .bg-cover {
     filter: brightness(0.3) contrast(1.1) sepia(0.2) hue-rotate(95deg) !important;
@@ -2057,6 +2407,7 @@ section.bg-secondary button {
 :root.theme-circuit .bg-secondary-fixed {
     background-color: var(--secondary) !important;
 }
+
 :root.theme-circuit .text-on-secondary-fixed {
     color: var(--on-secondary) !important;
 }
@@ -2081,12 +2432,13 @@ section.bg-secondary button {
 
 /* ─── Service Pages Hero Sections ─── */
 @media (max-width: 1023px) {
+
     /* Center align hero text and buttons on tablets and mobile */
     .page-hero-content {
         text-align: center !important;
         max-width: 100% !important;
     }
-    
+
     .page-hero-content h1,
     .page-hero-content p {
         margin-left: auto !important;
@@ -2095,22 +2447,23 @@ section.bg-secondary button {
 }
 
 @media (max-width: 768px) {
+
     /* Reduce hero padding on mobile */
     section[class*="pt-"] {
         padding-top: var(--space-12) !important;
     }
-    
+
     section[class*="pb-"] {
         padding-bottom: var(--space-12) !important;
     }
-    
+
     /* Make hero images properly sized on mobile */
     .device-frame {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     /* Stack grid layouts on mobile */
     .grid.grid-cols-2,
     .grid.grid-cols-3 {
@@ -2120,12 +2473,13 @@ section.bg-secondary button {
 
 /* ─── About Us Page Responsive Fixes ─── */
 @media (max-width: 1023px) {
+
     /* Stack about us two-column layouts */
     .grid.lg\\:grid-cols-2 {
         grid-template-columns: 1fr !important;
         gap: var(--space-8) !important;
     }
-    
+
     /* Adjust logo/gif container on mobile */
     .about-us .relative.max-w-xl {
         max-width: 100% !important;
@@ -2133,22 +2487,23 @@ section.bg-secondary button {
 }
 
 @media (max-width: 768px) {
+
     /* About page specific adjustments */
     .glass-card {
         padding: var(--space-6) !important;
     }
-    
+
     /* Timeline items on about page */
     .timeline-item {
         padding-left: var(--space-6) !important;
     }
-    
+
     /* Stat boxes and feature cards */
     .stats-row {
         flex-direction: column !important;
         gap: var(--space-6) !important;
     }
-    
+
     .stat-heading {
         font-size: 32px !important;
         line-height: 40px !important;
@@ -2157,11 +2512,12 @@ section.bg-secondary button {
 
 /* ─── Blog Page Responsive Fixes ─── */
 @media (max-width: 1023px) {
+
     /* Stack blog grid on tablet and mobile */
     .grid.lg\\:grid-cols-2 {
         grid-template-columns: 1fr !important;
     }
-    
+
     /* Blog post cards */
     article.rounded-3xl {
         margin-bottom: var(--space-6);
@@ -2169,26 +2525,27 @@ section.bg-secondary button {
 }
 
 @media (max-width: 768px) {
+
     /* Blog page header */
     main.py-8 {
         padding-top: var(--space-12) !important;
         padding-bottom: var(--space-12) !important;
     }
-    
+
     /* Blog card padding */
     article .p-5,
     article .p-8,
     article .p-12 {
         padding: var(--space-6) !important;
     }
-    
+
     /* Blog post footer */
     .blog-post-footer {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--space-3) !important;
     }
-    
+
     /* Blog post lists */
     article ol,
     article ul {
@@ -2198,21 +2555,22 @@ section.bg-secondary button {
 
 /* ─── Contact Page Responsive Fixes ─── */
 @media (max-width: 767px) {
+
     /* Stack location cards on mobile */
     .grid.md\\:grid-cols-2 {
         grid-template-columns: 1fr !important;
     }
-    
+
     /* Location card adjustments */
     .location-card-body {
         padding: var(--space-6) !important;
     }
-    
+
     /* Map embed height adjustment */
-    .location-card-body + div {
+    .location-card-body+div {
         height: 200px !important;
     }
-    
+
     /* Contact form adjustments */
     .glass-card.rounded-\[2\.5rem\] {
         padding: var(--space-6) !important;
@@ -2221,6 +2579,7 @@ section.bg-secondary button {
 }
 
 @media (max-width: 640px) {
+
     /* Further contact page adjustments for small mobile */
     .contact h1,
     .contact h2 {
@@ -2231,18 +2590,19 @@ section.bg-secondary button {
 
 /* ─── Service Pages (All Service Repair Pages) Responsive Fixes ─── */
 @media (max-width: 1023px) {
+
     /* Service hero sections - stack on tablet */
     section .grid.lg\\:grid-cols-2 {
         grid-template-columns: 1fr !important;
         gap: var(--space-8) !important;
     }
-    
+
     /* Service card grids */
     .grid.md\\:grid-cols-3 {
         grid-template-columns: 1fr !important;
         gap: var(--space-6) !important;
     }
-    
+
     /* Wide service cards */
     .md\\:col-span-2 {
         grid-column: span 1 !important;
@@ -2250,30 +2610,31 @@ section.bg-secondary button {
 }
 
 @media (max-width: 768px) {
+
     /* Brand support ticker - wrap items */
     .flex.flex-wrap.justify-center {
         gap: var(--space-6) !important;
     }
-    
+
     .flex.flex-wrap.justify-center span {
         font-size: 18px !important;
     }
-    
+
     /* Service symptom cards */
     .glass-card.p-stack-lg {
         padding: var(--space-6) !important;
     }
-    
+
     /* Liquid damage wide card */
     .md\\:flex-row {
         flex-direction: column !important;
     }
-    
+
     .md\\:flex-row .w-24 {
         width: 64px !important;
         height: 64px !important;
     }
-    
+
     /* Service pricing text */
     .text-secondary.font-bold {
         font-size: 14px;
@@ -2285,25 +2646,25 @@ section.bg-secondary button {
     .faq-item {
         margin-bottom: var(--space-4);
     }
-    
+
     .faq-item summary,
     details summary {
         padding: var(--space-4) !important;
         font-size: 15px !important;
         line-height: 22px !important;
     }
-    
+
     /* Target FAQ summaries with arbitrary font sizes */
     summary.text-\[18px\] {
         font-size: 15px !important;
     }
-    
+
     .faq-item .faq-answer,
-    details > div {
+    details>div {
         padding: 0 var(--space-4) var(--space-4) !important;
         font-size: 14px !important;
     }
-    
+
     /* FAQ arrow icons on mobile */
     details summary .material-symbols-outlined {
         font-size: 20px !important;
@@ -2311,6 +2672,7 @@ section.bg-secondary button {
 }
 
 @media (max-width: 640px) {
+
     /* Further reduce FAQ font on small mobile */
     .faq-item summary,
     details summary,
@@ -2319,9 +2681,9 @@ section.bg-secondary button {
         line-height: 20px !important;
         padding: var(--space-3) !important;
     }
-    
+
     .faq-item .faq-answer,
-    details > div {
+    details>div {
         font-size: 13px !important;
         line-height: 20px !important;
     }
@@ -2329,13 +2691,15 @@ section.bg-secondary button {
 
 /* ─── Form Elements Responsive ─── */
 @media (max-width: 768px) {
+
     input,
     textarea,
     select {
-        font-size: 16px !important; /* Prevents iOS zoom on focus */
+        font-size: 16px !important;
+        /* Prevents iOS zoom on focus */
         padding: var(--space-3) var(--space-4) !important;
     }
-    
+
     button[type="submit"],
     .btn {
         width: 100%;
@@ -2349,7 +2713,7 @@ section.bg-secondary button {
         flex-direction: column !important;
         width: 100% !important;
     }
-    
+
     .page-hero-actions .btn {
         width: 100% !important;
     }
@@ -2367,7 +2731,7 @@ section.bg-secondary button {
         height: auto !important;
         max-width: 100% !important;
     }
-    
+
     /* Service page hero images */
     .device-frame img {
         object-fit: cover;
@@ -2382,22 +2746,22 @@ section.bg-secondary button {
         font-size: 32px !important;
         line-height: 40px !important;
     }
-    
+
     h2 {
         font-size: 24px !important;
         line-height: 32px !important;
     }
-    
+
     h3 {
         font-size: 20px !important;
         line-height: 28px !important;
     }
-    
+
     p {
         font-size: 15px !important;
         line-height: 24px !important;
     }
-    
+
     .font-body-lg,
     .text-body-lg {
         font-size: 16px !important;
@@ -2407,18 +2771,19 @@ section.bg-secondary button {
 
 /* ─── Padding and Spacing Mobile Optimization ─── */
 @media (max-width: 768px) {
+
     /* Reduce excessive padding on all sections */
     section {
         padding-left: var(--margin-mobile) !important;
         padding-right: var(--margin-mobile) !important;
     }
-    
+
     /* Container max widths */
     .max-w-container-max {
         padding-left: var(--margin-mobile);
         padding-right: var(--margin-mobile);
     }
-    
+
     /* Card spacing */
     .card,
     .card-glass,
@@ -2429,6 +2794,7 @@ section.bg-secondary button {
 
 /* ─── Floater Elements Mobile Hide ─── */
 @media (max-width: 767px) {
+
     /* Hide decorative floater badges on mobile */
     .glass-card.absolute,
     .absolute.-bottom-6,
@@ -2443,16 +2809,16 @@ section.bg-secondary button {
         grid-template-columns: 1fr !important;
         gap: var(--space-6) !important;
     }
-    
+
     .process-timeline__step {
         padding: 0 !important;
     }
-    
+
     .process-timeline__icon {
         width: 64px !important;
         height: 64px !important;
     }
-    
+
     .process-timeline__card {
         padding: var(--space-5) var(--space-4) !important;
     }
@@ -2479,13 +2845,15 @@ section.bg-secondary button {
         overflow-wrap: break-word;
         word-wrap: break-word;
     }
-    
+
     /* Prevent horizontal scroll */
-    body, html, main {
+    body,
+    html,
+    main {
         overflow-x: hidden !important;
         max-width: 100vw;
     }
-    
+
     /* Force containers to respect viewport */
     section,
     div,
@@ -2496,11 +2864,12 @@ section.bg-secondary button {
 
 /* ─── Grid System Mobile Fallbacks ─── */
 @media (max-width: 768px) {
+
     /* Force all multi-column grids to single column on mobile */
     .grid[class*="grid-cols-"]:not([class*="md:"]):not([class*="sm:"]) {
         grid-template-columns: 1fr !important;
     }
-    
+
     /* Ensure grid gaps are appropriate for mobile */
     .grid {
         gap: var(--space-4) !important;
@@ -2509,11 +2878,12 @@ section.bg-secondary button {
 
 /* ─── Flex Layout Mobile Adjustments ─── */
 @media (max-width: 768px) {
+
     /* Stack flex rows on mobile unless explicitly prevented */
     .flex.flex-row:not(.md\\:flex-row):not(.sm\\:flex-row) {
         flex-direction: column !important;
     }
-    
+
     /* Adjust flex gaps */
     .flex {
         gap: var(--space-3) !important;
@@ -2526,7 +2896,7 @@ section.bg-secondary button {
         font-size: 15px !important;
         padding: var(--space-3) var(--space-6) !important;
     }
-    
+
     .btn-primary {
         font-size: 14px !important;
         padding: var(--space-2) var(--space-5) !important;
@@ -2539,12 +2909,12 @@ section.bg-secondary button {
         width: 48px !important;
         height: 48px !important;
     }
-    
+
     .icon-box-sm {
         width: 40px !important;
         height: 40px !important;
     }
-    
+
     .material-symbols-outlined {
         font-size: 20px !important;
     }
@@ -2552,11 +2922,12 @@ section.bg-secondary button {
 
 /* ─── Service Page Specific Grid Fixes ─── */
 @media (max-width: 1023px) {
+
     /* Services grid - force single column on tablet and below */
     .services-grid {
         grid-template-columns: 1fr !important;
     }
-    
+
     .service-card--featured {
         grid-column: span 1 !important;
     }
@@ -2564,12 +2935,13 @@ section.bg-secondary button {
 
 /* ─── About Page Stats and Timeline ─── */
 @media (max-width: 768px) {
+
     /* Stats display */
     .flex.stats-row {
         flex-direction: column !important;
         text-align: center;
     }
-    
+
     /* Timeline adjustments */
     .timeline-item::after {
         display: none !important;
@@ -2578,12 +2950,13 @@ section.bg-secondary button {
 
 /* ─── Blog Page Long Content ─── */
 @media (max-width: 768px) {
+
     /* Ensure blog content doesn't overflow */
     article p,
     article div {
         max-width: 100%;
     }
-    
+
     /* Blog images */
     article img {
         width: 100% !important;
@@ -2593,29 +2966,30 @@ section.bg-secondary button {
 
 /* ─── Contact Form Full Width Mobile ─── */
 @media (max-width: 768px) {
+
     form input,
     form textarea,
     form select,
     form button {
         width: 100% !important;
     }
-    
+
     form .flex {
         flex-direction: column !important;
     }
-    
+
     /* Contact page form grid layouts */
     form .grid.md\\:grid-cols-2 {
         grid-template-columns: 1fr !important;
         gap: var(--space-4) !important;
     }
-    
+
     /* Contact CTA sections */
     .rounded-\[2\.5rem\] {
         border-radius: var(--radius-xl) !important;
         padding: var(--space-8) var(--space-6) !important;
     }
-    
+
     /* CTA buttons in contact sections */
     .rounded-\[2\.5rem\] button,
     .rounded-\[2\.5rem\] .btn {
@@ -2627,16 +3001,17 @@ section.bg-secondary button {
 
 /* ─── Mobile Repair Page Specific Fixes ─── */
 @media (max-width: 768px) {
+
     /* Check circle icons with arbitrary sizes */
     .text-\[18px\] {
         font-size: 16px !important;
     }
-    
+
     /* Mobile repair service cards */
     .bg-white.rounded-xl.p-6 {
         padding: var(--space-5) !important;
     }
-    
+
     /* Mobile repair benefits list */
     .space-y-4 {
         gap: var(--space-3) !important;
@@ -2644,6 +3019,7 @@ section.bg-secondary button {
 }
 
 @media (max-width: 640px) {
+
     /* Further reduce arbitrary icon sizes */
     .text-\[18px\] {
         font-size: 14px !important;
@@ -2652,29 +3028,30 @@ section.bg-secondary button {
 
 /* ─── Maximum Mobile Compatibility ─── */
 @media (max-width: 480px) {
+
     /* Extra small mobile devices */
     .px-margin-desktop {
         padding-left: var(--space-4) !important;
         padding-right: var(--space-4) !important;
     }
-    
+
     h1 {
         font-size: 28px !important;
         line-height: 36px !important;
     }
-    
+
     .btn {
         font-size: 14px !important;
         padding: var(--space-3) var(--space-4) !important;
     }
-    
+
     /* Further reduce card padding */
     .glass-card,
     .card,
     .card-service {
         padding: var(--space-4) !important;
     }
-    
+
     /* Mobile repair FAQ on tiny screens */
     details.rounded-xl {
         border-radius: var(--radius-md) !important;
@@ -2682,42 +3059,81 @@ section.bg-secondary button {
 }
 
 /* ─── Footer Responsiveness ─── */
-@media (max-width: 768px) {
+@media (max-width: 639px) {
     footer .grid {
         grid-template-columns: 1fr !important;
         gap: var(--space-8) !important;
     }
-    
+
     /* Footer connect section with long address */
-    footer .flex.items-center.gap-3 span:not(.material-symbols-outlined) {
+    footer .flex.gap-3 span:not(.material-symbols-outlined) {
         font-size: 14px !important;
         line-height: 20px !important;
         word-break: break-word !important;
     }
-    
-    /* Footer bottom links */
-    footer .flex.gap-8 {
-        flex-direction: column !important;
-        gap: var(--space-3) !important;
-    }
-    
+
     /* Footer email subscription */
-    footer input[type="email"] {
+    footer inp64ut[type="email"] {
         min-width: 0 !important;
+    }
+
+    footer h3.font-headline-md {
+        font-size: 20px !important;
+        line-height: 28px !important;
+    }
+
+    footer h4 {
+        font-size: 15px !important;
+    }
+
+    footer p.opacity-80 {
+        font-size: 14px !important;
+        line-height: 22px !important;
+    }
+
+    footer .flex.flex-col.gap-6>a,
+    footer .flex.flex-col.gap-4>a {
+        display: block !important;
+        width: 100% !important;
+        line-height: 1.5 !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
+        transform: none !important;
+        /* kills any stuck hover/stagger transform */
+        opacity: 1 !important;
+        /* kills any stuck animation opacity */
+    }
+
+    footer .flex.flex-col.gap-6,
+    footer .flex.flex-col.gap-4 {
+        row-gap: var(--space-3) !important;
+        /* guarantees vertical breathing room */
     }
 }
 
 @media (max-width: 640px) {
+
     /* Footer social icons */
     footer .flex.gap-4 a {
         width: 36px !important;
         height: 36px !important;
         font-size: 12px !important;
     }
+
+    footer .flex.gap-4 {
+        flex-wrap: wrap !important;
+    }
+
+    footer .flex.gap-2 input[type="email"] {
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
 }
 
 /* ─── Landscape Mobile Orientation ─── */
 @media (max-width: 896px) and (orientation: landscape) {
+
     /* Reduce vertical padding in landscape mode */
     section[class*="pt-"],
     section[class*="pb-"] {
@@ -2728,6 +3144,7 @@ section.bg-secondary button {
 
 /* ─── Print Styles (Bonus) ─── */
 @media print {
+
     .site-nav,
     .mobile-menu,
     footer,
@@ -2735,7 +3152,7 @@ section.bg-secondary button {
     button {
         display: none !important;
     }
-    
+
     body {
         background: white !important;
         color: black !important;
@@ -2744,23 +3161,24 @@ section.bg-secondary button {
 
 /* ─── Modal and Quote Forms Responsive ─── */
 @media (max-width: 768px) {
+
     /* Quote modal containers */
     #quoteModal .glass-card {
         max-width: calc(100vw - 2rem) !important;
         padding: var(--space-6) !important;
         margin: var(--space-4);
     }
-    
+
     /* Modal form spacing */
-    #quoteModal form .space-y-4 > * + * {
+    #quoteModal form .space-y-4>*+* {
         margin-top: var(--space-3) !important;
     }
-    
+
     /* Modal labels */
     #quoteModal label {
         font-size: 13px !important;
     }
-    
+
     /* Modal inputs */
     #quoteModal input,
     #quoteModal textarea,
@@ -2768,7 +3186,7 @@ section.bg-secondary button {
         padding: var(--space-3) !important;
         font-size: 15px !important;
     }
-    
+
     /* Modal close button */
     #quoteModal #closeQuoteModal {
         top: var(--space-4) !important;
@@ -2777,12 +3195,13 @@ section.bg-secondary button {
 }
 
 @media (max-width: 640px) {
+
     /* Further optimize modals for small screens */
     #quoteModal h3 {
         font-size: 20px !important;
         line-height: 28px !important;
     }
-    
+
     #quoteModal p {
         font-size: 13px !important;
     }
@@ -2790,29 +3209,30 @@ section.bg-secondary button {
 
 /* ─── CTA Final Sections Responsive ─── */
 @media (max-width: 768px) {
+
     /* Final CTA sections with gradient backgrounds */
     section.bg-secondary {
         padding: var(--space-10) var(--space-6) !important;
         border-radius: var(--radius-xl) !important;
     }
-    
+
     section.bg-secondary h2 {
         font-size: 24px !important;
         line-height: 32px !important;
         margin-bottom: var(--space-4) !important;
     }
-    
+
     section.bg-secondary p {
         font-size: 15px !important;
         line-height: 24px !important;
         margin-bottom: var(--space-6) !important;
     }
-    
+
     section.bg-secondary .flex.gap-4 {
         flex-direction: column !important;
         gap: var(--space-3) !important;
     }
-    
+
     section.bg-secondary button {
         width: 100% !important;
         padding: var(--space-4) var(--space-6) !important;
@@ -2821,21 +3241,22 @@ section.bg-secondary button {
 
 /* ─── Service Cards with Checkmarks Responsive ─── */
 @media (max-width: 768px) {
+
     /* Cards with check circle icons and features */
     .bg-white.rounded-xl.card-shadow {
         padding: var(--space-5) !important;
     }
-    
+
     .bg-white.rounded-xl.card-shadow h3 {
         font-size: 18px !important;
         line-height: 26px !important;
     }
-    
+
     .bg-white.rounded-xl.card-shadow p {
         font-size: 14px !important;
         line-height: 22px !important;
     }
-    
+
     /* Feature list items with icons */
     .flex.items-center.gap-3 {
         gap: var(--space-2) !important;
@@ -2844,17 +3265,18 @@ section.bg-secondary button {
 
 /* ─── Contact Page Specific Location Cards ─── */
 @media (max-width: 768px) {
+
     /* Location information display */
     .location-card-body h2 {
         font-size: 20px !important;
         margin-bottom: var(--space-6) !important;
     }
-    
+
     .location-card-body h3 {
         font-size: 15px !important;
         margin-bottom: 2px !important;
     }
-    
+
     .location-card-body p {
         font-size: 14px !important;
         line-height: 22px !important;
@@ -2862,4 +3284,7 @@ section.bg-secondary button {
     }
 }
 
-
+/* ─── Particle Canvas Layering Fix ─── */
+#hero-circuit-canvas {
+    z-index: -1 !important;
+}
