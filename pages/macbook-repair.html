@@ -312,32 +312,34 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                 <!-- Logic Board -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
-                    <div class="w-full h-48 mb-6 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative">
+                <div class="md:col-span-3 glass-card p-stack-lg rounded-2xl hover-lift flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/3 h-64 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative shrink-0">
                         <model-viewer src="../models/Microchip.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" style="width:100%; height:100%; background-color: transparent;" interaction-prompt="none"></model-viewer>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-2">Logic Board Micro-Soldering</h3>
-                    <p class="text-on-surface-variant mb-4">Component-level track, IC, capacitor, and SMC repairs. A cost-effective alternative to full board replacement.</p>
-                    <p class="text-on-surface-variant text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary"><strong class="text-primary block mb-1">Micro-Soldering Theory:</strong> Mac logic boards utilize high-density BGA integrated circuits. We use microscopic precision to replace failed ICs (like the SMC or power management chips), restoring circuits without swapping the entire board.</p>
-                    <p class="text-secondary font-bold">Starts ₹2,999</p>
+                    <div class="flex-1">
+                        <h3 class="font-headline-md text-headline-md mb-2">Logic Board Micro-Soldering</h3>
+                        <p class="text-on-surface-variant mb-4">Component-level track, IC, capacitor, and SMC repairs. A cost-effective alternative to full board replacement.</p>
+                        <p class="text-on-surface-variant text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary"><strong class="text-primary block mb-1">Micro-Soldering Theory:</strong> Mac logic boards utilize high-density BGA integrated circuits. We use microscopic precision to replace failed ICs (like the SMC or power management chips), restoring circuits without swapping the entire board.</p>
+                        <p class="text-secondary font-bold">Starts ₹2,999</p>
+                    </div>
                 </div>
                 <!-- Screen -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">screenshot_monitor</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Retina Screen Replacement</h3>
-                    <p class="text-on-surface-variant mb-6">Flawless assembly replacements for cracked displays, backlight faults, or lines on screen.</p>
-                    <p class="text-secondary font-bold">Starts ₹7,999</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">Flawless assembly replacements for cracked displays, backlight faults, or lines on screen.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹7,999</p>
                 </div>
                 <!-- Battery -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">battery_charging_full</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Battery Replacement</h3>
-                    <p class="text-on-surface-variant mb-6">Swollen or degraded batteries replaced safely with OEM-grade batteries to restore full battery life.</p>
-                    <p class="text-secondary font-bold">Starts ₹3,499</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">Swollen or degraded batteries replaced safely with OEM-grade batteries to restore full battery life.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹3,499</p>
                 </div>
                 <!-- Water Damage -->
                 <div class="md:col-span-2 glass-card p-stack-lg rounded-2xl flex flex-col md:flex-row gap-8 items-center hover-lift">
@@ -354,13 +356,13 @@
                     </div>
                 </div>
                 <!-- Keyboard/Trackpad -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">keyboard</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Keyboard &amp; Trackpad Service</h3>
-                    <p class="text-on-surface-variant mb-6">Resolving sticky keys, backlight failures, or unresponsive multi-touch trackpads.</p>
-                    <p class="text-secondary font-bold">Starts ₹1,999</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">Resolving sticky keys, backlight failures, or unresponsive multi-touch trackpads.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹1,999</p>
                 </div>
             </div>
         </div>

@@ -298,39 +298,41 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                 <!-- GPU Diagnostics -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
-                    <div class="w-full h-48 mb-6 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative">
+                <div class="md:col-span-3 glass-card p-stack-lg rounded-2xl hover-lift flex flex-col md:flex-row gap-8 items-center">
+                    <div class="w-full md:w-1/3 h-64 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative shrink-0">
                         <model-viewer src="../models/Graphics%20card.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" style="width:100%; height:100%; background-color: transparent;" interaction-prompt="none"></model-viewer>
                     </div>
-                    <h3 class="font-headline-md text-headline-md mb-2">GPU Repair &amp; Upgrades</h3>
-                    <p class="text-on-surface-variant mb-4">Addressing artifacts, black screens, or thermal throttling. Graphics card diagnostics and chip reflowing services.</p>
-                    <p class="text-on-surface-variant text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary"><strong class="text-primary block mb-1">Thermal Dynamics:</strong> Modern GPUs operate under extreme thermal loads. Precision micro-soldering restores BGA connections that degrade due to heat cycling.</p>
-                    <p class="text-secondary font-bold">Starts ₹1,499</p>
+                    <div class="flex-1">
+                        <h3 class="font-headline-md text-headline-md mb-2">GPU Repair &amp; Upgrades</h3>
+                        <p class="text-on-surface-variant mb-4">Addressing artifacts, black screens, or thermal throttling. Graphics card diagnostics and chip reflowing services.</p>
+                        <p class="text-on-surface-variant text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary"><strong class="text-primary block mb-1">Thermal Dynamics:</strong> Modern GPUs operate under extreme thermal loads. Precision micro-soldering restores BGA connections that degrade due to heat cycling.</p>
+                        <p class="text-secondary font-bold">Starts ₹1,499</p>
+                    </div>
                 </div>
                 <!-- Motherboard repair -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">settings_input_component</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Motherboard &amp; VRM Diagnostics</h3>
-                    <p class="text-on-surface-variant mb-6">Repairing damaged sockets, faulty capacitor replacement, VRM cooling upgrades, and short-circuit fixes.</p>
-                    <p class="text-secondary font-bold">Starts ₹1,999</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">Repairing damaged sockets, faulty capacitor replacement, VRM cooling upgrades, and short-circuit fixes.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹1,999</p>
                 </div>
                 <!-- Cooling -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">mode_fan</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Thermal Paste &amp; AIO Cooling</h3>
-                    <p class="text-on-surface-variant mb-6">Application of high-performance thermal paste (Kryonaut/Thermal Grizzly) and AIO/custom loop servicing.</p>
-                    <p class="text-secondary font-bold">Starts ₹899</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">Application of high-performance thermal paste (Kryonaut/Thermal Grizzly) and AIO/custom loop servicing.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹899</p>
                 </div>
                 <!-- Custom builds -->
-                <div class="md:col-span-2 glass-card p-stack-lg rounded-2xl flex flex-col md:flex-row gap-8 items-center hover-lift">
-                    <div class="w-full md:w-2/5 h-64 flex-shrink-0 rounded-2xl bg-primary/5 border border-primary/10 overflow-hidden relative">
+                <div class="md:col-span-3 glass-card p-stack-lg rounded-2xl flex flex-col md:flex-row gap-8 items-center hover-lift">
+                    <div class="w-full md:w-1/3 h-64 flex-shrink-0 rounded-2xl bg-primary/5 border border-primary/10 overflow-hidden relative">
                         <model-viewer src="../models/Gaming%20Computer.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" style="width:100%; height:100%; background-color: transparent;" interaction-prompt="none"></model-viewer>
                     </div>
-                    <div class="w-full md:w-3/5">
+                    <div class="flex-1">
                         <h3 class="font-headline-md text-headline-md mb-2">Custom Gaming PC Assembly</h3>
                         <p class="text-on-surface-variant mb-4">Complete assembly of custom builds with immaculate cable management, airflow optimization, BIOS flashing, and operating system loading.</p>
                         <p class="text-on-surface-variant text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary"><strong class="text-primary block mb-1">Thermodynamics & Airflow:</strong> Optimal thermodynamics inside a chassis dictates component longevity. We ensure positive air pressure and custom loop liquid cooling for maximum thermal dissipation.</p>
@@ -341,13 +343,13 @@
                     </div>
                 </div>
                 <!-- RAM/Storage -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
                     <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
                         <span class="material-symbols-outlined text-3xl">database</span>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">Storage &amp; RAM Upgrades</h3>
-                    <p class="text-on-surface-variant mb-6">High-speed NVMe SSD installations, data cloning, RAM testing (MemTest86), and system bottleneck fixes.</p>
-                    <p class="text-secondary font-bold">Starts ₹499</p>
+                    <p class="text-on-surface-variant mb-6 flex-grow">High-speed NVMe SSD installations, data cloning, RAM testing (MemTest86), and system bottleneck fixes.</p>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹499</p>
                 </div>
             </div>
         </div>
