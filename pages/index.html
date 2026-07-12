@@ -786,71 +786,104 @@
           dirLight2.position.set(-5, 5, -5);
           scene.add(dirLight2);
 
-          // Procedural Custom Model (Stylized 3D Laptop)
+          // Procedural Exploded Laptop (Repair State)
           const laptopGroup = new THREE.Group();
 
-          // Laptop Base (Chassis)
-          const baseGeo = new THREE.BoxGeometry(2.4, 0.12, 1.8);
           const baseMat = new THREE.MeshStandardMaterial({ color: 0x888888, roughness: 0.4, metalness: 0.7 });
+          const blackMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.8 });
+          const pcbMat = new THREE.MeshStandardMaterial({ color: 0x064d25, roughness: 0.9 });
+          const chipMat = new THREE.MeshStandardMaterial({ color: 0x222222, roughness: 0.7 });
+
+          // 1. Bottom Chassis
+          const baseGeo = new THREE.BoxGeometry(2.4, 0.1, 1.8);
           const base = new THREE.Mesh(baseGeo, baseMat);
           laptopGroup.add(base);
 
-          // Keyboard Area
-          const kbGeo = new THREE.BoxGeometry(2.1, 0.13, 1.0);
-          const kbMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.8 });
-          const kb = new THREE.Mesh(kbGeo, kbMat);
-          kb.position.set(0, 0, -0.2);
-          laptopGroup.add(kb);
+          // 2. Motherboard (Inside chassis)
+          const moboGeo = new THREE.BoxGeometry(2.2, 0.05, 1.6);
+          const mobo = new THREE.Mesh(moboGeo, pcbMat);
+          mobo.position.set(0, 0.06, 0);
+          laptopGroup.add(mobo);
 
-          // Trackpad
-          const tpGeo = new THREE.BoxGeometry(0.7, 0.13, 0.4);
-          const tp = new THREE.Mesh(tpGeo, baseMat);
-          tp.position.set(0, 0, 0.6);
-          laptopGroup.add(tp);
+          // CPU & Chips on motherboard
+          const cpuGeo = new THREE.BoxGeometry(0.4, 0.08, 0.4);
+          const cpu = new THREE.Mesh(cpuGeo, chipMat);
+          cpu.position.set(-0.5, 0.08, -0.2);
+          laptopGroup.add(cpu);
 
-          // Screen/Lid Assembly
+          const ramGeo = new THREE.BoxGeometry(0.1, 0.08, 0.6);
+          const ram1 = new THREE.Mesh(ramGeo, chipMat);
+          ram1.position.set(0.3, 0.08, -0.2);
+          const ram2 = new THREE.Mesh(ramGeo, chipMat);
+          ram2.position.set(0.5, 0.08, -0.2);
+          laptopGroup.add(ram1);
+          laptopGroup.add(ram2);
+
+          // Glowing contact point (repair focus)
+          const glowGeo = new THREE.BoxGeometry(0.45, 0.09, 0.45);
+          const glowMat = new THREE.MeshBasicMaterial({ color: 0x00c3ff, wireframe: true });
+          const glowBox = new THREE.Mesh(glowGeo, glowMat);
+          glowBox.position.set(-0.5, 0.08, -0.2);
+          laptopGroup.add(glowBox);
+
+          // 3. Floating Keyboard/Top Case (Detached)
+          const topCaseGroup = new THREE.Group();
+          const topCaseGeo = new THREE.BoxGeometry(2.4, 0.05, 1.8);
+          const topCase = new THREE.Mesh(topCaseGeo, baseMat);
+          topCaseGroup.add(topCase);
+
+          const kbGeo = new THREE.BoxGeometry(2.1, 0.06, 1.0);
+          const kb = new THREE.Mesh(kbGeo, blackMat);
+          kb.position.set(0, 0.03, -0.2);
+          topCaseGroup.add(kb);
+
+          const tpGeo = new THREE.BoxGeometry(0.7, 0.06, 0.4);
+          const tp = new THREE.Mesh(tpGeo, blackMat);
+          tp.position.set(0, 0.03, 0.6);
+          topCaseGroup.add(tp);
+
+          // Float and tilt the top case
+          topCaseGroup.position.set(0, 0.8, 0.3);
+          topCaseGroup.rotation.x = -0.15;
+          laptopGroup.add(topCaseGroup);
+
+          // 4. Floating Screen/Lid (Detached)
           const lidGroup = new THREE.Group();
-          // Position hinge at the back edge of the base
-          lidGroup.position.set(0, 0.06, -0.9); 
-
-          // Screen Back / Lid Cover
+          
           const lidGeo = new THREE.BoxGeometry(2.4, 1.6, 0.08);
           const lid = new THREE.Mesh(lidGeo, baseMat);
-          // Shift mesh so it rotates from the bottom edge
-          lid.position.set(0, 0.8, 0); 
           lidGroup.add(lid);
 
-          // Screen Display Panel
           const dispGeo = new THREE.BoxGeometry(2.2, 1.4, 0.09);
           const dispMat = new THREE.MeshStandardMaterial({ 
-              color: 0x000000, 
-              roughness: 0.1, 
-              metalness: 0.9, 
-              emissive: 0x0058be, 
-              emissiveIntensity: 0.2
+              color: 0x000000, roughness: 0.1, metalness: 0.9, 
+              emissive: 0x0058be, emissiveIntensity: 0.2
           });
           const disp = new THREE.Mesh(dispGeo, dispMat);
-          disp.position.set(0, 0.8, 0.01);
+          disp.position.set(0, 0, 0.01);
           lidGroup.add(disp);
 
-          // Glowing UI / Code Lines on screen
+          // Glowing UI
           const lineMat = new THREE.MeshBasicMaterial({ color: 0x00c3ff });
-          
           const line1 = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.04, 0.1), lineMat);
-          line1.position.set(0, 1.2, 0.01);
+          line1.position.set(0, 0.4, 0.01);
           lidGroup.add(line1);
-          
           const line2 = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.04, 0.1), lineMat);
-          line2.position.set(-0.3, 1.0, 0.01);
+          line2.position.set(-0.3, 0.2, 0.01);
           lidGroup.add(line2);
-
-          const line3 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.04, 0.1), lineMat);
-          line3.position.set(-0.1, 0.8, 0.01);
-          lidGroup.add(line3);
-
-          // Open the laptop lid
-          lidGroup.rotation.x = -Math.PI / 6; // Angled open
+          
+          // Position screen floating up and back
+          lidGroup.position.set(0, 1.6, -1.2);
+          lidGroup.rotation.x = -0.1;
           laptopGroup.add(lidGroup);
+          
+          // Diagnostics Ring/Laser
+          const ringGeo = new THREE.TorusGeometry(1.2, 0.02, 16, 100);
+          const ringMat = new THREE.MeshBasicMaterial({ color: 0x00ffaa, transparent: true, opacity: 0.6 });
+          const ring = new THREE.Mesh(ringGeo, ringMat);
+          ring.rotation.x = Math.PI / 2;
+          ring.position.set(0, 0.4, 0);
+          laptopGroup.add(ring);
 
           // Float animation wrapper
           const floatGroup = new THREE.Group();
@@ -877,9 +910,19 @@
               requestAnimationFrame(animate);
               
               const time = performance.now() * 0.002;
-              // Gentle floating animation
-              floatGroup.position.y = Math.sin(time) * 0.15;
-              floatGroup.rotation.y = (-Math.PI / 8) + Math.sin(time * 0.5) * 0.1;
+              
+              // Gentle floating animation of whole assembly
+              floatGroup.position.y = Math.sin(time) * 0.1;
+              floatGroup.rotation.y = -Math.PI / 8 + Math.sin(time * 0.5) * 0.05;
+
+              // Animate repair elements
+              ring.scale.setScalar(1 + Math.sin(time * 2) * 0.1);
+              ring.rotation.z = time * 0.5;
+              glowBox.scale.setScalar(1 + Math.sin(time * 3) * 0.15);
+              
+              // Independent component floating
+              topCaseGroup.position.y = 0.8 + Math.sin(time * 1.5) * 0.05;
+              lidGroup.position.y = 1.6 + Math.cos(time * 1.2) * 0.05;
 
               controls.update();
               renderer.render(scene, camera);
