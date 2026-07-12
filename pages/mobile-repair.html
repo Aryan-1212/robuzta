@@ -13,7 +13,8 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="../css/styles.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
 <style>
         /* Inline styles specific to this page */
         body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
@@ -211,19 +212,22 @@
                         </li>
 </ul>
 </div>
-<!-- Water Damage -->
-<div class="group bg-white p-8 rounded-xl card-shadow hover:-translate-y-1 transition-transform duration-300 border border-transparent hover:border-secondary/10">
-<div class="w-12 h-12 bg-secondary/10 text-secondary rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
-<span class="material-symbols-outlined">water_drop</span>
-</div>
-<h3 class="font-headline-md text-headline-md mb-3">Water Damage</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-4">Advanced ultrasonic cleaning and logic board repair for devices that took a dip.</p>
-<ul class="space-y-2">
-<li class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
-<span class="material-symbols-outlined text-[18px]">check_circle</span> 85% success rate
+<!-- Water Damage & Logic Board -->
+                <div class="group bg-white p-8 rounded-xl card-shadow hover:-translate-y-1 transition-transform duration-300 border border-transparent hover:border-secondary/10 flex flex-col">
+                    <div class="w-full h-40 mb-6 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative">
+                        <model-viewer src="../models/Circuit%20board%201.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" style="width:100%; height:100%; background-color: transparent;" interaction-prompt="none"></model-viewer>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-3">Water Damage & Logic Board</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-grow">Advanced ultrasonic cleaning and micro-soldering for devices that took a dip.</p>
+                    <div class="text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary text-on-surface-variant">
+                        <strong class="text-primary block mb-1">Circuit Theory:</strong> Modern smartphones rely on High-Density Interconnect (HDI) boards. Water causes microscopic corrosion between traces, which we repair using specialized ultrasonic scrubbers and micro-soldering tools.
+                    </div>
+                    <ul class="space-y-2 mt-auto">
+                        <li class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+                            <span class="material-symbols-outlined text-[18px]">check_circle</span> 85% success rate
                         </li>
-</ul>
-</div>
+                    </ul>
+                </div>
 <!-- Software Issues -->
 <div class="md:col-span-2 group bg-white p-8 rounded-xl card-shadow flex flex-col md:flex-row gap-8 items-center border border-transparent hover:border-secondary/10">
 <div class="flex-1">

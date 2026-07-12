@@ -170,20 +170,10 @@
                 </div>
             </div>
             <div class="relative">
-                <div id="heroComparison" class="comparison-slider device-frame relative z-10 lg:scale-110 lg:translate-x-8" role="group" aria-label="Before and after device repair comparison">
-                    <div class="comparison-slider__before">
-                        <img alt="Damaged device before repair" src="../images/tech_repair_laboratory.png">
-                        <span class="comparison-slider__label comparison-slider__label--before">Damaged</span>
-                    </div>
-                    <div class="comparison-slider__after">
-                        <img alt="Repaired device after repair" src="../images/macbook_disassembled.png">
-                        <span class="comparison-slider__label comparison-slider__label--after">Restored</span>
-                    </div>
-                    <div class="comparison-slider__handle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" tabindex="0" aria-label="Comparison slider handle">
-                        <div class="comparison-slider__handle-line"></div>
-                        <div class="comparison-slider__handle-grip">
-                            <span class="material-symbols-outlined">unfold_more</span>
-                        </div>
+                <div id="hero3DContainer" class="relative z-10 lg:scale-110 lg:translate-x-8 w-full aspect-square md:aspect-video lg:aspect-[4/3] bg-transparent rounded-2xl overflow-hidden cursor-grab active:cursor-grabbing apple-shadow border border-white/20 glass-card">
+                    <div id="loading3D" class="absolute inset-0 flex flex-col items-center justify-center text-primary font-bold">
+                        <span class="material-symbols-outlined animate-spin text-4xl mb-2 text-secondary">sync</span>
+                        <span>Initializing 3D Engine...</span>
                     </div>
                 </div>
                 <div class="hidden lg:flex absolute -bottom-8 -left-8 z-20 glass-card p-6 rounded-2xl items-center gap-4">
@@ -749,5 +739,153 @@
     <script src="../js/animations.js?v=1.0.1"></script>
     <script src="../js/nav.js"></script>
     <script src="../js/hero-particles.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from 'three';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+      const container = document.getElementById('hero3DContainer');
+      if (container) {
+          const scene = new THREE.Scene();
+          
+          const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+          camera.position.set(0, 2, 5);
+
+          const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+          renderer.setSize(container.clientWidth, container.clientHeight);
+          renderer.setPixelRatio(window.devicePixelRatio);
+          // Set renderer to be transparent
+          renderer.setClearColor(0x000000, 0); 
+          container.appendChild(renderer.domElement);
+
+          const controls = new OrbitControls(camera, renderer.domElement);
+          controls.enableDamping = true;
+          controls.dampingFactor = 0.05;
+          controls.autoRotate = true;
+          controls.autoRotateSpeed = 2.0;
+          controls.enablePan = false;
+          controls.minDistance = 2;
+          controls.maxDistance = 10;
+
+          // Studio Lighting
+          const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+          scene.add(ambientLight);
+          
+          const dirLight = new THREE.DirectionalLight(0xffffff, 2);
+          dirLight.position.set(5, 5, 5);
+          scene.add(dirLight);
+
+          const dirLight2 = new THREE.DirectionalLight(0x0058be, 3); // Secondary blue light
+          dirLight2.position.set(-5, 5, -5);
+          scene.add(dirLight2);
+
+          // Procedural Custom Model (Stylized 3D Laptop)
+          const laptopGroup = new THREE.Group();
+
+          // Laptop Base (Chassis)
+          const baseGeo = new THREE.BoxGeometry(2.4, 0.12, 1.8);
+          const baseMat = new THREE.MeshStandardMaterial({ color: 0x888888, roughness: 0.4, metalness: 0.7 });
+          const base = new THREE.Mesh(baseGeo, baseMat);
+          laptopGroup.add(base);
+
+          // Keyboard Area
+          const kbGeo = new THREE.BoxGeometry(2.1, 0.13, 1.0);
+          const kbMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.8 });
+          const kb = new THREE.Mesh(kbGeo, kbMat);
+          kb.position.set(0, 0, -0.2);
+          laptopGroup.add(kb);
+
+          // Trackpad
+          const tpGeo = new THREE.BoxGeometry(0.7, 0.13, 0.4);
+          const tp = new THREE.Mesh(tpGeo, baseMat);
+          tp.position.set(0, 0, 0.6);
+          laptopGroup.add(tp);
+
+          // Screen/Lid Assembly
+          const lidGroup = new THREE.Group();
+          // Position hinge at the back edge of the base
+          lidGroup.position.set(0, 0.06, -0.9); 
+
+          // Screen Back / Lid Cover
+          const lidGeo = new THREE.BoxGeometry(2.4, 1.6, 0.08);
+          const lid = new THREE.Mesh(lidGeo, baseMat);
+          // Shift mesh so it rotates from the bottom edge
+          lid.position.set(0, 0.8, 0); 
+          lidGroup.add(lid);
+
+          // Screen Display Panel
+          const dispGeo = new THREE.BoxGeometry(2.2, 1.4, 0.09);
+          const dispMat = new THREE.MeshStandardMaterial({ 
+              color: 0x000000, 
+              roughness: 0.1, 
+              metalness: 0.9, 
+              emissive: 0x0058be, 
+              emissiveIntensity: 0.2
+          });
+          const disp = new THREE.Mesh(dispGeo, dispMat);
+          disp.position.set(0, 0.8, 0.01);
+          lidGroup.add(disp);
+
+          // Glowing UI / Code Lines on screen
+          const lineMat = new THREE.MeshBasicMaterial({ color: 0x00c3ff });
+          
+          const line1 = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.04, 0.1), lineMat);
+          line1.position.set(0, 1.2, 0.01);
+          lidGroup.add(line1);
+          
+          const line2 = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.04, 0.1), lineMat);
+          line2.position.set(-0.3, 1.0, 0.01);
+          lidGroup.add(line2);
+
+          const line3 = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.04, 0.1), lineMat);
+          line3.position.set(-0.1, 0.8, 0.01);
+          lidGroup.add(line3);
+
+          // Open the laptop lid
+          lidGroup.rotation.x = -Math.PI / 6; // Angled open
+          laptopGroup.add(lidGroup);
+
+          // Float animation wrapper
+          const floatGroup = new THREE.Group();
+          floatGroup.add(laptopGroup);
+          
+          // Initial rotation for a good isometric-like view
+          floatGroup.rotation.y = -Math.PI / 8;
+          floatGroup.rotation.x = 0.1;
+
+          scene.add(floatGroup);
+
+          // Hide loading indicator
+          const loadingEl = document.getElementById('loading3D');
+          if (loadingEl) loadingEl.style.display = 'none';
+
+          window.addEventListener('resize', () => {
+              if(!container) return;
+              camera.aspect = container.clientWidth / container.clientHeight;
+              camera.updateProjectionMatrix();
+              renderer.setSize(container.clientWidth, container.clientHeight);
+          });
+
+          function animate() {
+              requestAnimationFrame(animate);
+              
+              const time = performance.now() * 0.002;
+              // Gentle floating animation
+              floatGroup.position.y = Math.sin(time) * 0.15;
+              floatGroup.rotation.y = (-Math.PI / 8) + Math.sin(time * 0.5) * 0.1;
+
+              controls.update();
+              renderer.render(scene, camera);
+          }
+          animate();
+      }
+    </script>
 </body>
 </html>

@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         .material-symbols-outlined {
@@ -352,13 +353,16 @@
                     </div>
                 </div>
                 <!-- Windows/SSD -->
-                <div class="glass-card p-stack-lg rounded-2xl hover-lift">
-                    <div class="w-14 h-14 bg-secondary/5 text-secondary rounded-xl flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-3xl">database</span>
+                <div class="glass-card p-stack-lg rounded-2xl hover-lift flex flex-col">
+                    <div class="w-full h-40 mb-6 rounded-xl overflow-hidden bg-primary/5 border border-primary/10 relative">
+                        <model-viewer src="../models/SSD.glb" auto-rotate camera-controls disable-zoom shadow-intensity="1" style="width:100%; height:100%; background-color: transparent;" interaction-prompt="none"></model-viewer>
                     </div>
                     <h3 class="font-headline-md text-headline-md mb-2">SSD Upgrades &amp; OS Recovery</h3>
-                    <p class="text-on-surface-variant mb-6">Upgrading storage on compatible Surface models, data recovery, and resolving boot loops/Windows crash loops.</p>
-                    <p class="text-secondary font-bold">Starts ₹1,999</p>
+                    <p class="text-on-surface-variant mb-4 flex-grow">Upgrading storage on compatible Surface models, data recovery, and resolving boot loops/Windows crash loops.</p>
+                    <div class="text-sm mb-6 bg-surface-container p-3 rounded-lg border border-border-subtle border-l-4 border-l-secondary text-on-surface-variant">
+                        <strong class="text-primary block mb-1">NVMe Architecture:</strong> Solid State Drives (SSDs) use non-volatile NAND flash memory. We can retrieve data from failed drives or upgrade your Surface with higher-capacity, faster NVMe SSDs without data loss.
+                    </div>
+                    <p class="text-secondary font-bold mt-auto">Starts ₹1,999</p>
                 </div>
             </div>
         </div>
